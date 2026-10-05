@@ -1,0 +1,124 @@
+---
+title: "Estructura básica de una página web"
+description: "Descubre cómo HTML, CSS y JavaScript se complementan para organizar el contenido, definir su apariencia y agregar interactividad"
+author: Alessandra
+date: 2026-10-04
+date-format: "D [de] MMMM [de] YYYY"
+categories: ["Desarrollo web"]
+image: /assets/images/estructura-web.jpg
+image-alt: "Ilustración de una página web y elementos de desarrollo sobre una computadora"
+---
+
+![](../../assets/images/estructura-web.jpg){.article-cover fig-alt="Ilustración de una página web y elementos de desarrollo sobre una computadora"}
+
+Al abrir una página, el navegador interpreta su HTML, construye una representación del documento y aplica los estilos disponibles. También carga imágenes y puede ejecutar JavaScript. Estas piezas cumplen funciones diferentes, pero trabajan juntas para convertir archivos en una página que puedes leer y utilizar.
+
+## Tres responsabilidades
+
+**HTML** organiza el contenido y expresa su significado. **CSS** define su apariencia: colores, espacios y distribución. **JavaScript** responde a acciones o actualiza contenido. Una página informativa puede funcionar perfectamente con HTML y CSS sin JavaScript; incorpora interactividad cuando aporte una función útil.
+
+## El documento y sus metadatos
+
+`<!doctype html>` indica que utilizamos HTML moderno. El elemento `html` contiene el documento y `lang="es"` identifica su idioma. `head` reúne metadatos y enlaces a recursos; `body` contiene lo que se presenta en la página.
+
+`charset="utf-8"` permite interpretar correctamente caracteres como acentos y eñes. `viewport` adapta el ancho inicial a la pantalla del dispositivo. `title` establece el nombre que aparece en la pestaña del navegador y ayuda a identificar la página entre otras abiertas.
+
+## Organizar los archivos
+
+Crea una carpeta de práctica con `index.html`, `styles.css`, `script.js` y una subcarpeta `img/`. Guarda una fotografía propia como `img/perfil.jpg`. Las rutas del ejemplo son relativas a `index.html`: si cambias el nombre o ubicación de la imagen, actualiza también `src`.
+
+Este ejercicio utiliza archivos HTML independientes; sirve para entender las piezas que herramientas como Quarto generan después. Mantener nombres sencillos y archivos separados facilita localizar errores y compartir la carpeta completa sin perder imágenes ni estilos.
+
+## HTML: contenido con significado
+
+Guarda el siguiente fragmento completo en `index.html`:
+
+```html
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi página personal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Mi espacio de aprendizaje</h1>
+    <nav aria-label="Principal"><a href="#intereses">Mis intereses</a></nav>
+  </header>
+  <main>
+    <section id="intereses" aria-labelledby="titulo-intereses">
+      <h2 id="titulo-intereses">Lo que quiero aprender</h2>
+      <p>Esta es una página para practicar desarrollo web.</p>
+      <img src="img/perfil.jpg" alt="Mi retrato" width="320" height="320">
+      <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+      <button id="saludar" type="button">Mostrar saludo</button>
+      <p id="respuesta" role="status"></p>
+    </section>
+  </main>
+  <footer><p>Página personal de práctica</p></footer>
+</body>
+</html>
+```
+
+`header` introduce la página; `nav` agrupa la navegación; `main` contiene su contenido principal. `section` reúne un tema con encabezado y `footer` cierra el documento. Estos elementos describen funciones, no posiciones obligatorias.
+
+Los encabezados `h1` y `h2` establecen niveles de lectura. `p` contiene párrafos; `a` crea enlaces; `ul` y `li` forman una lista. `img` muestra la imagen y su alternativa textual. Ajusta “Mi retrato” si utilizas una imagen diferente. El enlace conduce a la sección cuyo identificador es `intereses`.
+
+## CSS: una presentación sencilla
+
+Guarda estas reglas en `styles.css`:
+
+```css
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #243831;
+  background: #f3faf6;
+}
+img { max-width: 100%; height: auto; border-radius: 12px; }
+button {
+  background: #006b57;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #006b57;
+  outline-offset: 4px;
+}
+```
+
+El contenido queda centrado y mantiene márgenes. La imagen conserva sus proporciones y se reduce cuando no cabe. `box-sizing` incluye el padding en el cálculo del ancho; el foco visible ayuda a recorrer enlaces y botones con teclado.
+
+## JavaScript: responder a un botón
+
+Guarda este código en `script.js`:
+
+```javascript
+const boton = document.querySelector("#saludar");
+const respuesta = document.querySelector("#respuesta");
+boton.addEventListener("click", () => {
+  respuesta.textContent = "¡Hola! Sigue explorando y aprendiendo.";
+});
+```
+
+Los identificadores coinciden con el HTML. `defer` permite ejecutar el archivo después de interpretar el documento. Al pulsar el botón aparece el saludo; `role="status"` permite anunciar esa actualización a tecnologías de asistencia sin mover el foco.
+
+## Buenas prácticas y actividad
+
+Utiliza alternativas descriptivas, enlaces que expliquen su destino y una jerarquía de encabezados ordenada. Abre la página en una ventana estrecha para revisar su adaptación móvil y recórrela con Tab y Enter.
+
+**Actividad:** cambia la presentación, agrega otro interés y utiliza tu propia imagen. Abre `index.html` en el navegador, comprueba el saludo y verifica que las tres rutas de recursos existan. Después desactiva JavaScript y observa qué contenido sigue disponible.
+
+```{=html}
+<a class="back-to-blog" href="../../blog/index.qmd"><span aria-hidden="true">←</span> Volver al blog</a>
+```

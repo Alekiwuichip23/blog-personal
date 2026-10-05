@@ -1,0 +1,61 @@
+---
+title: "Laboratorio de Análisis Verde"
+description: "Aplicación interactiva desarrollada en Streamlit para analizar datos, visualizar distribuciones de probabilidad y realizar pruebas de hipótesis Z. Integra un asistente de inteligencia artificial para interpretar resultados y apoyar la toma de decisiones."
+project-label: "Análisis de datos y estadística"
+project-order: 3
+image: /assets/images/laboratorio.jpg
+image-alt: "Ilustración de análisis de datos con gráficos estadísticos y personas"
+technologies: [Python, Streamlit, Gemini API]
+body-classes: project-page
+page-layout: full
+---
+
+```{=html}
+<header class="project-intro">
+  <div><p class="eyebrow">Análisis de datos y estadística</p><h1>Laboratorio de Análisis Verde</h1><p>Una aplicación interactiva para explorar datos y aprender a relacionar visualizaciones, pruebas estadísticas e interpretación crítica.</p></div>
+  <img src="../assets/images/laboratorio.jpg" alt="Ilustración de análisis de datos con gráficos estadísticos y personas" width="640" height="400" class="project-intro-image">
+</header>
+```
+
+::: {.project-copy}
+## Problemática que aborda
+
+Aprender estadística implica conectar los datos con sus representaciones y con las preguntas que queremos responder. Un histograma, una distribución teórica y el resultado de una prueba no son piezas aisladas: cada una aporta información distinta que debe interpretarse en conjunto.
+
+El Laboratorio de Análisis Verde plantea una interfaz para recorrer ese proceso con datos numéricos. Su descripción delimita el alcance previsto y no afirma que todas las herramientas estén terminadas ni que sus interpretaciones produzcan resultados garantizados.
+
+## Objetivo
+
+Facilitar el aprendizaje y el análisis estadístico mediante exploración visual, distribuciones de probabilidad y pruebas de hipótesis Z. La aplicación busca presentar resultados que puedan examinarse y discutirse, junto con un asistente que apoye la interpretación sin sustituir el razonamiento estadístico.
+
+## Funcionalidades del alcance
+
+- **Entrada de datos:** cargar archivos CSV con información numérica o generar datos sintéticos para explorar situaciones de práctica. Los datos sintéticos permiten experimentar sin atribuir sus valores a observaciones reales.
+- **Análisis exploratorio:** mostrar histogramas, curvas KDE y boxplots. Estas representaciones permiten observar frecuencias, una estimación de la densidad y aspectos de la distribución como dispersión y valores extremos.
+- **Valores atípicos:** facilitar su identificación visual. Una observación alejada del resto requiere revisión; señalarla en una gráfica no demuestra por sí solo que sea un error ni justifica eliminarla.
+- **Distribuciones de probabilidad:** visualizar modelos para relacionar sus formas y parámetros con las preguntas del análisis. Una distribución teórica no debe confundirse con los datos observados.
+- **Pruebas Z:** presentar el estadístico, el valor p y la región de rechazo para examinar una hipótesis. La interpretación depende de la hipótesis planteada y del nivel de significación utilizado.
+- **Asistente de interpretación:** utilizar Gemini API para apoyar la lectura de resultados y comparar una explicación humana con la generada.
+
+## Tecnologías
+
+**Python** organiza el tratamiento de los datos y los cálculos. **Streamlit** permite presentar controles, visualizaciones y resultados en una aplicación interactiva. **Gemini API** aporta la conexión con el asistente destinado a apoyar la interpretación.
+
+Cada tecnología cumple una función distinta. Los cálculos y las condiciones de la prueba deben poder revisarse independientemente de la explicación que produzca el asistente.
+
+## Aprendizajes y revisión crítica
+
+El proyecto permite practicar lectura de gráficas, exploración de datos y formulación de hipótesis. Antes de aplicar una prueba Z hay que revisar sus supuestos, como la independencia de las observaciones y las condiciones relativas a la distribución y a la desviación poblacional, según el tipo de prueba.
+
+El valor p no indica la probabilidad de que la hipótesis nula sea verdadera. Por eso conviene relacionarlo con el planteamiento de la prueba y evitar conclusiones que los datos no sostienen.
+
+La comparación con el asistente puede servir para detectar explicaciones incompletas o contradicciones. Su respuesta debe evaluarse críticamente y contrastarse con los resultados y supuestos: acompaña el análisis, pero no reemplaza la responsabilidad de comprenderlo.
+
+:::
+
+```{=html}
+<nav class="project-return" aria-label="Volver al portafolio">
+  <a class="project-return-button primary" href="index.qmd"><span aria-hidden="true">←</span> Volver a los proyectos</a>
+  <a class="project-return-button secondary" href="../index.qmd"><svg class="line-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/></svg> Ir al inicio</a>
+</nav>
+```

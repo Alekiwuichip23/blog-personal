@@ -1,0 +1,72 @@
+---
+title: "Principios básicos del diseño de interfaces"
+description: "Conoce cómo la claridad, la jerarquía visual, la consistencia y la accesibilidad ayudan a crear interfaces fáciles de utilizar"
+author: Alessandra
+date: 2026-10-04
+date-format: "D [de] MMMM [de] YYYY"
+categories: ["Diseño de interfaces"]
+image: /assets/images/principiosinterfaz.png
+image-alt: "Ilustración de un prototipo de interfaz móvil con componentes y herramientas de diseño"
+---
+
+![](../../assets/images/principiosinterfaz.png){.article-cover fig-alt="Ilustración de un prototipo de interfaz móvil con componentes y herramientas de diseño"}
+
+Cuando buscas un horario o envías un mensaje, utilizas una interfaz: el conjunto de elementos con los que interactúas para realizar una tarea. Su propósito es ayudarte a comprender qué puedes hacer y cómo hacerlo. La decoración puede acompañar ese objetivo, pero no sustituye una organización clara.
+
+## UI y UX: dos perspectivas relacionadas
+
+**UI**, o interfaz de usuario, se refiere a los controles y su presentación: botones, campos, colores e iconos. **UX**, o experiencia de usuario, considera el recorrido completo y lo fácil que resulta alcanzar un objetivo. Un formulario bonito pertenece a la UI; comprender si pide demasiados datos forma parte de la UX.
+
+## Claridad y jerarquía visual
+
+Las etiquetas deben explicar su función. “Enviar mensaje” comunica mejor una acción que “Continuar” cuando ese botón termina un formulario. Las opciones frecuentes deben encontrarse sin recorrer menús innecesarios. Evita depender de un icono ambiguo cuando una palabra breve puede resolver la duda.
+
+La **jerarquía visual** orienta la lectura mediante títulos, tamaños, contraste y posición. Un título principal explica dónde estamos; un subtítulo identifica un bloque. La acción más relevante necesita suficiente presencia, mientras las opciones secundarias pueden ser más discretas. Si todo destaca igual, cuesta saber por dónde empezar.
+
+## Agrupar, separar y mantener consistencia
+
+La cercanía ayuda a reconocer relaciones. Coloca una etiqueta junto a su campo y separa el formulario del pie de página. El espacio libre permite distinguir bloques sin llenar la pantalla de líneas. En un formulario, nombre y correo pueden formar un grupo de datos de contacto.
+
+La **consistencia** reduce el esfuerzo de aprendizaje. Usa el mismo estilo para botones equivalentes, conserva el significado de los colores y evita llamar “Guardar” y “Registrar” a la misma acción. Los iconos deben compartir un estilo reconocible y acompañar palabras cuando su significado no sea evidente.
+
+## Retroalimentación que explica lo que sucede
+
+Después de una acción, la interfaz debe responder. Mientras se envía un mensaje, muestra “Enviando…” y evita envíos repetidos. Cuando termina, confirma “Mensaje enviado”. Si falla, explica qué ocurrió y cómo continuar, conservando los datos escritos.
+
+Un error como “Introduce un correo con formato nombre@dominio” resulta más útil que “Dato inválido”. Conviene mostrarlo cerca del campo correspondiente. No anuncies un envío exitoso si la aplicación todavía no lo ha confirmado.
+
+## Accesibilidad y pantallas pequeñas
+
+El contraste entre texto y fondo permite leer con mayor facilidad. Las etiquetas deben permanecer visibles: un texto de ejemplo dentro del campo desaparece al escribir y no reemplaza su etiqueta. La información tampoco debe depender únicamente de un borde rojo.
+
+Prueba la navegación con teclado. El foco visible indica qué enlace, botón o campo está seleccionado; su orden debe seguir la lectura. Incluye texto alternativo para imágenes informativas y evita descripciones redundantes en imágenes decorativas. Estas decisiones benefician distintas formas de utilizar la página.
+
+Un diseño **responsivo** adapta los bloques al espacio disponible. En teléfono, un formulario de dos columnas puede pasar a una. Mantén controles fáciles de pulsar, textos legibles y márgenes suficientes, sin exigir desplazamiento horizontal.
+
+## Ejemplo: un formulario de contacto
+
+Un formulario inicial puede pedir nombre, correo y mensaje. Presenta etiquetas visibles, indica qué campos son obligatorios y termina con “Enviar mensaje”. Coloca las instrucciones antes de que aparezcan errores y conserva lo escrito si hay un problema.
+
+| Problema de diseño | Mejora concreta |
+|---|---|
+| Botón con el texto “Aceptar” | Usar “Enviar mensaje” |
+| Campo sin etiqueta visible | Añadir “Correo electrónico” junto al campo |
+| Error indicado solo con rojo | Incluir un mensaje que explique cómo corregirlo |
+| Campos apretados en teléfono | Apilarlos con espacio entre ellos |
+
+## Revisión y actividad final
+
+Antes de terminar, comprueba:
+
+- ¿Se entiende el propósito y la acción principal?
+- ¿Los títulos, etiquetas e instrucciones son claros?
+- ¿Los botones y palabras mantienen consistencia?
+- ¿Hay respuesta visible ante éxito, errores y carga?
+- ¿Se puede recorrer todo con teclado y ver el foco?
+- ¿El contenido se adapta a una pantalla pequeña?
+
+**Actividad:** dibuja el formulario descrito para computadora y teléfono. Pide a otra persona que explique cómo lo usaría, anota sus dudas y modifica una decisión para facilitar la tarea.
+
+```{=html}
+<a class="back-to-blog" href="../../blog/index.qmd"><span aria-hidden="true">←</span> Volver al blog</a>
+```

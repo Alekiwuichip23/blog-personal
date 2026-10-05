@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - blog/*.qmd
+    - posts/**/*.qmd
+    - proyectos/*.qmd
+  resources:
+    - assets/**
+
+lang: es
+website:
+  site-url: "https://Alekiwuichip23.github.io/blog-personal/"
+  title: Alessandra
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    title: false
+    logo: assets/images/pc.png
+    logo-alt: "Logotipo de Alessandra con una computadora y elementos tecnológicos"
+    logo-href: /index.qmd
+    background: white
+    collapse-below: lg
+    left:
+      - text: Inicio
+        href: index.qmd
+      - text: Áreas de interés
+        href: /index.qmd#intereses
+      - text: Proyectos
+        href: /index.qmd#proyectos
+      - text: Sobre mí
+        href: /index.qmd#sobre-mi
+      - text: Blog
+        href: blog/index.qmd
+      - text: Contacto
+        href: /index.qmd#contacto
+  page-footer:
+    background: white
+    center: |
+      <div class="site-footer">
+      <div class="footer-top">
+      <div class="footer-intro"><h2>¡Conectemos!</h2><p>Abierta a compartir ideas sobre desarrollo web, diseño de interfaces y aprendizaje tecnológico</p></div>
+      <div class="footer-links"><a href="mailto:253392@it2id.upchiapas.edu.mx"><i class="bi bi-envelope" aria-hidden="true"></i> Email</a><a href="https://github.com/Alekiwuichip23"><i class="bi bi-github" aria-hidden="true"></i> GitHub</a><a href="https://www.linkedin.com/in/alessandra-de-los-santos-403b32436/"><i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn</a></div>
+      </div>
+      <p class="footer-credit">Diseñado con dedicación · Blog personal de Alessandra Beltrán</p>
+      </div>
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: false
+    anchor-sections: true
+    link-external-newwindow: false

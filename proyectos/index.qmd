@@ -1,0 +1,21 @@
+---
+title: "Mis proyectos"
+description: "Proyectos académicos y prácticos desarrollados durante mi formación universitaria."
+body-classes: portfolio-page
+page-layout: full
+listing:
+  id: portafolio
+  contents:
+    - bases-de-datos.qmd
+    - pagina-web.qmd
+    - diseno-interfaces.qmd
+  template: ../templates/projects.ejs.md
+  sort: project-order
+  field-types:
+    project-order: number
+  sort-ui: false
+  filter-ui: false
+---
+
+::: {#portafolio}
+:::

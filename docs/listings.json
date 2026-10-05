@@ -1,0 +1,29 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/bases-de-datos/index.html",
+      "/posts/diseno-interfaces/index.html",
+      "/posts/estructura-web/index.html",
+      "/proyectos/bases-de-datos.html",
+      "/proyectos/pagina-web.html",
+      "/proyectos/diseno-interfaces.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/posts/bases-de-datos/index.html",
+      "/posts/diseno-interfaces/index.html",
+      "/posts/estructura-web/index.html"
+    ]
+  },
+  {
+    "listing": "/proyectos/index.html",
+    "items": [
+      "/proyectos/bases-de-datos.html",
+      "/proyectos/pagina-web.html",
+      "/proyectos/diseno-interfaces.html"
+    ]
+  }
+]

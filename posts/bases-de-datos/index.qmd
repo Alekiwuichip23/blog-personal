@@ -1,0 +1,72 @@
+---
+title: "¿Qué es una base de datos relacional?"
+description: "Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos"
+author: Alessandra
+date: 2026-10-04
+date-format: "D [de] MMMM [de] YYYY"
+categories: ["Bases de datos"]
+image: /assets/images/basededatos.jpeg
+image-alt: "Ilustración de bases de datos conectadas con aplicaciones y gráficos"
+---
+
+![](../../assets/images/basededatos.jpeg){.article-cover fig-alt="Ilustración de bases de datos conectadas con aplicaciones y gráficos"}
+
+Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente.
+
+## Tablas, filas y columnas
+
+Una base de datos relacional almacena información en **tablas** relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.
+
+Este esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:
+
+| Tabla | Campos y tipos sugeridos | Qué representa una fila |
+|---|---|---|
+| `libros` | `id_libro` (entero), `titulo` (texto), `autor` (texto) | Un libro del catálogo |
+| `prestamos` | `id_prestamo` (entero), `id_libro` (entero), `fecha_prestamo` (fecha), `fecha_devolucion` (fecha, admite nulos) | Un préstamo de un libro |
+
+Para esta práctica, cada registro de `libros` representa un único ejemplar. Un préstamo sin devolución registrada tiene `fecha_devolucion` en `NULL`, que expresa la ausencia de un valor.
+
+## Claves y relaciones
+
+La **clave primaria** distingue cada fila y no debe repetirse ni ser nula. Aquí será `libros.id_libro`; para los préstamos será `prestamos.id_prestamo`. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.
+
+La **clave foránea** conecta tablas. `prestamos.id_libro` apunta a `libros.id_libro`. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación **uno a muchos**. Cada préstamo del ejemplo corresponde a un solo libro.
+
+También existen relaciones **muchos a muchos**. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear `autores` y una tabla intermedia `libros_autores`. Esta última guarda parejas de `id_libro` e `id_autor`, evitando una lista de nombres dentro de una celda.
+
+## Integridad y organización
+
+La **integridad referencial**, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.
+
+Organizar la información por temas reduce repeticiones. El título y el autor permanecen en `libros`, mientras `prestamos` guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores.
+
+## Consultar con SQL
+
+**Las tablas y las columnas indicadas deben existir antes de ejecutar estas consultas.** Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.
+
+```sql
+SELECT titulo, autor
+FROM libros
+ORDER BY titulo;
+```
+
+Esta consulta necesita las columnas `titulo` y `autor` de `libros`. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.
+
+```sql
+SELECT libros.titulo, prestamos.fecha_prestamo
+FROM prestamos
+JOIN libros ON prestamos.id_libro = libros.id_libro
+ORDER BY prestamos.fecha_prestamo;
+```
+
+La segunda consulta une cada préstamo con su libro utilizando `id_libro` en ambas tablas. Requiere además `libros.titulo` y `prestamos.fecha_prestamo`. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos.
+
+## Ventajas, errores frecuentes y práctica
+
+Este enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.
+
+**Actividad:** dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.
+
+```{=html}
+<a class="back-to-blog" href="../../blog/index.qmd"><span aria-hidden="true">←</span> Volver al blog</a>
+```

@@ -1,0 +1,24 @@
+---
+title: "Blog"
+description: "Un espacio donde comparto mis aprendizajes sobre bases de datos, desarrollo web y diseño de interfaces"
+body-classes: blog-page
+include-after-body: ../assets/blog-filters.html
+listing:
+  contents: ../posts/*/index.qmd
+  type: grid
+  sort: date desc
+  categories: true
+  grid-columns: 3
+  fields: [image, title, categories, date, description]
+  date-format: "D [de] MMMM [de] YYYY"
+  image-height: 180px
+---
+
+```{=html}
+<header class="blog-header">
+  <p class="eyebrow">BITÁCORA TECNOLÓGICA</p>
+  <h1>Blog</h1>
+  <p>Un espacio donde comparto mis aprendizajes sobre bases de datos, desarrollo web y diseño de interfaces</p>
+</header>
+<div class="blog-filters-slot"></div>
+```

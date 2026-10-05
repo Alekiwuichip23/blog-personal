@@ -1,0 +1,303 @@
+[
+  {
+    "objectID": "proyectos/pagina-web.html",
+    "href": "proyectos/pagina-web.html",
+    "title": "Plataforma Web para Tutorías Estudiantiles",
+    "section": "",
+    "text": "Tutorías estudiantilesUna propuesta para conectar estudiantes y tutores y presentar de forma organizada las actividades de acompañamiento académico."
+  },
+  {
+    "objectID": "proyectos/pagina-web.html#problemática-que-aborda",
+    "href": "proyectos/pagina-web.html#problemática-que-aborda",
+    "title": "Plataforma Web para Tutorías Estudiantiles",
+    "section": "Problemática que aborda",
+    "text": "Problemática que aborda\nEl acompañamiento académico requiere que las personas comprendan qué actividades están previstas y cómo se distribuyen en el tiempo. Cuando horarios y actividades se presentan sin una estructura clara, puede resultar difícil identificar la información relevante o distinguir una sesión de otra.\nEsta plataforma plantea un espacio común para organizar esa información y facilitar la conexión entre estudiantes y tutores. La descripción se concentra en el alcance proporcionado: agenda dinámica, calendario y salas de estudio colaborativas. No supone que todas las partes estén finalizadas."
+  },
+  {
+    "objectID": "proyectos/pagina-web.html#objetivo",
+    "href": "proyectos/pagina-web.html#objetivo",
+    "title": "Plataforma Web para Tutorías Estudiantiles",
+    "section": "Objetivo",
+    "text": "Objetivo\nFacilitar la organización del acompañamiento académico mediante una interfaz que permita reconocer actividades, consultar su distribución temporal y acceder a espacios de estudio colaborativo. El objetivo no es acumular controles, sino presentar la información de forma comprensible para quienes participan.\nLa relación entre estudiantes y tutores es el centro de la propuesta. Por ello, el diseño debe ayudar a ubicar las actividades y entender sus horarios sin exigir que la persona interprete bloques desordenados o nombres ambiguos."
+  },
+  {
+    "objectID": "proyectos/pagina-web.html#funcionalidades-del-alcance",
+    "href": "proyectos/pagina-web.html#funcionalidades-del-alcance",
+    "title": "Plataforma Web para Tutorías Estudiantiles",
+    "section": "Funcionalidades del alcance",
+    "text": "Funcionalidades del alcance\n\nAgenda dinámica: organizar las actividades de acompañamiento en una vista que permita presentar su información de manera ordenada. Su diseño debe distinguir cada actividad y sus datos relevantes.\nCalendario: consultar la organización temporal de las tutorías. Esta vista complementa la agenda al relacionar actividades con fechas y horarios.\nSalas de estudio colaborativas: ofrecer espacios orientados al estudio compartido, dentro de la propuesta de conexión entre estudiantes y tutores.\n\nAgenda y calendario deben utilizar términos coherentes para que una misma actividad se reconozca en ambas vistas. Las salas, por su parte, necesitan una presentación que explique su propósito dentro del acompañamiento académico, sin atribuirles mecanismos de comunicación no confirmados."
+  },
+  {
+    "objectID": "proyectos/pagina-web.html#tecnologías",
+    "href": "proyectos/pagina-web.html#tecnologías",
+    "title": "Plataforma Web para Tutorías Estudiantiles",
+    "section": "Tecnologías",
+    "text": "Tecnologías\nReact permite organizar la interfaz en componentes reutilizables. Por ejemplo, una tarjeta de actividad, un bloque de horario y una vista de calendario pueden separar responsabilidades de presentación y mantener un estilo consistente.\nVite proporciona herramientas para desarrollar y generar el proyecto web. Su función se distingue de la de React: facilita el trabajo con los archivos de la aplicación, mientras React organiza sus componentes e interacciones.\nEsta organización ayuda a evitar que toda la interfaz dependa de un único bloque difícil de editar. La separación debe responder a funciones concretas y mantener nombres comprensibles."
+  },
+  {
+    "objectID": "proyectos/pagina-web.html#aprendizajes-y-aspectos-para-practicar",
+    "href": "proyectos/pagina-web.html#aprendizajes-y-aspectos-para-practicar",
+    "title": "Plataforma Web para Tutorías Estudiantiles",
+    "section": "Aprendizajes y aspectos para practicar",
+    "text": "Aprendizajes y aspectos para practicar\nLa propuesta permite practicar jerarquía visual, organización de componentes y adaptación de información académica a diferentes pantallas. Un aspecto central es conservar la legibilidad de horarios y actividades cuando el espacio se reduce en un teléfono.\nTambién permite revisar la coherencia entre vistas: títulos, fechas y etiquetas deben comunicar lo mismo en la agenda y el calendario. Una evaluación inicial puede comprobar si una persona identifica una actividad y entiende cuándo ocurre. Estos son criterios de revisión del diseño, no resultados medidos del proyecto."
+  },
+  {
+    "objectID": "proyectos/diseno-interfaces.html",
+    "href": "proyectos/diseno-interfaces.html",
+    "title": "Laboratorio de Análisis Verde",
+    "section": "",
+    "text": "Análisis de datos y estadísticaUna aplicación interactiva para explorar datos y aprender a relacionar visualizaciones, pruebas estadísticas e interpretación crítica."
+  },
+  {
+    "objectID": "proyectos/diseno-interfaces.html#problemática-que-aborda",
+    "href": "proyectos/diseno-interfaces.html#problemática-que-aborda",
+    "title": "Laboratorio de Análisis Verde",
+    "section": "Problemática que aborda",
+    "text": "Problemática que aborda\nAprender estadística implica conectar los datos con sus representaciones y con las preguntas que queremos responder. Un histograma, una distribución teórica y el resultado de una prueba no son piezas aisladas: cada una aporta información distinta que debe interpretarse en conjunto.\nEl Laboratorio de Análisis Verde plantea una interfaz para recorrer ese proceso con datos numéricos. Su descripción delimita el alcance previsto y no afirma que todas las herramientas estén terminadas ni que sus interpretaciones produzcan resultados garantizados."
+  },
+  {
+    "objectID": "proyectos/diseno-interfaces.html#objetivo",
+    "href": "proyectos/diseno-interfaces.html#objetivo",
+    "title": "Laboratorio de Análisis Verde",
+    "section": "Objetivo",
+    "text": "Objetivo\nFacilitar el aprendizaje y el análisis estadístico mediante exploración visual, distribuciones de probabilidad y pruebas de hipótesis Z. La aplicación busca presentar resultados que puedan examinarse y discutirse, junto con un asistente que apoye la interpretación sin sustituir el razonamiento estadístico."
+  },
+  {
+    "objectID": "proyectos/diseno-interfaces.html#funcionalidades-del-alcance",
+    "href": "proyectos/diseno-interfaces.html#funcionalidades-del-alcance",
+    "title": "Laboratorio de Análisis Verde",
+    "section": "Funcionalidades del alcance",
+    "text": "Funcionalidades del alcance\n\nEntrada de datos: cargar archivos CSV con información numérica o generar datos sintéticos para explorar situaciones de práctica. Los datos sintéticos permiten experimentar sin atribuir sus valores a observaciones reales.\nAnálisis exploratorio: mostrar histogramas, curvas KDE y boxplots. Estas representaciones permiten observar frecuencias, una estimación de la densidad y aspectos de la distribución como dispersión y valores extremos.\nValores atípicos: facilitar su identificación visual. Una observación alejada del resto requiere revisión; señalarla en una gráfica no demuestra por sí solo que sea un error ni justifica eliminarla.\nDistribuciones de probabilidad: visualizar modelos para relacionar sus formas y parámetros con las preguntas del análisis. Una distribución teórica no debe confundirse con los datos observados.\nPruebas Z: presentar el estadístico, el valor p y la región de rechazo para examinar una hipótesis. La interpretación depende de la hipótesis planteada y del nivel de significación utilizado.\nAsistente de interpretación: utilizar Gemini API para apoyar la lectura de resultados y comparar una explicación humana con la generada."
+  },
+  {
+    "objectID": "proyectos/diseno-interfaces.html#tecnologías",
+    "href": "proyectos/diseno-interfaces.html#tecnologías",
+    "title": "Laboratorio de Análisis Verde",
+    "section": "Tecnologías",
+    "text": "Tecnologías\nPython organiza el tratamiento de los datos y los cálculos. Streamlit permite presentar controles, visualizaciones y resultados en una aplicación interactiva. Gemini API aporta la conexión con el asistente destinado a apoyar la interpretación.\nCada tecnología cumple una función distinta. Los cálculos y las condiciones de la prueba deben poder revisarse independientemente de la explicación que produzca el asistente."
+  },
+  {
+    "objectID": "proyectos/diseno-interfaces.html#aprendizajes-y-revisión-crítica",
+    "href": "proyectos/diseno-interfaces.html#aprendizajes-y-revisión-crítica",
+    "title": "Laboratorio de Análisis Verde",
+    "section": "Aprendizajes y revisión crítica",
+    "text": "Aprendizajes y revisión crítica\nEl proyecto permite practicar lectura de gráficas, exploración de datos y formulación de hipótesis. Antes de aplicar una prueba Z hay que revisar sus supuestos, como la independencia de las observaciones y las condiciones relativas a la distribución y a la desviación poblacional, según el tipo de prueba.\nEl valor p no indica la probabilidad de que la hipótesis nula sea verdadera. Por eso conviene relacionarlo con el planteamiento de la prueba y evitar conclusiones que los datos no sostienen.\nLa comparación con el asistente puede servir para detectar explicaciones incompletas o contradicciones. Su respuesta debe evaluarse críticamente y contrastarse con los resultados y supuestos: acompaña el análisis, pero no reemplaza la responsabilidad de comprenderlo."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html",
+    "href": "posts/estructura-web/index.html",
+    "title": "Estructura básica de una página web",
+    "section": "",
+    "text": "Al abrir una página, el navegador interpreta su HTML, construye una representación del documento y aplica los estilos disponibles. También carga imágenes y puede ejecutar JavaScript. Estas piezas cumplen funciones diferentes, pero trabajan juntas para convertir archivos en una página que puedes leer y utilizar."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#tres-responsabilidades",
+    "href": "posts/estructura-web/index.html#tres-responsabilidades",
+    "title": "Estructura básica de una página web",
+    "section": "Tres responsabilidades",
+    "text": "Tres responsabilidades\nHTML organiza el contenido y expresa su significado. CSS define su apariencia: colores, espacios y distribución. JavaScript responde a acciones o actualiza contenido. Una página informativa puede funcionar perfectamente con HTML y CSS sin JavaScript; incorpora interactividad cuando aporte una función útil."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#el-documento-y-sus-metadatos",
+    "href": "posts/estructura-web/index.html#el-documento-y-sus-metadatos",
+    "title": "Estructura básica de una página web",
+    "section": "El documento y sus metadatos",
+    "text": "El documento y sus metadatos\n&lt;!doctype html&gt; indica que utilizamos HTML moderno. El elemento html contiene el documento y lang=\"es\" identifica su idioma. head reúne metadatos y enlaces a recursos; body contiene lo que se presenta en la página.\ncharset=\"utf-8\" permite interpretar correctamente caracteres como acentos y eñes. viewport adapta el ancho inicial a la pantalla del dispositivo. title establece el nombre que aparece en la pestaña del navegador y ayuda a identificar la página entre otras abiertas."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#organizar-los-archivos",
+    "href": "posts/estructura-web/index.html#organizar-los-archivos",
+    "title": "Estructura básica de una página web",
+    "section": "Organizar los archivos",
+    "text": "Organizar los archivos\nCrea una carpeta de práctica con index.html, styles.css, script.js y una subcarpeta img/. Guarda una fotografía propia como img/perfil.jpg. Las rutas del ejemplo son relativas a index.html: si cambias el nombre o ubicación de la imagen, actualiza también src.\nEste ejercicio utiliza archivos HTML independientes; sirve para entender las piezas que herramientas como Quarto generan después. Mantener nombres sencillos y archivos separados facilita localizar errores y compartir la carpeta completa sin perder imágenes ni estilos."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#html-contenido-con-significado",
+    "href": "posts/estructura-web/index.html#html-contenido-con-significado",
+    "title": "Estructura básica de una página web",
+    "section": "HTML: contenido con significado",
+    "text": "HTML: contenido con significado\nGuarda el siguiente fragmento completo en index.html:\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;\n  &lt;title&gt;Mi página personal&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n  &lt;script src=\"script.js\" defer&gt;&lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;header&gt;\n    &lt;h1&gt;Mi espacio de aprendizaje&lt;/h1&gt;\n    &lt;nav aria-label=\"Principal\"&gt;&lt;a href=\"#intereses\"&gt;Mis intereses&lt;/a&gt;&lt;/nav&gt;\n  &lt;/header&gt;\n  &lt;main&gt;\n    &lt;section id=\"intereses\" aria-labelledby=\"titulo-intereses\"&gt;\n      &lt;h2 id=\"titulo-intereses\"&gt;Lo que quiero aprender&lt;/h2&gt;\n      &lt;p&gt;Esta es una página para practicar desarrollo web.&lt;/p&gt;\n      &lt;img src=\"img/perfil.jpg\" alt=\"Mi retrato\" width=\"320\" height=\"320\"&gt;\n      &lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;li&gt;JavaScript&lt;/li&gt;&lt;/ul&gt;\n      &lt;button id=\"saludar\" type=\"button\"&gt;Mostrar saludo&lt;/button&gt;\n      &lt;p id=\"respuesta\" role=\"status\"&gt;&lt;/p&gt;\n    &lt;/section&gt;\n  &lt;/main&gt;\n  &lt;footer&gt;&lt;p&gt;Página personal de práctica&lt;/p&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nheader introduce la página; nav agrupa la navegación; main contiene su contenido principal. section reúne un tema con encabezado y footer cierra el documento. Estos elementos describen funciones, no posiciones obligatorias.\nLos encabezados h1 y h2 establecen niveles de lectura. p contiene párrafos; a crea enlaces; ul y li forman una lista. img muestra la imagen y su alternativa textual. Ajusta “Mi retrato” si utilizas una imagen diferente. El enlace conduce a la sección cuyo identificador es intereses."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#css-una-presentación-sencilla",
+    "href": "posts/estructura-web/index.html#css-una-presentación-sencilla",
+    "title": "Estructura básica de una página web",
+    "section": "CSS: una presentación sencilla",
+    "text": "CSS: una presentación sencilla\nGuarda estas reglas en styles.css:\n* { box-sizing: border-box; }\nbody {\n  margin: 0 auto;\n  max-width: 800px;\n  padding: 24px;\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  color: #243831;\n  background: #f3faf6;\n}\nimg { max-width: 100%; height: auto; border-radius: 12px; }\nbutton {\n  background: #006b57;\n  color: white;\n  border: 0;\n  border-radius: 8px;\n  padding: 12px 20px;\n  cursor: pointer;\n}\na:focus-visible, button:focus-visible {\n  outline: 3px solid #006b57;\n  outline-offset: 4px;\n}\nEl contenido queda centrado y mantiene márgenes. La imagen conserva sus proporciones y se reduce cuando no cabe. box-sizing incluye el padding en el cálculo del ancho; el foco visible ayuda a recorrer enlaces y botones con teclado."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#javascript-responder-a-un-botón",
+    "href": "posts/estructura-web/index.html#javascript-responder-a-un-botón",
+    "title": "Estructura básica de una página web",
+    "section": "JavaScript: responder a un botón",
+    "text": "JavaScript: responder a un botón\nGuarda este código en script.js:\nconst boton = document.querySelector(\"#saludar\");\nconst respuesta = document.querySelector(\"#respuesta\");\nboton.addEventListener(\"click\", () =&gt; {\n  respuesta.textContent = \"¡Hola! Sigue explorando y aprendiendo.\";\n});\nLos identificadores coinciden con el HTML. defer permite ejecutar el archivo después de interpretar el documento. Al pulsar el botón aparece el saludo; role=\"status\" permite anunciar esa actualización a tecnologías de asistencia sin mover el foco."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#buenas-prácticas-y-actividad",
+    "href": "posts/estructura-web/index.html#buenas-prácticas-y-actividad",
+    "title": "Estructura básica de una página web",
+    "section": "Buenas prácticas y actividad",
+    "text": "Buenas prácticas y actividad\nUtiliza alternativas descriptivas, enlaces que expliquen su destino y una jerarquía de encabezados ordenada. Abre la página en una ventana estrecha para revisar su adaptación móvil y recórrela con Tab y Enter.\nActividad: cambia la presentación, agrega otro interés y utiliza tu propia imagen. Abre index.html en el navegador, comprueba el saludo y verifica que las tres rutas de recursos existan. Después desactiva JavaScript y observa qué contenido sigue disponible.\n← Volver al blog"
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html",
+    "href": "posts/bases-de-datos/index.html",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "",
+    "text": "Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#tablas-filas-y-columnas",
+    "href": "posts/bases-de-datos/index.html#tablas-filas-y-columnas",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Tablas, filas y columnas",
+    "text": "Tablas, filas y columnas\nUna base de datos relacional almacena información en tablas relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.\nEste esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:\n\n\n\n\n\n\n\n\nTabla\nCampos y tipos sugeridos\nQué representa una fila\n\n\n\n\nlibros\nid_libro (entero), titulo (texto), autor (texto)\nUn libro del catálogo\n\n\nprestamos\nid_prestamo (entero), id_libro (entero), fecha_prestamo (fecha), fecha_devolucion (fecha, admite nulos)\nUn préstamo de un libro\n\n\n\nPara esta práctica, cada registro de libros representa un único ejemplar. Un préstamo sin devolución registrada tiene fecha_devolucion en NULL, que expresa la ausencia de un valor."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#claves-y-relaciones",
+    "href": "posts/bases-de-datos/index.html#claves-y-relaciones",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Claves y relaciones",
+    "text": "Claves y relaciones\nLa clave primaria distingue cada fila y no debe repetirse ni ser nula. Aquí será libros.id_libro; para los préstamos será prestamos.id_prestamo. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.\nLa clave foránea conecta tablas. prestamos.id_libro apunta a libros.id_libro. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación uno a muchos. Cada préstamo del ejemplo corresponde a un solo libro.\nTambién existen relaciones muchos a muchos. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear autores y una tabla intermedia libros_autores. Esta última guarda parejas de id_libro e id_autor, evitando una lista de nombres dentro de una celda."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#integridad-y-organización",
+    "href": "posts/bases-de-datos/index.html#integridad-y-organización",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Integridad y organización",
+    "text": "Integridad y organización\nLa integridad referencial, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.\nOrganizar la información por temas reduce repeticiones. El título y el autor permanecen en libros, mientras prestamos guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#consultar-con-sql",
+    "href": "posts/bases-de-datos/index.html#consultar-con-sql",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Consultar con SQL",
+    "text": "Consultar con SQL\nLas tablas y las columnas indicadas deben existir antes de ejecutar estas consultas. Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.\nSELECT titulo, autor\nFROM libros\nORDER BY titulo;\nEsta consulta necesita las columnas titulo y autor de libros. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.\nSELECT libros.titulo, prestamos.fecha_prestamo\nFROM prestamos\nJOIN libros ON prestamos.id_libro = libros.id_libro\nORDER BY prestamos.fecha_prestamo;\nLa segunda consulta une cada préstamo con su libro utilizando id_libro en ambas tablas. Requiere además libros.titulo y prestamos.fecha_prestamo. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#ventajas-errores-frecuentes-y-práctica",
+    "href": "posts/bases-de-datos/index.html#ventajas-errores-frecuentes-y-práctica",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Ventajas, errores frecuentes y práctica",
+    "text": "Ventajas, errores frecuentes y práctica\nEste enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.\nActividad: dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.\n← Volver al blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Alessandra · Aprendizaje y tecnología",
+    "section": "",
+    "text": "ESTUDIANTE DE IT2iD\n      Hola, soy Alessandra\n      Explorando el mundo de la tecnología\n      Soy estudiante de Ingeniería en Tecnologías de la Información e Innovación Digital. Comparto mis aprendizajes, proyectos académicos e ideas sobre desarrollo web, bases de datos y diseño de interfaces.\n      Explorar artículos →Ver mis proyectos\n    \n    Un espacio para aprender y crear.\n  \n\n\n\n  \n    ÁREAS DE INTERÉSLo que estoy aprendiendoComparto mis aprendizajes sobre bases de datos, diseño de interfaces y desarrollo web durante mi formación universitaria.\n    \nBases de datosDiseño y organización de bases de datos relacionales, consultas SQL y administración de información con MySQL.SQLMySQL\nDiseño de interfacesCreación de interfaces claras y accesibles, elaboración de prototipos y diseño centrado en la experiencia del usuario.FigmaCSS\nProgramación y desarrollo webDesarrollo de páginas y aplicaciones mediante estructura, estilos e interactividad, aplicando los conocimientos de mi formación.JavaScriptPython\n    \n  \n\n\n\n  \n    PORTAFOLIO PRÁCTICOMis proyectosProyectos académicos y prácticos desarrollados durante mi formación universitaria.\n\n\n\n  \n    \n      \n      Gestión de fondas\n    \n    \n      Sistema de Gestión Web de Fonda PuraVida\n      Aplicación web para consultar el menú, realizar pedidos y gestionar la operación de una fonda local. Incluye administración de platillos, registro de ventas, estadísticas y reportes para facilitar el control diario.\n      \n        \n        HTMLCSSJavaScript\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Tutorías estudiantiles\n    \n    \n      Plataforma Web para Tutorías Estudiantiles\n      Aplicación web interactiva que conecta estudiantes y tutores con agenda dinámica, calendario y salas de estudio colaborativas.\n      \n        \n        ReactVite\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Análisis de datos y estadística\n    \n    \n      Laboratorio de Análisis Verde\n      Aplicación interactiva desarrollada en Streamlit para analizar datos, visualizar distribuciones de probabilidad y realizar pruebas de hipótesis Z. Integra un asistente de inteligencia artificial para interpretar resultados y apoyar la toma de decisiones.\n      \n        \n        PythonStreamlitGemini API\n        \n        Ver proyecto ↗\n      \n    \n  \n\n\nNo hay resultados\n\n    Explorar el portafolio →\n  \n\n\n\n  \n    \n    PERFIL PERSONALUn poco sobre míSoy Alessandra Beltrán, estudiante de Ingeniería en Tecnologías de la Información e Innovación Digital en la Universidad Politécnica de Chiapas. Me apasionan el desarrollo web, el diseño de interfaces y la creación de aplicaciones que resuelvan problemas reales. Disfruto aprender nuevas tecnologías, trabajar en equipo y seguir creciendo como desarrolladora Full Stack.\n      CuriosidadAprendizaje diario y exploración de nuevas tecnologías.ColaboraciónTrabajo en equipo, respeto y apoyo mutuo.Código limpioCódigo claro, organizado y fácil de mantener.\n    \n  \n\n\n\nBITÁCORA TÉCNICAArtículos recientesVer todo el blog\n\n\n\n  \n    \n      \n    \n    \n      \n        \n        Bases de datos\n        \n        4 de octubre de 2026\n      \n      ¿Qué es una base de datos relacional?\n      Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos\n      Leer artículo completo →\n    \n  \n\n\nNo hay resultados\n\n\n\n\n  IDEAS QUE NOS CONECTAN¡Conectemos!¿Tienes alguna duda sobre mis proyectos o te gustaría compartir ideas? Me encantará conversar contigo.CorreoGitHubLinkedIn"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "BITÁCORA TECNOLÓGICA\n  Blog\n  Un espacio donde comparto mis aprendizajes sobre bases de datos, desarrollo web y diseño de interfaces\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n¿Qué es una base de datos relacional?\n\n\n\nBases de datos\n\n\n\nAprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrincipios básicos del diseño de interfaces\n\n\n\nDiseño de interfaces\n\n\n\nConoce cómo la claridad, la jerarquía visual, la consistencia y la accesibilidad ayudan a crear interfaces fáciles de utilizar\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nEstructura básica de una página web\n\n\n\nDesarrollo web\n\n\n\nDescubre cómo HTML, CSS y JavaScript se complementan para organizar el contenido, definir su apariencia y agregar interactividad\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html",
+    "href": "posts/diseno-interfaces/index.html",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "",
+    "text": "Cuando buscas un horario o envías un mensaje, utilizas una interfaz: el conjunto de elementos con los que interactúas para realizar una tarea. Su propósito es ayudarte a comprender qué puedes hacer y cómo hacerlo. La decoración puede acompañar ese objetivo, pero no sustituye una organización clara."
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#ui-y-ux-dos-perspectivas-relacionadas",
+    "href": "posts/diseno-interfaces/index.html#ui-y-ux-dos-perspectivas-relacionadas",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "UI y UX: dos perspectivas relacionadas",
+    "text": "UI y UX: dos perspectivas relacionadas\nUI, o interfaz de usuario, se refiere a los controles y su presentación: botones, campos, colores e iconos. UX, o experiencia de usuario, considera el recorrido completo y lo fácil que resulta alcanzar un objetivo. Un formulario bonito pertenece a la UI; comprender si pide demasiados datos forma parte de la UX."
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#claridad-y-jerarquía-visual",
+    "href": "posts/diseno-interfaces/index.html#claridad-y-jerarquía-visual",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "Claridad y jerarquía visual",
+    "text": "Claridad y jerarquía visual\nLas etiquetas deben explicar su función. “Enviar mensaje” comunica mejor una acción que “Continuar” cuando ese botón termina un formulario. Las opciones frecuentes deben encontrarse sin recorrer menús innecesarios. Evita depender de un icono ambiguo cuando una palabra breve puede resolver la duda.\nLa jerarquía visual orienta la lectura mediante títulos, tamaños, contraste y posición. Un título principal explica dónde estamos; un subtítulo identifica un bloque. La acción más relevante necesita suficiente presencia, mientras las opciones secundarias pueden ser más discretas. Si todo destaca igual, cuesta saber por dónde empezar."
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#agrupar-separar-y-mantener-consistencia",
+    "href": "posts/diseno-interfaces/index.html#agrupar-separar-y-mantener-consistencia",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "Agrupar, separar y mantener consistencia",
+    "text": "Agrupar, separar y mantener consistencia\nLa cercanía ayuda a reconocer relaciones. Coloca una etiqueta junto a su campo y separa el formulario del pie de página. El espacio libre permite distinguir bloques sin llenar la pantalla de líneas. En un formulario, nombre y correo pueden formar un grupo de datos de contacto.\nLa consistencia reduce el esfuerzo de aprendizaje. Usa el mismo estilo para botones equivalentes, conserva el significado de los colores y evita llamar “Guardar” y “Registrar” a la misma acción. Los iconos deben compartir un estilo reconocible y acompañar palabras cuando su significado no sea evidente."
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#retroalimentación-que-explica-lo-que-sucede",
+    "href": "posts/diseno-interfaces/index.html#retroalimentación-que-explica-lo-que-sucede",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "Retroalimentación que explica lo que sucede",
+    "text": "Retroalimentación que explica lo que sucede\nDespués de una acción, la interfaz debe responder. Mientras se envía un mensaje, muestra “Enviando…” y evita envíos repetidos. Cuando termina, confirma “Mensaje enviado”. Si falla, explica qué ocurrió y cómo continuar, conservando los datos escritos.\nUn error como “Introduce un correo con formato nombre@dominio” resulta más útil que “Dato inválido”. Conviene mostrarlo cerca del campo correspondiente. No anuncies un envío exitoso si la aplicación todavía no lo ha confirmado."
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#accesibilidad-y-pantallas-pequeñas",
+    "href": "posts/diseno-interfaces/index.html#accesibilidad-y-pantallas-pequeñas",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "Accesibilidad y pantallas pequeñas",
+    "text": "Accesibilidad y pantallas pequeñas\nEl contraste entre texto y fondo permite leer con mayor facilidad. Las etiquetas deben permanecer visibles: un texto de ejemplo dentro del campo desaparece al escribir y no reemplaza su etiqueta. La información tampoco debe depender únicamente de un borde rojo.\nPrueba la navegación con teclado. El foco visible indica qué enlace, botón o campo está seleccionado; su orden debe seguir la lectura. Incluye texto alternativo para imágenes informativas y evita descripciones redundantes en imágenes decorativas. Estas decisiones benefician distintas formas de utilizar la página.\nUn diseño responsivo adapta los bloques al espacio disponible. En teléfono, un formulario de dos columnas puede pasar a una. Mantén controles fáciles de pulsar, textos legibles y márgenes suficientes, sin exigir desplazamiento horizontal."
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#ejemplo-un-formulario-de-contacto",
+    "href": "posts/diseno-interfaces/index.html#ejemplo-un-formulario-de-contacto",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "Ejemplo: un formulario de contacto",
+    "text": "Ejemplo: un formulario de contacto\nUn formulario inicial puede pedir nombre, correo y mensaje. Presenta etiquetas visibles, indica qué campos son obligatorios y termina con “Enviar mensaje”. Coloca las instrucciones antes de que aparezcan errores y conserva lo escrito si hay un problema.\n\n\n\n\n\n\n\nProblema de diseño\nMejora concreta\n\n\n\n\nBotón con el texto “Aceptar”\nUsar “Enviar mensaje”\n\n\nCampo sin etiqueta visible\nAñadir “Correo electrónico” junto al campo\n\n\nError indicado solo con rojo\nIncluir un mensaje que explique cómo corregirlo\n\n\nCampos apretados en teléfono\nApilarlos con espacio entre ellos"
+  },
+  {
+    "objectID": "posts/diseno-interfaces/index.html#revisión-y-actividad-final",
+    "href": "posts/diseno-interfaces/index.html#revisión-y-actividad-final",
+    "title": "Principios básicos del diseño de interfaces",
+    "section": "Revisión y actividad final",
+    "text": "Revisión y actividad final\nAntes de terminar, comprueba:\n\n¿Se entiende el propósito y la acción principal?\n¿Los títulos, etiquetas e instrucciones son claros?\n¿Los botones y palabras mantienen consistencia?\n¿Hay respuesta visible ante éxito, errores y carga?\n¿Se puede recorrer todo con teclado y ver el foco?\n¿El contenido se adapta a una pantalla pequeña?\n\nActividad: dibuja el formulario descrito para computadora y teléfono. Pide a otra persona que explique cómo lo usaría, anota sus dudas y modifica una decisión para facilitar la tarea.\n← Volver al blog"
+  },
+  {
+    "objectID": "proyectos/bases-de-datos.html",
+    "href": "proyectos/bases-de-datos.html",
+    "title": "Sistema de Gestión Web de Fonda PuraVida",
+    "section": "",
+    "text": "Gestión de fondasUn MVP orientado a apoyar las tareas cotidianas de una fonda local y ofrecer información útil a sus clientes."
+  },
+  {
+    "objectID": "proyectos/bases-de-datos.html#problemática-que-aborda",
+    "href": "proyectos/bases-de-datos.html#problemática-que-aborda",
+    "title": "Sistema de Gestión Web de Fonda PuraVida",
+    "section": "Problemática que aborda",
+    "text": "Problemática que aborda\nCuando el menú, los pedidos y las ventas se registran manualmente, la información puede quedar dispersa. Consultar qué platillos hay disponibles o reconstruir las ventas de una semana exige revisar distintas anotaciones. Para los clientes, también puede ser difícil saber qué ofrece la fonda ese día o si está abierta antes de acercarse al establecimiento.\nEl proyecto plantea reunir esa información en una interfaz web. Su alcance corresponde a un MVP, es decir, una primera versión centrada en las funciones esenciales. Esta descripción delimita lo que se busca resolver y no implica que todos los componentes estén terminados."
+  },
+  {
+    "objectID": "proyectos/bases-de-datos.html#objetivo",
+    "href": "proyectos/bases-de-datos.html#objetivo",
+    "title": "Sistema de Gestión Web de Fonda PuraVida",
+    "section": "Objetivo",
+    "text": "Objetivo\nApoyar la operación diaria de Fonda PuraVida mediante una consulta pública del menú y herramientas diferenciadas para clientes y encargada. La intención es organizar pedidos y registros de venta sin trasladar los pagos a internet ni ampliar el sistema a la gestión de inventario."
+  },
+  {
+    "objectID": "proyectos/bases-de-datos.html#funcionalidades-previstas",
+    "href": "proyectos/bases-de-datos.html#funcionalidades-previstas",
+    "title": "Sistema de Gestión Web de Fonda PuraVida",
+    "section": "Funcionalidades previstas",
+    "text": "Funcionalidades previstas\n\nConsulta pública: mostrar el menú del día y el estado abierto o cerrado de la fonda, sin exigir una cuenta para consultar esa información.\nPerfil de cliente: permitir el registro, el inicio de sesión y la realización de pedidos por clientes autenticados.\nGestión de pedidos: dejar a la encargada la aceptación o el rechazo manual de cada pedido. Enviar una solicitud no equivale a que haya sido aceptada.\nAdministración del menú: organizar los platillos y la información del menú desde el perfil de encargada.\nVentas presenciales: registrar manualmente las ventas efectuadas en el establecimiento para incorporarlas al seguimiento de la operación.\nConsulta de información: presentar estadísticas y reportes semanales en PDF como apoyo para revisar los registros disponibles.\n\nLos perfiles de cliente y encargada separan responsabilidades: consultar y solicitar pedidos es distinto de administrar platillos o registrar ventas. El alcance mantiene pagos presenciales, sin pagos en línea, y no incluye inventario."
+  },
+  {
+    "objectID": "proyectos/bases-de-datos.html#tecnologías",
+    "href": "proyectos/bases-de-datos.html#tecnologías",
+    "title": "Sistema de Gestión Web de Fonda PuraVida",
+    "section": "Tecnologías",
+    "text": "Tecnologías\nHTML, CSS y JavaScript corresponden a la interfaz. HTML estructura menús y formularios; CSS organiza la presentación y su adaptación a diferentes pantallas; JavaScript permite manejar interacciones y estados visibles.\nEstas tecnologías no describen por sí solas cómo se implementan la autenticación o el almacenamiento. No se atribuyen herramientas adicionales porque los archivos actuales no documentan otras tecnologías del proyecto."
+  },
+  {
+    "objectID": "proyectos/bases-de-datos.html#aprendizajes-y-aspectos-para-practicar",
+    "href": "proyectos/bases-de-datos.html#aprendizajes-y-aspectos-para-practicar",
+    "title": "Sistema de Gestión Web de Fonda PuraVida",
+    "section": "Aprendizajes y aspectos para practicar",
+    "text": "Aprendizajes y aspectos para practicar\nEl alcance permite practicar formularios comprensibles, navegación por perfiles y representación clara de estados como abierto, cerrado, aceptado o rechazado. También invita a distinguir un pedido solicitado de una venta registrada y a organizar información útil para los reportes.\nUna revisión de la interfaz puede comprobar si el menú se encuentra fácilmente, si cada perfil reconoce sus acciones y si los mensajes explican lo que sucede. Estos criterios ayudan a evaluar el MVP sin afirmar resultados medidos ni una implementación completa."
+  },
+  {
+    "objectID": "proyectos/index.html",
+    "href": "proyectos/index.html",
+    "title": "Mis proyectos",
+    "section": "",
+    "text": "Gestión de fondas\n    \n    \n      Sistema de Gestión Web de Fonda PuraVida\n      Aplicación web para consultar el menú, realizar pedidos y gestionar la operación de una fonda local. Incluye administración de platillos, registro de ventas, estadísticas y reportes para facilitar el control diario.\n      \n        \n        HTMLCSSJavaScript\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Tutorías estudiantiles\n    \n    \n      Plataforma Web para Tutorías Estudiantiles\n      Aplicación web interactiva que conecta estudiantes y tutores con agenda dinámica, calendario y salas de estudio colaborativas.\n      \n        \n        ReactVite\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Análisis de datos y estadística\n    \n    \n      Laboratorio de Análisis Verde\n      Aplicación interactiva desarrollada en Streamlit para analizar datos, visualizar distribuciones de probabilidad y realizar pruebas de hipótesis Z. Integra un asistente de inteligencia artificial para interpretar resultados y apoyar la toma de decisiones.\n      \n        \n        PythonStreamlitGemini API\n        \n        Ver proyecto ↗\n      \n    \n  \n\n\nNo hay resultados"
+  }
+]

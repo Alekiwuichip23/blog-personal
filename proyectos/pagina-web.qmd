@@ -1,0 +1,62 @@
+---
+title: "Plataforma Web para Tutorías Estudiantiles"
+description: "Aplicación web interactiva que conecta estudiantes y tutores con agenda dinámica, calendario y salas de estudio colaborativas."
+project-label: "Tutorías estudiantiles"
+project-order: 2
+image: /assets/images/tutorias.jpg
+image-alt: "Grupo de estudiantes trabajando con una tutora en una mesa"
+technologies: [React, Vite]
+body-classes: project-page
+page-layout: full
+---
+
+```{=html}
+<header class="project-intro">
+  <div><p class="eyebrow">Tutorías estudiantiles</p><h1>Plataforma Web para Tutorías Estudiantiles</h1><p>Una propuesta para conectar estudiantes y tutores y presentar de forma organizada las actividades de acompañamiento académico.</p></div>
+  <img src="../assets/images/tutorias.jpg" alt="Grupo de estudiantes trabajando con una tutora en una mesa" width="640" height="400" class="project-intro-image">
+</header>
+```
+
+::: {.project-copy}
+## Problemática que aborda
+
+El acompañamiento académico requiere que las personas comprendan qué actividades están previstas y cómo se distribuyen en el tiempo. Cuando horarios y actividades se presentan sin una estructura clara, puede resultar difícil identificar la información relevante o distinguir una sesión de otra.
+
+Esta plataforma plantea un espacio común para organizar esa información y facilitar la conexión entre estudiantes y tutores. La descripción se concentra en el alcance proporcionado: agenda dinámica, calendario y salas de estudio colaborativas. No supone que todas las partes estén finalizadas.
+
+## Objetivo
+
+Facilitar la organización del acompañamiento académico mediante una interfaz que permita reconocer actividades, consultar su distribución temporal y acceder a espacios de estudio colaborativo. El objetivo no es acumular controles, sino presentar la información de forma comprensible para quienes participan.
+
+La relación entre estudiantes y tutores es el centro de la propuesta. Por ello, el diseño debe ayudar a ubicar las actividades y entender sus horarios sin exigir que la persona interprete bloques desordenados o nombres ambiguos.
+
+## Funcionalidades del alcance
+
+- **Agenda dinámica:** organizar las actividades de acompañamiento en una vista que permita presentar su información de manera ordenada. Su diseño debe distinguir cada actividad y sus datos relevantes.
+- **Calendario:** consultar la organización temporal de las tutorías. Esta vista complementa la agenda al relacionar actividades con fechas y horarios.
+- **Salas de estudio colaborativas:** ofrecer espacios orientados al estudio compartido, dentro de la propuesta de conexión entre estudiantes y tutores.
+
+Agenda y calendario deben utilizar términos coherentes para que una misma actividad se reconozca en ambas vistas. Las salas, por su parte, necesitan una presentación que explique su propósito dentro del acompañamiento académico, sin atribuirles mecanismos de comunicación no confirmados.
+
+## Tecnologías
+
+**React** permite organizar la interfaz en componentes reutilizables. Por ejemplo, una tarjeta de actividad, un bloque de horario y una vista de calendario pueden separar responsabilidades de presentación y mantener un estilo consistente.
+
+**Vite** proporciona herramientas para desarrollar y generar el proyecto web. Su función se distingue de la de React: facilita el trabajo con los archivos de la aplicación, mientras React organiza sus componentes e interacciones.
+
+Esta organización ayuda a evitar que toda la interfaz dependa de un único bloque difícil de editar. La separación debe responder a funciones concretas y mantener nombres comprensibles.
+
+## Aprendizajes y aspectos para practicar
+
+La propuesta permite practicar jerarquía visual, organización de componentes y adaptación de información académica a diferentes pantallas. Un aspecto central es conservar la legibilidad de horarios y actividades cuando el espacio se reduce en un teléfono.
+
+También permite revisar la coherencia entre vistas: títulos, fechas y etiquetas deben comunicar lo mismo en la agenda y el calendario. Una evaluación inicial puede comprobar si una persona identifica una actividad y entiende cuándo ocurre. Estos son criterios de revisión del diseño, no resultados medidos del proyecto.
+
+:::
+
+```{=html}
+<nav class="project-return" aria-label="Volver al portafolio">
+  <a class="project-return-button primary" href="index.qmd"><span aria-hidden="true">←</span> Volver a los proyectos</a>
+  <a class="project-return-button secondary" href="../index.qmd"><svg class="line-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/></svg> Ir al inicio</a>
+</nav>
+```
