@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alessandra Beltrán">
-<meta name="description" content="Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos">
+<meta name="description" content="Organiza tarjetas y controles con Flexbox, comprende sus ejes y adapta el diseño a pantallas pequeñas.">
 
-<title>¿Qué es una base de datos relacional? – Alessandra</title>
+<title>Cómo organizar una página con CSS Flexbox – Alessandra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,15 +172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">¿Qué es una base de datos relacional?</h1>
+<h1 class="title">Cómo organizar una página con CSS Flexbox</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Bases de datos</div>
+    <div class="quarto-category">Desarrollo web</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos
+    Organiza tarjetas y controles con Flexbox, comprende sus ejes y adapta el diseño a pantallas pequeñas.
   </div>
 </div>
 
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 de octubre de 2026</p>
+      <p class="date">10 de septiembre de 2026</p>
     </div>
   </div>
   
@@ -209,68 +209,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="../../assets/images/basededatos.jpeg" class="article-cover img-fluid" alt="Ilustración de bases de datos conectadas con aplicaciones y gráficos"></p>
-<p>Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente.</p>
-<section id="tablas-filas-y-columnas" class="level2">
-<h2 class="anchored" data-anchor-id="tablas-filas-y-columnas">Tablas, filas y columnas</h2>
-<p>Una base de datos relacional almacena información en <strong>tablas</strong> relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.</p>
-<p>Este esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tabla</th>
-<th>Campos y tipos sugeridos</th>
-<th>Qué representa una fila</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>libros</code></td>
-<td><code>id_libro</code> (entero), <code>titulo</code> (texto), <code>autor</code> (texto)</td>
-<td>Un libro del catálogo</td>
-</tr>
-<tr class="even">
-<td><code>prestamos</code></td>
-<td><code>id_prestamo</code> (entero), <code>id_libro</code> (entero), <code>fecha_prestamo</code> (fecha), <code>fecha_devolucion</code> (fecha, admite nulos)</td>
-<td>Un préstamo de un libro</td>
-</tr>
-</tbody>
-</table>
-<p>Para esta práctica, cada registro de <code>libros</code> representa un único ejemplar. Un préstamo sin devolución registrada tiene <code>fecha_devolucion</code> en <code>NULL</code>, que expresa la ausencia de un valor.</p>
+<p><img src="../../assets/images/css.jpg" class="article-cover img-fluid" alt="Comparación visual de Flexbox y CSS Grid con bloques alineados"></p>
+<p>Alinear varias tarjetas parece sencillo hasta que sus textos tienen longitudes diferentes o la pantalla se vuelve estrecha. Flexbox ofrece una manera de repartir espacio y alinear elementos sin calcular manualmente cada posición. Resulta especialmente útil para menús, grupos de botones y filas de contenido que deben adaptarse.</p>
+<section id="contenedor-y-elementos-flexibles" class="level2">
+<h2 class="anchored" data-anchor-id="contenedor-y-elementos-flexibles">Contenedor y elementos flexibles</h2>
+<p>Flexbox organiza los hijos directos de un contenedor. Al aplicar <code>display: flex</code>, ese contenedor controla cómo se distribuyen sus elementos. El texto y los enlaces dentro de una tarjeta no se convierten automáticamente en elementos flexibles de la fila: pertenecen a otro nivel de la estructura.</p>
+<p>Puedes imaginar una caja que organiza varias tarjetas. La caja decide la dirección, los espacios y la alineación; cada tarjeta conserva su contenido. Esta distinción permite elegir dónde colocar una propiedad cuando no produce el efecto esperado.</p>
 </section>
-<section id="claves-y-relaciones" class="level2">
-<h2 class="anchored" data-anchor-id="claves-y-relaciones">Claves y relaciones</h2>
-<p>La <strong>clave primaria</strong> distingue cada fila y no debe repetirse ni ser nula. Aquí será <code>libros.id_libro</code>; para los préstamos será <code>prestamos.id_prestamo</code>. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.</p>
-<p>La <strong>clave foránea</strong> conecta tablas. <code>prestamos.id_libro</code> apunta a <code>libros.id_libro</code>. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación <strong>uno a muchos</strong>. Cada préstamo del ejemplo corresponde a un solo libro.</p>
-<p>También existen relaciones <strong>muchos a muchos</strong>. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear <code>autores</code> y una tabla intermedia <code>libros_autores</code>. Esta última guarda parejas de <code>id_libro</code> e <code>id_autor</code>, evitando una lista de nombres dentro de una celda.</p>
+<section id="dos-ejes-para-entender-la-alineación" class="level2">
+<h2 class="anchored" data-anchor-id="dos-ejes-para-entender-la-alineación">Dos ejes para entender la alineación</h2>
+<p>El <strong>eje principal</strong> sigue la dirección establecida por <code>flex-direction</code>. Con <code>row</code>, los elementos se colocan en fila; con <code>column</code>, se apilan. El <strong>eje transversal</strong> es perpendicular al principal.</p>
+<p><code>justify-content</code> distribuye el espacio disponible sobre el eje principal. <code>center</code> reúne los elementos en el centro; <code>space-between</code> coloca espacio entre ellos. Si los elementos ya ocupan todo el ancho, apenas queda espacio que repartir y el cambio puede no ser visible.</p>
+<p><code>align-items</code> controla la alineación transversal. <code>center</code> centra los elementos en ese eje; <code>stretch</code> permite que se estiren, cuando su tamaño transversal es automático. Por eso cambiar de <code>row</code> a <code>column</code> también cambia el significado visual de ambas propiedades.</p>
 </section>
-<section id="integridad-y-organización" class="level2">
-<h2 class="anchored" data-anchor-id="integridad-y-organización">Integridad y organización</h2>
-<p>La <strong>integridad referencial</strong>, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.</p>
-<p>Organizar la información por temas reduce repeticiones. El título y el autor permanecen en <code>libros</code>, mientras <code>prestamos</code> guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores.</p>
+<section id="un-ejemplo-completo-de-tres-tarjetas" class="level2">
+<h2 class="anchored" data-anchor-id="un-ejemplo-completo-de-tres-tarjetas">Un ejemplo completo de tres tarjetas</h2>
+<p>Crea una carpeta con <code>index.html</code> y <code>styles.css</code>. Guarda este documento en <code>index.html</code>; el enlace del encabezado cargará los estilos del segundo archivo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">"viewport"</span><span class="ot"> content</span><span class="op">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Tarjetas con Flexbox<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"styles.css"</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Áreas para explorar<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"tarjetas"</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="dt">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Bases de datos<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Organizar información en tablas relacionadas.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="dt">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Interfaces<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Crear pantallas comprensibles y accesibles.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">"tarjeta"</span><span class="dt">&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Desarrollo web<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Combinar estructura, estilos e interacciones.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Guarda estas reglas en <code>styles.css</code> y abre el HTML en el navegador:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span> { <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">border-box</span><span class="op">;</span> }</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="dv">system-ui</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.6</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#243831</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#edf8f2</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>main { <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">1100</span><span class="dt">px</span><span class="op">;</span> <span class="kw">margin</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span> <span class="kw">padding</span><span class="ch">:</span> <span class="dv">24</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.tarjetas</span> {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">row</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">stretch</span><span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-wrap</span><span class="ch">:</span> <span class="dv">wrap</span><span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="dv">24</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">.tarjeta</span> {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex</span><span class="ch">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">250</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">min-width</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">24</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">14</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">overflow-wrap</span><span class="ch">:</span> <span class="dv">anywhere</span><span class="op">;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">.tarjeta</span> h2 { <span class="kw">color</span><span class="ch">:</span> <span class="cn">#006b57</span><span class="op">;</span> }</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">max-width</span><span class="ch">:</span> <span class="dv">600</span><span class="dt">px</span><span class="fu">)</span> {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.tarjetas</span> { <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span> }</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.tarjeta</span> { <span class="kw">flex-basis</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span> }</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>En una pantalla amplia verás tres tarjetas en fila, con espacios iguales. Al reducir el ancho, podrán pasar a nuevas líneas. En teléfono, la regla de medios las apila sin obligarlas a conservar un ancho rígido.</p>
 </section>
-<section id="consultar-con-sql" class="level2">
-<h2 class="anchored" data-anchor-id="consultar-con-sql">Consultar con SQL</h2>
-<p><strong>Las tablas y las columnas indicadas deben existir antes de ejecutar estas consultas.</strong> Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> titulo, autor</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> libros</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> titulo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Esta consulta necesita las columnas <code>titulo</code> y <code>autor</code> de <code>libros</code>. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> libros.titulo, prestamos.fecha_prestamo</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> prestamos</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> libros <span class="kw">ON</span> prestamos.id_libro <span class="op">=</span> libros.id_libro</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> prestamos.fecha_prestamo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La segunda consulta une cada préstamo con su libro utilizando <code>id_libro</code> en ambas tablas. Requiere además <code>libros.titulo</code> y <code>prestamos.fecha_prestamo</code>. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos.</p>
+<section id="espacios-y-adaptación" class="level2">
+<h2 class="anchored" data-anchor-id="espacios-y-adaptación">Espacios y adaptación</h2>
+<p><code>gap: 24px</code> establece separación entre elementos y líneas. Es más fácil de mantener que añadir márgenes a cada tarjeta y corregir después el primero o el último.</p>
+<p><code>flex-wrap: wrap</code> permite nuevas líneas cuando los elementos ya no caben. Sin esta propiedad, Flexbox intenta mantenerlos en una sola línea, reduciéndolos según sus reglas. Los contenidos muy largos pueden dificultar esa reducción.</p>
+<p>En <code>flex: 1 1 250px</code>, el primer valor permite crecer, el segundo permite reducirse y el tercero indica una base inicial. No equivale a imponer siempre 250 píxeles de ancho. <code>min-width: 0</code> ayuda a que el contenido pueda ajustarse; <code>box-sizing</code> incluye el padding en el cálculo del tamaño.</p>
+<p>Al pasar a columna, <code>flex-basis</code> actúa sobre el eje vertical. Restablecerlo a <code>auto</code> evita que cada tarjeta reserve una altura inicial de 250 píxeles. Así conserva la altura que requiere su contenido.</p>
 </section>
-<section id="ventajas-errores-frecuentes-y-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-errores-frecuentes-y-práctica">Ventajas, errores frecuentes y práctica</h2>
-<p>Este enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.</p>
-<p><strong>Actividad:</strong> dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.</p>
+<section id="flexbox-y-grid" class="level2">
+<h2 class="anchored" data-anchor-id="flexbox-y-grid">Flexbox y Grid</h2>
+<p>Flexbox trabaja principalmente en una dimensión: una fila o una columna. Aunque permita envolver elementos, cada línea distribuye su espacio de manera independiente. Grid resulta más adecuado cuando necesitas coordinar filas y columnas de una cuadrícula completa.</p>
+<p>Una barra de navegación puede resolverse con Flexbox; un listado que exige columnas alineadas en varias filas puede beneficiarse de Grid. Elegir depende de cómo deben relacionarse los elementos, no de utilizar siempre la misma herramienta.</p>
+</section>
+<section id="errores-frecuentes" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes">Errores frecuentes</h2>
+<p>Aplicar <code>justify-content</code> a una tarjeta en lugar de al contenedor no organiza sus tarjetas hermanas. Otro error es fijar anchos grandes y olvidar el espacio de <code>gap</code>, el padding o el contenido. Prueba también títulos largos, no solo textos cortos que caben fácilmente.</p>
+<p>Evita usar <code>order</code> únicamente para cambiar la lectura visual: el orden del documento sigue siendo importante para teclado y tecnologías de asistencia. Mantén una estructura comprensible desde el HTML.</p>
+</section>
+<section id="actividad-y-cierre" class="level2">
+<h2 class="anchored" data-anchor-id="actividad-y-cierre">Actividad y cierre</h2>
+<p>Agrega una cuarta tarjeta y observa cómo se reparte cada línea. Después prueba <code>align-items: center</code> y explica por qué las alturas dejan de estirarse igual. Revisa el diseño a 375 píxeles sin desplazamiento horizontal.</p>
+<p>Entender los ejes y el papel del contenedor facilita predecir el resultado. Cambia una propiedad cada vez y relaciona el efecto visual con la regla que lo produjo.</p>
 <a class="back-to-blog" href="../../blog/index.html"><span aria-hidden="true">←</span> Volver al blog</a>
 
 

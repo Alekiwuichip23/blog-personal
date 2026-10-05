@@ -1,0 +1,122 @@
+---
+title: "Consultas SQL básicas: SELECT, WHERE y ORDER BY"
+description: "Aprende a elegir columnas, filtrar productos y ordenar resultados con consultas SQL sencillas y coherentes."
+author: Alessandra Beltrán
+date: 2026-09-04
+date-format: "D [de] MMMM [de] YYYY"
+categories: ["Bases de datos"]
+image: /assets/images/sql.jpg
+image-alt: "Texto SQL rodeado de figuras geométricas azules"
+---
+
+![](../../assets/images/sql.jpg){.article-cover fig-alt="Texto SQL rodeado de figuras geométricas azules"}
+
+Una tienda necesita encontrar productos económicos, consultar una categoría o revisar los precios de mayor a menor. SQL permite expresar esas preguntas sin recorrer cada registro manualmente. Comenzar con consultas pequeñas ayuda a entender cómo cambia el resultado al elegir columnas, añadir condiciones y establecer un orden.
+
+## Qué es SQL
+
+SQL es un lenguaje para trabajar con bases de datos relacionales. Permite consultar información y también definir o modificar datos, aunque aquí nos concentraremos en la lectura. Una consulta `SELECT` devuelve un resultado: no modifica por sí misma los registros almacenados.
+
+Los ejemplos utilizan sintaxis compatible con MySQL. **La tabla `productos` debe existir y contener las columnas indicadas antes de ejecutar las consultas.** Puedes utilizar una base de práctica, evitando experimentar sobre información que necesitas conservar.
+
+## Una tabla para hacer preguntas
+
+La tabla del ejemplo tiene cuatro columnas: `id`, un identificador entero; `nombre`, texto; `precio`, un número decimal; y `categoria`, texto. Estos son sus datos de muestra:
+
+| id | nombre | precio | categoria |
+|---|---|---|---|
+| 1 | Cuaderno | 45.00 | Papelería |
+| 2 | Lápiz | 10.00 | Papelería |
+| 3 | Mouse | 180.00 | Tecnología |
+| 4 | Cable USB | 90.00 | Tecnología |
+| 5 | Carpeta | 30.00 | Papelería |
+
+Para practicar desde cero, crea esta tabla y sus registros en una base de datos seleccionada en MySQL:
+
+```sql
+CREATE TABLE productos (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  precio DECIMAL(8, 2) NOT NULL,
+  categoria VARCHAR(40) NOT NULL
+);
+
+INSERT INTO productos (id, nombre, precio, categoria) VALUES
+  (1, 'Cuaderno', 45.00, 'Papelería'),
+  (2, 'Lápiz', 10.00, 'Papelería'),
+  (3, 'Mouse', 180.00, 'Tecnología'),
+  (4, 'Cable USB', 90.00, 'Tecnología'),
+  (5, 'Carpeta', 30.00, 'Papelería');
+```
+
+La preparación crea una tabla nueva; no la repitas si ya existe. `DECIMAL` permite representar precios con dos posiciones decimales. Las consultas siguientes presuponen exactamente estos cinco registros.
+
+## SELECT: elegir lo que quieres ver
+
+```sql
+SELECT nombre, precio
+FROM productos
+ORDER BY id ASC;
+```
+
+`SELECT` elige las columnas y `FROM` identifica la tabla. El resultado presenta Cuaderno, Lápiz, Mouse, Cable USB y Carpeta, con sus precios. `id` sirve para ordenar aunque no aparezca entre las columnas seleccionadas.
+
+`SELECT *` solicita todas las columnas. Puede ser útil al explorar una tabla, pero elegir campos concretos facilita leer los resultados y deja claro qué información necesita una consulta.
+
+## WHERE: decidir qué filas aparecen
+
+```sql
+SELECT nombre, precio
+FROM productos
+WHERE precio <= 45.00
+ORDER BY precio ASC;
+```
+
+El resultado será Lápiz, 10.00; Carpeta, 30.00; y Cuaderno, 45.00. `WHERE` conserva únicamente las filas que cumplen la condición. Las comparaciones habituales incluyen `=`, `<>`, `<`, `>`, `<=` y `>=`. Escribe los textos entre comillas simples, por ejemplo `categoria = 'Papelería'`.
+
+## Combinar condiciones con AND y OR
+
+```sql
+SELECT nombre, precio
+FROM productos
+WHERE categoria = 'Tecnología' AND precio < 150.00;
+```
+
+`AND` exige que ambas condiciones se cumplan. Solo aparece Cable USB, con precio 90.00: Mouse pertenece a la categoría, pero supera el límite.
+
+```sql
+SELECT nombre
+FROM productos
+WHERE (categoria = 'Tecnología' OR precio <= 10.00)
+ORDER BY id;
+```
+
+`OR` acepta una condición o la otra. Aquí aparecen Lápiz, Mouse y Cable USB. Si mezclas `AND` y `OR`, utiliza paréntesis para expresar claramente qué condiciones deben agruparse y evitar resultados inesperados.
+
+## ORDER BY: organizar el resultado
+
+```sql
+SELECT nombre, precio
+FROM productos
+ORDER BY precio DESC, id ASC;
+```
+
+`ASC` ordena de menor a mayor y `DESC` de mayor a menor. Esta consulta devuelve Mouse, Cable USB, Cuaderno, Carpeta y Lápiz. La segunda columna de ordenación resuelve empates de precio mediante el identificador.
+
+**Filtrar y ordenar son operaciones distintas:** `WHERE` decide qué filas participan; `ORDER BY` decide cómo se presentan. Ordenar no elimina productos, y filtrar no garantiza un orden. Sin `ORDER BY`, no debes suponer que las filas siempre aparecerán como fueron insertadas.
+
+## Errores frecuentes y recomendaciones
+
+Comprueba los nombres de columnas, las comas entre campos y las comillas de los textos. Mantén el orden `SELECT`, `FROM`, `WHERE`, `ORDER BY`. Una condición demasiado restrictiva puede devolver cero filas sin que haya un error de sintaxis.
+
+Evita comparar precios guardados como texto: su orden puede ser diferente del numérico. También revisa los datos de muestra antes de atribuir un resultado extraño a SQL.
+
+## Actividad y cierre
+
+Escribe una consulta que muestre productos de Papelería con precio superior a 10.00, ordenados por precio descendente. Antes de ejecutarla, predice los nombres: deberían ser Cuaderno y Carpeta. Después modifica una sola condición y explica qué cambia.
+
+Dominar estas tres instrucciones permite convertir una pregunta concreta en un resultado comprensible. La práctica más útil consiste en anticipar qué filas esperas y comprobar por qué cada una cumple la consulta.
+
+```{=html}
+<a class="back-to-blog" href="../../blog/index.qmd"><span aria-hidden="true">←</span> Volver al blog</a>
+```

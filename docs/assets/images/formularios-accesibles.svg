@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<title id="title">Formularios accesibles</title><desc id="desc">Campos de contacto con etiquetas visibles y un botón de acción.</desc>
+<rect width="960" height="600" fill="#e9f6f1"/><circle cx="765" cy="305" r="175" fill="#d2ecdf"/>
+<rect x="200" y="65" width="560" height="475" rx="28" fill="white" stroke="#006b57" stroke-width="4"/>
+<g fill="none" stroke="#006b57" stroke-width="4"><rect x="245" y="155" width="470" height="60" rx="10"/><rect x="245" y="275" width="470" height="100" rx="10"/></g>
+<g fill="#006b57" font-family="system-ui, sans-serif" font-size="26" font-weight="600"><text x="245" y="135">Correo</text><text x="245" y="255">Mensaje</text></g>
+<rect x="245" y="415" width="210" height="65" rx="12" fill="#006b57"/><path d="M275 185h200M275 310h345M275 343h250" stroke="#a2cdb9" stroke-width="10" stroke-linecap="round"/>
+<path d="M325 447h55m-18-15 18 15-18 15" fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+</svg>

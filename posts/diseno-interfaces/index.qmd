@@ -1,7 +1,7 @@
 ---
 title: "Principios básicos del diseño de interfaces"
 description: "Conoce cómo la claridad, la jerarquía visual, la consistencia y la accesibilidad ayudan a crear interfaces fáciles de utilizar"
-author: Alessandra
+author: Alessandra Beltrán
 date: 2026-10-04
 date-format: "D [de] MMMM [de] YYYY"
 categories: ["Diseño de interfaces"]

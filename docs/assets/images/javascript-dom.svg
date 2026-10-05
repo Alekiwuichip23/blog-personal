@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<title id="title">JavaScript y DOM</title><desc id="desc">Una ventana de código enlazada con un botón y una tarjeta de mensaje.</desc>
+<rect width="960" height="600" fill="#e9f6f1"/><circle cx="745" cy="125" r="110" fill="#d2ecdf"/>
+<g fill="white" stroke="#006b57" stroke-width="4"><rect x="85" y="140" width="460" height="330" rx="22"/><path d="M85 205h460"/><rect x="635" y="355" width="245" height="115" rx="18"/></g>
+<g fill="#a2cdb9"><circle cx="120" cy="173" r="9"/><circle cx="150" cy="173" r="9"/><circle cx="180" cy="173" r="9"/></g>
+<path d="m220 275-45 40 45 40m160-80 45 40-45 40M325 250l-25 130M555 315h60v-30h40" fill="none" stroke="#006b57" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="635" y="210" width="245" height="85" rx="14" fill="#006b57"/><path d="M690 252h125" stroke="white" stroke-width="8" stroke-linecap="round"/><path d="M665 393h165M665 430h110" stroke="#a2cdb9" stroke-width="9" stroke-linecap="round"/>
+</svg>

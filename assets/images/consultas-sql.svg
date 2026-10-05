@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<title id="title">Consultas SQL</title><desc id="desc">Una tabla de productos junto a una lupa que representa la consulta de datos.</desc>
+<rect width="960" height="600" fill="#e9f6f1"/><circle cx="740" cy="140" r="115" fill="#d2ecdf"/>
+<g stroke="#006b57" stroke-width="5" stroke-linejoin="round" fill="white"><rect x="120" y="125" width="550" height="350" rx="24"/><path d="M120 205h550M120 295h550M120 385h550M255 125v350M490 125v350"/><circle cx="695" cy="335" r="100" fill="#edf8f2"/><path d="m770 410 72 72" stroke-width="20" stroke-linecap="round"/></g>
+<g fill="#006b57" font-family="system-ui, sans-serif" font-size="28" font-weight="600"><text x="155" y="178">id</text><text x="285" y="178">nombre</text><text x="522" y="178">precio</text><text x="170" y="263">1</text><text x="170" y="353">2</text><text x="170" y="443">3</text><text x="645" y="346" font-size="32">SQL</text></g>
+<g stroke="#a2cdb9" stroke-width="10" stroke-linecap="round"><path d="M290 250h150M290 340h115M290 430h135M525 250h90M525 340h70M525 430h80"/></g>
+</svg>

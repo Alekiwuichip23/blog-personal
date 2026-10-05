@@ -8,6 +8,7 @@ project:
     - proyectos/*.qmd
   resources:
     - assets/**
+    - .nojekyll
 
 lang: es
 website:
@@ -41,7 +42,7 @@ website:
     center: |
       <div class="site-footer">
       <div class="footer-top">
-      <div class="footer-intro"><h2>¡Conectemos!</h2><p>Abierta a compartir ideas sobre desarrollo web, diseño de interfaces y aprendizaje tecnológico</p></div>
+      <div class="footer-intro"><h2>Sigamos en contacto</h2><p>Abierta a compartir ideas sobre desarrollo web, diseño de interfaces y aprendizaje tecnológico</p></div>
       <div class="footer-links"><a href="mailto:253392@it2id.upchiapas.edu.mx"><i class="bi bi-envelope" aria-hidden="true"></i> Email</a><a href="https://github.com/Alekiwuichip23"><i class="bi bi-github" aria-hidden="true"></i> GitHub</a><a href="https://www.linkedin.com/in/alessandra-de-los-santos-403b32436/"><i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn</a></div>
       </div>
       <p class="footer-credit">Diseñado con dedicación · Blog personal de Alessandra Beltrán</p>

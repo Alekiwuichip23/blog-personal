@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<title id="title">CSS Flexbox</title><desc id="desc">Tres tarjetas distribuidas en fila, con flechas que muestran separación y alineación.</desc>
+<rect width="960" height="600" fill="#e9f6f1"/><rect x="65" y="110" width="830" height="365" rx="28" fill="#d2ecdf"/>
+<g fill="white" stroke="#006b57" stroke-width="4"><rect x="100" y="155" width="230" height="275" rx="18"/><rect x="365" y="155" width="230" height="275" rx="18"/><rect x="630" y="155" width="230" height="275" rx="18"/></g>
+<g fill="#a2cdb9"><rect x="125" y="183" width="180" height="95" rx="8"/><rect x="390" y="183" width="180" height="95" rx="8"/><rect x="655" y="183" width="180" height="95" rx="8"/></g>
+<g fill="none" stroke="#006b57" stroke-linecap="round" stroke-width="8"><path d="M130 315h130M130 350h100M395 315h130M395 350h100M660 315h130M660 350h100M105 520h750m-730-15-20 15 20 15m710-30 20 15-20 15"/></g>
+</svg>

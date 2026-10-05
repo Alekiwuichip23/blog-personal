@@ -112,9 +112,15 @@ pre { border-radius: 10px; }
 /* Local images keep the existing slots and rounded frames. */
 /* Display the drawing inside pc.png; its original canvas has large empty margins.
    The crop corresponds to x=350..910, y=370..900 on the 1254px image. */
-.navbar .navbar-brand { --logo-height: 52px; position: relative; width: calc(var(--logo-height) * 560 / 530); height: var(--logo-height); overflow: hidden; padding: 0; flex-shrink: 0; }
+.navbar .navbar-brand-logo { --logo-height: 52px; position: relative; width: calc(var(--logo-height) * 560 / 530); height: var(--logo-height); overflow: hidden; padding: 0; flex-shrink: 0; }
 .navbar .navbar-logo { position: absolute; height: calc(var(--logo-height) * 1254 / 530); max-height: none; width: auto; max-width: none; left: calc(var(--logo-height) * -350 / 530); top: calc(var(--logo-height) * -370 / 530); object-fit: contain; }
-.navbar .navbar-brand-container { display: flex; align-items: center; }
+.navbar .navbar-brand-container { display: flex; align-items: center; gap: 10px; }
+.navbar .navbar-brand:not(.navbar-brand-logo) { margin: 0; padding: 0; color: var(--green); font-size: 1rem; font-weight: 650; letter-spacing: 0; }
+.navbar .navbar-brand-logo { margin: 0; }
+.portrait-label { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 0; padding: 8px 12px; background: #e9f5ef; color: #006b57; border-radius: 24px; font-size: .78rem; line-height: 1.4; font-weight: 600; max-width: 100%; }
+.portrait-label .line-icon { width: 18px; height: 18px; flex-basis: 18px; }
+.portrait-label span { min-width: 0; }
+.portrait { text-align: center; }
 .hero-art img { width: 100%; aspect-ratio: 6 / 5; object-fit: cover; }
 .portrait img { width: 100%; aspect-ratio: 6 / 7; object-fit: cover; }
 .article-cover { display: block; width: 100%; aspect-ratio: 8 / 5; object-fit: cover; border-radius: 16px; }
@@ -137,7 +143,8 @@ pre { border-radius: 10px; }
 .blog-page .quarto-category-count { color: inherit; }
 .blog-filters-slot { display: none; }
 @media (max-width: 991px) {
-  .navbar .navbar-brand { --logo-height: 42px; }
+  .navbar .navbar-brand-logo { --logo-height: 42px; }
+  .navbar .navbar-brand:not(.navbar-brand-logo) { font-size: .95rem; }
   .blog-filters-slot { display: block; margin-bottom: 32px; }
   .blog-filters-slot #quarto-margin-sidebar { display: block !important; position: static; width: 100%; max-width: none; margin: 0; padding: 20px; height: auto; max-height: none; }
 }
@@ -146,6 +153,14 @@ pre { border-radius: 10px; }
 main.content .table { width: 100%; table-layout: fixed; }
 main.content .table th, main.content .table td { overflow-wrap: anywhere; }
 main.content .table code { white-space: normal; overflow-wrap: anywhere; }
+
+/* Native Quarto blog cards: eight posts, with responsive columns. */
+.blog-page .quarto-listing .list.grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.blog-page .quarto-listing .list.grid > .g-col-1 { grid-column: auto; min-width: 0; }
+.blog-page .quarto-grid-item { width: 100%; border-radius: 16px; overflow: hidden; }
+.blog-page .quarto-grid-item .card-attribution { margin-top: auto; padding-top: 16px; }
+@media (max-width: 1199px) { .blog-page .quarto-listing .list.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) { .blog-page .quarto-listing .list.grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* Portfolio widths are independent of the blog article layout. */
 body.portfolio-page #quarto-content, body.project-page #quarto-content, body:has(.hero) #quarto-content { display: block; }

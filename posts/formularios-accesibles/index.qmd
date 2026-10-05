@@ -1,0 +1,137 @@
+---
+title: "Formularios accesibles y fáciles de utilizar"
+description: "Diseña formularios con etiquetas visibles, instrucciones comprensibles, navegación por teclado y mensajes claros."
+author: Alessandra Beltrán
+date: 2026-09-17
+date-format: "D [de] MMMM [de] YYYY"
+categories: ["Diseño de interfaces"]
+image: /assets/images/formulario.jpg
+image-alt: "Formularios sobre portapapeles con marcas de revisión y una lupa"
+---
+
+![](../../assets/images/formulario.jpg){.article-cover fig-alt="Formularios sobre portapapeles con marcas de revisión y una lupa"}
+
+Un formulario es una conversación organizada: pide información para realizar una tarea y debe explicar qué necesita. Si una persona no entiende un campo o pierde lo que escribió después de un error, la interfaz agrega dificultades innecesarias. La accesibilidad comienza con preguntas claras y controles que puedan utilizarse de distintas maneras.
+
+## Etiquetas que permanecen visibles
+
+Cada campo necesita una etiqueta comprensible. En HTML, `label` se asocia al control mediante `for`, cuyo valor debe coincidir con el `id` del campo. Esa relación permite reconocer qué dato se solicita y también facilita seleccionar el campo al pulsar su etiqueta.
+
+Un `placeholder` muestra un ejemplo dentro del control, pero desaparece al escribir. Por eso no sustituye una etiqueta visible. Tampoco es un lugar adecuado para guardar la única instrucción importante sobre formato o finalidad.
+
+Utiliza tipos de entrada que correspondan al dato. `type="email"` ofrece una comprobación básica de formato y puede facilitar el teclado apropiado en teléfono. `textarea` permite un mensaje de varias líneas. Estas decisiones no garantizan que un correo exista, pero mejoran la interacción.
+
+## Orden e instrucciones
+
+Pide primero los datos sencillos y agrupa los relacionados. En un formulario de contacto, nombre, correo y mensaje siguen una secuencia fácil de entender. Solicita solo información necesaria para la tarea y explica cuáles campos son obligatorios antes de que aparezca un error.
+
+Las ayudas breves deben permanecer cerca del campo. `aria-describedby` permite asociar un texto de ayuda con su control. El atributo `required` indica una exigencia que el navegador puede comprobar, pero conviene comunicarla también con palabras visibles.
+
+## Ejemplo de interfaz de contacto
+
+Guarda este documento en `index.html` y los estilos siguientes en `styles.css`. **El ejemplo presenta la interfaz: no envía mensajes.** El botón es de tipo `button` y está deshabilitado; para procesar un envío hace falta conectar un servicio y configurar su comportamiento.
+
+```html
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario de contacto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>Contacto</h1>
+  <p>Los campos con “obligatorio” requieren una respuesta.</p>
+  <form aria-label="Formulario de contacto">
+    <label for="nombre">Nombre (obligatorio)</label>
+    <input id="nombre" name="nombre" autocomplete="name" required>
+
+    <label for="correo">Correo electrónico (obligatorio)</label>
+    <input id="correo" name="correo" type="email"
+      autocomplete="email" aria-describedby="ayuda-correo" required>
+    <p id="ayuda-correo" class="ayuda">Formato: nombre@dominio.com.</p>
+
+    <label for="mensaje">Mensaje (obligatorio)</label>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+    <p class="ayuda">Esta interfaz no tiene un servicio de envío conectado.</p>
+    <button type="button" disabled>Envío no disponible</button>
+  </form>
+</main>
+</body>
+</html>
+```
+
+```css
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #243831;
+  background: #edf8f2;
+}
+main { max-width: 640px; margin: auto; padding: 24px; }
+form { display: flex; flex-direction: column; gap: 12px; }
+label { font-weight: 650; margin-top: 12px; }
+input, textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  font: inherit;
+  border: 1px solid #577568;
+  border-radius: 8px;
+}
+.ayuda { margin: 0; font-size: .9rem; }
+button {
+  align-self: flex-start;
+  padding: 12px 20px;
+  font: inherit;
+  color: white;
+  background: #006b57;
+  border: 0;
+  border-radius: 8px;
+}
+button:disabled { cursor: not-allowed; }
+input:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 3px solid #006b57;
+  outline-offset: 3px;
+}
+```
+
+Al abrirlo verás los campos apilados, con sus etiquetas encima y espacio suficiente para leer las instrucciones. El ancho se adapta a la pantalla sin imponer un tamaño rígido a cada entrada. El botón explica visualmente que no hay envío disponible.
+
+## Mensajes que ayudan a corregir
+
+“Dato inválido” no explica cómo continuar. Un mensaje como “Escribe un correo con formato nombre@dominio.com” identifica la corrección necesaria. Colócalo junto al campo y conserva los valores que la persona ya introdujo.
+
+Cuando una implementación detecte un error, puede asociar su mensaje mediante `aria-describedby` y marcar el control con `aria-invalid="true"`. Ambos deben actualizarse de acuerdo con el estado real; no declares todos los campos inválidos desde el inicio.
+
+Un borde rojo por sí solo no comunica suficiente información. Combina el estado visual con texto que nombre el problema. Si se implementa el envío, también deben existir mensajes comprensibles de carga, éxito y fallo, basados en la respuesta del servicio.
+
+## Teclado y foco
+
+Recorre el ejemplo con Tab. El foco visible indica el campo seleccionado y sigue el orden del HTML. El botón deshabilitado no participa en ese recorrido, porque todavía no ofrece una acción disponible. No elimines los contornos de foco únicamente para simplificar la apariencia.
+
+Evita valores positivos de `tabindex` para reorganizar artificialmente el recorrido. Es más fácil mantener una estructura lógica y utilizar controles nativos con etiquetas adecuadas.
+
+## Lista de revisión
+
+- Cada control tiene etiqueta visible y asociación correcta.
+- Los identificadores son únicos.
+- Los campos obligatorios se anuncian con texto.
+- Las ayudas se encuentran junto a los campos.
+- Los errores indican cómo corregir, sin depender solo del color.
+- El teclado permite recorrer los controles y ver el foco.
+- La interfaz explica si puede enviar o todavía no está conectada.
+
+## Actividad y cierre
+
+Agrega un campo opcional de asunto con su etiqueta. Revisa su ubicación, comprueba que pulsar la etiqueta enfoca el campo y prueba el formulario en teléfono. Redacta además un mensaje para un correo incompleto, sin activar un envío real.
+
+Un formulario accesible permite comprender, responder y corregir. La claridad de sus preguntas importa tanto como el aspecto de sus controles.
+
+```{=html}
+<a class="back-to-blog" href="../../blog/index.qmd"><span aria-hidden="true">←</span> Volver al blog</a>
+```

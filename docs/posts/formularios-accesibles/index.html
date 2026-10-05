@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alessandra Beltrán">
-<meta name="description" content="Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos">
+<meta name="description" content="Diseña formularios con etiquetas visibles, instrucciones comprensibles, navegación por teclado y mensajes claros.">
 
-<title>¿Qué es una base de datos relacional? – Alessandra</title>
+<title>Formularios accesibles y fáciles de utilizar – Alessandra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,15 +172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">¿Qué es una base de datos relacional?</h1>
+<h1 class="title">Formularios accesibles y fáciles de utilizar</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Bases de datos</div>
+    <div class="quarto-category">Diseño de interfaces</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos
+    Diseña formularios con etiquetas visibles, instrucciones comprensibles, navegación por teclado y mensajes claros.
   </div>
 </div>
 
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 de octubre de 2026</p>
+      <p class="date">17 de septiembre de 2026</p>
     </div>
   </div>
   
@@ -209,68 +209,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="../../assets/images/basededatos.jpeg" class="article-cover img-fluid" alt="Ilustración de bases de datos conectadas con aplicaciones y gráficos"></p>
-<p>Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente.</p>
-<section id="tablas-filas-y-columnas" class="level2">
-<h2 class="anchored" data-anchor-id="tablas-filas-y-columnas">Tablas, filas y columnas</h2>
-<p>Una base de datos relacional almacena información en <strong>tablas</strong> relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.</p>
-<p>Este esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tabla</th>
-<th>Campos y tipos sugeridos</th>
-<th>Qué representa una fila</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>libros</code></td>
-<td><code>id_libro</code> (entero), <code>titulo</code> (texto), <code>autor</code> (texto)</td>
-<td>Un libro del catálogo</td>
-</tr>
-<tr class="even">
-<td><code>prestamos</code></td>
-<td><code>id_prestamo</code> (entero), <code>id_libro</code> (entero), <code>fecha_prestamo</code> (fecha), <code>fecha_devolucion</code> (fecha, admite nulos)</td>
-<td>Un préstamo de un libro</td>
-</tr>
-</tbody>
-</table>
-<p>Para esta práctica, cada registro de <code>libros</code> representa un único ejemplar. Un préstamo sin devolución registrada tiene <code>fecha_devolucion</code> en <code>NULL</code>, que expresa la ausencia de un valor.</p>
+<p><img src="../../assets/images/formulario.jpg" class="article-cover img-fluid" alt="Formularios sobre portapapeles con marcas de revisión y una lupa"></p>
+<p>Un formulario es una conversación organizada: pide información para realizar una tarea y debe explicar qué necesita. Si una persona no entiende un campo o pierde lo que escribió después de un error, la interfaz agrega dificultades innecesarias. La accesibilidad comienza con preguntas claras y controles que puedan utilizarse de distintas maneras.</p>
+<section id="etiquetas-que-permanecen-visibles" class="level2">
+<h2 class="anchored" data-anchor-id="etiquetas-que-permanecen-visibles">Etiquetas que permanecen visibles</h2>
+<p>Cada campo necesita una etiqueta comprensible. En HTML, <code>label</code> se asocia al control mediante <code>for</code>, cuyo valor debe coincidir con el <code>id</code> del campo. Esa relación permite reconocer qué dato se solicita y también facilita seleccionar el campo al pulsar su etiqueta.</p>
+<p>Un <code>placeholder</code> muestra un ejemplo dentro del control, pero desaparece al escribir. Por eso no sustituye una etiqueta visible. Tampoco es un lugar adecuado para guardar la única instrucción importante sobre formato o finalidad.</p>
+<p>Utiliza tipos de entrada que correspondan al dato. <code>type="email"</code> ofrece una comprobación básica de formato y puede facilitar el teclado apropiado en teléfono. <code>textarea</code> permite un mensaje de varias líneas. Estas decisiones no garantizan que un correo exista, pero mejoran la interacción.</p>
 </section>
-<section id="claves-y-relaciones" class="level2">
-<h2 class="anchored" data-anchor-id="claves-y-relaciones">Claves y relaciones</h2>
-<p>La <strong>clave primaria</strong> distingue cada fila y no debe repetirse ni ser nula. Aquí será <code>libros.id_libro</code>; para los préstamos será <code>prestamos.id_prestamo</code>. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.</p>
-<p>La <strong>clave foránea</strong> conecta tablas. <code>prestamos.id_libro</code> apunta a <code>libros.id_libro</code>. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación <strong>uno a muchos</strong>. Cada préstamo del ejemplo corresponde a un solo libro.</p>
-<p>También existen relaciones <strong>muchos a muchos</strong>. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear <code>autores</code> y una tabla intermedia <code>libros_autores</code>. Esta última guarda parejas de <code>id_libro</code> e <code>id_autor</code>, evitando una lista de nombres dentro de una celda.</p>
+<section id="orden-e-instrucciones" class="level2">
+<h2 class="anchored" data-anchor-id="orden-e-instrucciones">Orden e instrucciones</h2>
+<p>Pide primero los datos sencillos y agrupa los relacionados. En un formulario de contacto, nombre, correo y mensaje siguen una secuencia fácil de entender. Solicita solo información necesaria para la tarea y explica cuáles campos son obligatorios antes de que aparezca un error.</p>
+<p>Las ayudas breves deben permanecer cerca del campo. <code>aria-describedby</code> permite asociar un texto de ayuda con su control. El atributo <code>required</code> indica una exigencia que el navegador puede comprobar, pero conviene comunicarla también con palabras visibles.</p>
 </section>
-<section id="integridad-y-organización" class="level2">
-<h2 class="anchored" data-anchor-id="integridad-y-organización">Integridad y organización</h2>
-<p>La <strong>integridad referencial</strong>, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.</p>
-<p>Organizar la información por temas reduce repeticiones. El título y el autor permanecen en <code>libros</code>, mientras <code>prestamos</code> guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores.</p>
+<section id="ejemplo-de-interfaz-de-contacto" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-de-interfaz-de-contacto">Ejemplo de interfaz de contacto</h2>
+<p>Guarda este documento en <code>index.html</code> y los estilos siguientes en <code>styles.css</code>. <strong>El ejemplo presenta la interfaz: no envía mensajes.</strong> El botón es de tipo <code>button</code> y está deshabilitado; para procesar un envío hace falta conectar un servicio y configurar su comportamiento.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">"viewport"</span><span class="ot"> content</span><span class="op">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Formulario de contacto<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"styles.css"</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Contacto<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Los campos con “obligatorio” requieren una respuesta.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"Formulario de contacto"</span><span class="dt">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">"nombre"</span><span class="dt">&gt;</span>Nombre (obligatorio)<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> id</span><span class="op">=</span><span class="st">"nombre"</span><span class="ot"> name</span><span class="op">=</span><span class="st">"nombre"</span><span class="ot"> autocomplete</span><span class="op">=</span><span class="st">"name"</span><span class="ot"> required</span><span class="dt">&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">"correo"</span><span class="dt">&gt;</span>Correo electrónico (obligatorio)<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> id</span><span class="op">=</span><span class="st">"correo"</span><span class="ot"> name</span><span class="op">=</span><span class="st">"correo"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"email"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ot">      autocomplete</span><span class="op">=</span><span class="st">"email"</span><span class="ot"> aria-describedby</span><span class="op">=</span><span class="st">"ayuda-correo"</span><span class="ot"> required</span><span class="dt">&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">"ayuda-correo"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"ayuda"</span><span class="dt">&gt;</span>Formato: nombre@dominio.com.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">"mensaje"</span><span class="dt">&gt;</span>Mensaje (obligatorio)<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">textarea</span><span class="ot"> id</span><span class="op">=</span><span class="st">"mensaje"</span><span class="ot"> name</span><span class="op">=</span><span class="st">"mensaje"</span><span class="ot"> rows</span><span class="op">=</span><span class="st">"5"</span><span class="ot"> required</span><span class="dt">&gt;&lt;/</span><span class="kw">textarea</span><span class="dt">&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"ayuda"</span><span class="dt">&gt;</span>Esta interfaz no tiene un servicio de envío conectado.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> disabled</span><span class="dt">&gt;</span>Envío no disponible<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span> { <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">border-box</span><span class="op">;</span> }</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="dv">system-ui</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.6</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#243831</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#edf8f2</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>main { <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">640</span><span class="dt">px</span><span class="op">;</span> <span class="kw">margin</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span> <span class="kw">padding</span><span class="ch">:</span> <span class="dv">24</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>form { <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span> <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span> <span class="kw">gap</span><span class="ch">:</span> <span class="dv">12</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>label { <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">650</span><span class="op">;</span> <span class="kw">margin-top</span><span class="ch">:</span> <span class="dv">12</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>input<span class="op">,</span> textarea {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">min-width</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">12</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font</span><span class="ch">:</span> <span class="bu">inherit</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#577568</span><span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">.ayuda</span> { <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span> <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">.9</span><span class="dt">rem</span><span class="op">;</span> }</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>button {</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-self</span><span class="ch">:</span> <span class="dv">flex-start</span><span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">12</span><span class="dt">px</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font</span><span class="ch">:</span> <span class="bu">inherit</span><span class="op">;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#006b57</span><span class="op">;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>button<span class="in">:disabled</span> { <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">not-allowed</span><span class="op">;</span> }</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>input<span class="in">:focus-visible</span><span class="op">,</span> textarea<span class="in">:focus-visible</span><span class="op">,</span> button<span class="in">:focus-visible</span> {</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">outline</span><span class="ch">:</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#006b57</span><span class="op">;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">outline-offset</span><span class="ch">:</span> <span class="dv">3</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Al abrirlo verás los campos apilados, con sus etiquetas encima y espacio suficiente para leer las instrucciones. El ancho se adapta a la pantalla sin imponer un tamaño rígido a cada entrada. El botón explica visualmente que no hay envío disponible.</p>
 </section>
-<section id="consultar-con-sql" class="level2">
-<h2 class="anchored" data-anchor-id="consultar-con-sql">Consultar con SQL</h2>
-<p><strong>Las tablas y las columnas indicadas deben existir antes de ejecutar estas consultas.</strong> Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> titulo, autor</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> libros</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> titulo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Esta consulta necesita las columnas <code>titulo</code> y <code>autor</code> de <code>libros</code>. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> libros.titulo, prestamos.fecha_prestamo</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> prestamos</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> libros <span class="kw">ON</span> prestamos.id_libro <span class="op">=</span> libros.id_libro</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> prestamos.fecha_prestamo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La segunda consulta une cada préstamo con su libro utilizando <code>id_libro</code> en ambas tablas. Requiere además <code>libros.titulo</code> y <code>prestamos.fecha_prestamo</code>. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos.</p>
+<section id="mensajes-que-ayudan-a-corregir" class="level2">
+<h2 class="anchored" data-anchor-id="mensajes-que-ayudan-a-corregir">Mensajes que ayudan a corregir</h2>
+<p>“Dato inválido” no explica cómo continuar. Un mensaje como “Escribe un correo con formato nombre@dominio.com” identifica la corrección necesaria. Colócalo junto al campo y conserva los valores que la persona ya introdujo.</p>
+<p>Cuando una implementación detecte un error, puede asociar su mensaje mediante <code>aria-describedby</code> y marcar el control con <code>aria-invalid="true"</code>. Ambos deben actualizarse de acuerdo con el estado real; no declares todos los campos inválidos desde el inicio.</p>
+<p>Un borde rojo por sí solo no comunica suficiente información. Combina el estado visual con texto que nombre el problema. Si se implementa el envío, también deben existir mensajes comprensibles de carga, éxito y fallo, basados en la respuesta del servicio.</p>
 </section>
-<section id="ventajas-errores-frecuentes-y-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-errores-frecuentes-y-práctica">Ventajas, errores frecuentes y práctica</h2>
-<p>Este enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.</p>
-<p><strong>Actividad:</strong> dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.</p>
+<section id="teclado-y-foco" class="level2">
+<h2 class="anchored" data-anchor-id="teclado-y-foco">Teclado y foco</h2>
+<p>Recorre el ejemplo con Tab. El foco visible indica el campo seleccionado y sigue el orden del HTML. El botón deshabilitado no participa en ese recorrido, porque todavía no ofrece una acción disponible. No elimines los contornos de foco únicamente para simplificar la apariencia.</p>
+<p>Evita valores positivos de <code>tabindex</code> para reorganizar artificialmente el recorrido. Es más fácil mantener una estructura lógica y utilizar controles nativos con etiquetas adecuadas.</p>
+</section>
+<section id="lista-de-revisión" class="level2">
+<h2 class="anchored" data-anchor-id="lista-de-revisión">Lista de revisión</h2>
+<ul>
+<li>Cada control tiene etiqueta visible y asociación correcta.</li>
+<li>Los identificadores son únicos.</li>
+<li>Los campos obligatorios se anuncian con texto.</li>
+<li>Las ayudas se encuentran junto a los campos.</li>
+<li>Los errores indican cómo corregir, sin depender solo del color.</li>
+<li>El teclado permite recorrer los controles y ver el foco.</li>
+<li>La interfaz explica si puede enviar o todavía no está conectada.</li>
+</ul>
+</section>
+<section id="actividad-y-cierre" class="level2">
+<h2 class="anchored" data-anchor-id="actividad-y-cierre">Actividad y cierre</h2>
+<p>Agrega un campo opcional de asunto con su etiqueta. Revisa su ubicación, comprueba que pulsar la etiqueta enfoca el campo y prueba el formulario en teléfono. Redacta además un mensaje para un correo incompleto, sin activar un envío real.</p>
+<p>Un formulario accesible permite comprender, responder y corregir. La claridad de sus preguntas importa tanto como el aspecto de sus controles.</p>
 <a class="back-to-blog" href="../../blog/index.html"><span aria-hidden="true">←</span> Volver al blog</a>
 
 

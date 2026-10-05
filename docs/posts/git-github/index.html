@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alessandra Beltrán">
-<meta name="description" content="Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos">
+<meta name="description" content="Comprende repositorios, commits y remotos para organizar cambios y compartir un proyecto con Git y GitHub.">
 
-<title>¿Qué es una base de datos relacional? – Alessandra</title>
+<title>Primeros pasos con Git y GitHub – Alessandra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,15 +172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">¿Qué es una base de datos relacional?</h1>
+<h1 class="title">Primeros pasos con Git y GitHub</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Bases de datos</div>
+    <div class="quarto-category">Herramientas de desarrollo</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos
+    Comprende repositorios, commits y remotos para organizar cambios y compartir un proyecto con Git y GitHub.
   </div>
 </div>
 
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 de octubre de 2026</p>
+      <p class="date">2 de octubre de 2026</p>
     </div>
   </div>
   
@@ -209,68 +209,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="../../assets/images/basededatos.jpeg" class="article-cover img-fluid" alt="Ilustración de bases de datos conectadas con aplicaciones y gráficos"></p>
-<p>Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente.</p>
-<section id="tablas-filas-y-columnas" class="level2">
-<h2 class="anchored" data-anchor-id="tablas-filas-y-columnas">Tablas, filas y columnas</h2>
-<p>Una base de datos relacional almacena información en <strong>tablas</strong> relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.</p>
-<p>Este esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tabla</th>
-<th>Campos y tipos sugeridos</th>
-<th>Qué representa una fila</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>libros</code></td>
-<td><code>id_libro</code> (entero), <code>titulo</code> (texto), <code>autor</code> (texto)</td>
-<td>Un libro del catálogo</td>
-</tr>
-<tr class="even">
-<td><code>prestamos</code></td>
-<td><code>id_prestamo</code> (entero), <code>id_libro</code> (entero), <code>fecha_prestamo</code> (fecha), <code>fecha_devolucion</code> (fecha, admite nulos)</td>
-<td>Un préstamo de un libro</td>
-</tr>
-</tbody>
-</table>
-<p>Para esta práctica, cada registro de <code>libros</code> representa un único ejemplar. Un préstamo sin devolución registrada tiene <code>fecha_devolucion</code> en <code>NULL</code>, que expresa la ausencia de un valor.</p>
+<p><img src="../../assets/images/git.webp" class="article-cover img-fluid" alt="Logotipos de Git y GitHub sobre un fondo claro"></p>
+<p>Guardar versiones como <code>pagina-final</code>, <code>pagina-final2</code> y <code>pagina-final-ahora-si</code> complica reconocer qué cambió. Un sistema de control de versiones registra el historial de un proyecto y permite consultar sus etapas. Git ofrece esa organización; GitHub permite alojar repositorios y compartirlos, pero son herramientas diferentes.</p>
+<section id="git-y-github-no-son-lo-mismo" class="level2">
+<h2 class="anchored" data-anchor-id="git-y-github-no-son-lo-mismo">Git y GitHub no son lo mismo</h2>
+<p><strong>Git</strong> funciona en tu computadora y administra versiones dentro de un repositorio. Puedes registrar cambios sin conexión a internet. <strong>GitHub</strong> es una plataforma que aloja repositorios remotos y facilita compartir su historial con otras personas.</p>
+<p>Un proyecto puede utilizar Git sin publicarse en GitHub. También puedes tener archivos en GitHub sin que los cambios nuevos de tu computadora se hayan enviado todavía. Distinguir ambos espacios evita pensar que guardar un archivo actualiza automáticamente el repositorio remoto.</p>
 </section>
-<section id="claves-y-relaciones" class="level2">
-<h2 class="anchored" data-anchor-id="claves-y-relaciones">Claves y relaciones</h2>
-<p>La <strong>clave primaria</strong> distingue cada fila y no debe repetirse ni ser nula. Aquí será <code>libros.id_libro</code>; para los préstamos será <code>prestamos.id_prestamo</code>. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.</p>
-<p>La <strong>clave foránea</strong> conecta tablas. <code>prestamos.id_libro</code> apunta a <code>libros.id_libro</code>. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación <strong>uno a muchos</strong>. Cada préstamo del ejemplo corresponde a un solo libro.</p>
-<p>También existen relaciones <strong>muchos a muchos</strong>. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear <code>autores</code> y una tabla intermedia <code>libros_autores</code>. Esta última guarda parejas de <code>id_libro</code> e <code>id_autor</code>, evitando una lista de nombres dentro de una celda.</p>
+<section id="repositorio-preparación-y-commit" class="level2">
+<h2 class="anchored" data-anchor-id="repositorio-preparación-y-commit">Repositorio, preparación y commit</h2>
+<p>Un <strong>repositorio</strong> reúne los archivos y el historial que Git administra. El directorio de trabajo contiene lo que estás editando. El área de preparación selecciona los cambios que quieres incluir en el siguiente registro.</p>
+<p>Un <strong>commit</strong> registra una versión preparada, acompañada de un mensaje que explica el cambio. No representa necesariamente todo lo que modificaste: incluye lo que seleccionaste para ese commit. Un <strong>remoto</strong> es una referencia a otro repositorio, normalmente accesible mediante una dirección.</p>
 </section>
-<section id="integridad-y-organización" class="level2">
-<h2 class="anchored" data-anchor-id="integridad-y-organización">Integridad y organización</h2>
-<p>La <strong>integridad referencial</strong>, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.</p>
-<p>Organizar la información por temas reduce repeticiones. El título y el autor permanecen en <code>libros</code>, mientras <code>prestamos</code> guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores.</p>
+<section id="una-carpeta-de-práctica-independiente" class="level2">
+<h2 class="anchored" data-anchor-id="una-carpeta-de-práctica-independiente">Una carpeta de práctica independiente</h2>
+<p>Los comandos siguientes son un ejercicio para una carpeta nueva; no los ejecutes sin revisar la ubicación actual. Utiliza una terminal dentro de <code>practica-git</code>, separada de tus proyectos existentes. Antes de comenzar, Git debe estar instalado y tu nombre y correo de autor configurados según las indicaciones de su instalación.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git init</code> crea el repositorio de esa carpeta. <code>git status</code> informa qué archivos cambiaron, cuáles están preparados y cuáles todavía no se siguen. Consultar el estado antes y después de cada paso ayuda a comprender lo que estás registrando.</p>
 </section>
-<section id="consultar-con-sql" class="level2">
-<h2 class="anchored" data-anchor-id="consultar-con-sql">Consultar con SQL</h2>
-<p><strong>Las tablas y las columnas indicadas deben existir antes de ejecutar estas consultas.</strong> Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> titulo, autor</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> libros</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> titulo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Esta consulta necesita las columnas <code>titulo</code> y <code>autor</code> de <code>libros</code>. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> libros.titulo, prestamos.fecha_prestamo</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> prestamos</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> libros <span class="kw">ON</span> prestamos.id_libro <span class="op">=</span> libros.id_libro</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> prestamos.fecha_prestamo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La segunda consulta une cada préstamo con su libro utilizando <code>id_libro</code> en ambas tablas. Requiere además <code>libros.titulo</code> y <code>prestamos.fecha_prestamo</code>. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos.</p>
+<section id="elegir-archivos-y-registrar-una-versión" class="level2">
+<h2 class="anchored" data-anchor-id="elegir-archivos-y-registrar-una-versión">Elegir archivos y registrar una versión</h2>
+<p>Crea <code>index.html</code> con una presentación sencilla y <code>styles.css</code> con algunos estilos. Prepara esos archivos de forma explícita:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add index.html styles.css</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Agregar presentación y estilos iniciales"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git add</code> lleva sus cambios al área de preparación. <code>git commit</code> registra esa selección en el historial local. Si editas un archivo después de prepararlo, su nueva modificación no se incorpora automáticamente al commit: debes revisar el estado y prepararla cuando corresponda.</p>
+<p>Un mensaje claro describe una acción concreta. “Ajustar espacios del formulario” explica más que “Cambios”. Procura agrupar modificaciones relacionadas para que cada registro tenga un propósito fácil de comprender.</p>
 </section>
-<section id="ventajas-errores-frecuentes-y-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-errores-frecuentes-y-práctica">Ventajas, errores frecuentes y práctica</h2>
-<p>Este enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.</p>
-<p><strong>Actividad:</strong> dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.</p>
+<section id="la-función-de-.gitignore" class="level2">
+<h2 class="anchored" data-anchor-id="la-función-de-.gitignore">La función de .gitignore</h2>
+<p>El archivo <code>.gitignore</code> indica patrones de archivos que Git no debe incorporar como nuevos archivos seguidos. Puede excluir cachés, archivos temporales y configuraciones locales. Un ejemplo para la carpeta de práctica es:</p>
+<pre class="gitignore"><code>.env
+*.log</code></pre>
+<p>Guarda esas líneas en <code>.gitignore</code> y registra también ese archivo con <code>git add .gitignore</code> y un commit descriptivo. Ignorar <code>.env</code> ayuda a evitar incorporarlo accidentalmente, pero no sustituye revisar qué estás preparando.</p>
+<p><strong>No subas contraseñas, tokens ni claves.</strong> <code>.gitignore</code> no elimina del historial información que ya fue registrada. Si una credencial se expone, debes revocarla o reemplazarla y revisar el incidente; añadir su nombre a la lista de exclusión no corrige la exposición anterior.</p>
+</section>
+<section id="conectar-un-remoto-y-enviar-cambios" class="level2">
+<h2 class="anchored" data-anchor-id="conectar-un-remoto-y-enviar-cambios">Conectar un remoto y enviar cambios</h2>
+<p>Crea en GitHub un repositorio vacío para el ejercicio y utiliza su dirección real. <strong>La URL siguiente es un valor de ejemplo que debes reemplazar</strong>, no un repositorio existente recomendado para enviar archivos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--show-current</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>origin</code> es un nombre convencional para el remoto. <code>git remote -v</code> permite comprobar su dirección; el último comando muestra tu rama actual. Para enviar los commits utiliza el nombre que realmente tenga esa rama:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin NOMBRE_DE_TU_RAMA</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reemplaza también <code>NOMBRE_DE_TU_RAMA</code>. <code>push</code> envía commits al remoto y puede solicitar autenticación. Si el envío falla, lee el mensaje y comprueba permisos, conexión y estado del remoto; no fuerces el envío para saltarte el problema.</p>
+</section>
+<section id="tres-acciones-diferentes" class="level2">
+<h2 class="anchored" data-anchor-id="tres-acciones-diferentes">Tres acciones diferentes</h2>
+<p><strong>Guardar</strong> actualiza un archivo en la computadora. <strong>Hacer commit</strong> registra una selección en el historial local. <strong>Subir con push</strong> comparte los commits con el remoto. Un archivo guardado pero no registrado no viaja como parte de un commit por ejecutar <code>push</code>.</p>
+</section>
+<section id="actividad-y-cierre" class="level2">
+<h2 class="anchored" data-anchor-id="actividad-y-cierre">Actividad y cierre</h2>
+<p>En una carpeta independiente, crea una página, consulta su estado y registra una primera versión. Cambia solamente el título, revisa qué detecta Git y registra otro commit con un mensaje concreto. Identifica qué pasos fueron locales y cuál necesitaría conexión.</p>
+<p>El hábito más útil es revisar antes de registrar y antes de compartir. Un historial comprensible facilita continuar el trabajo sin depender de nombres de archivos cada vez más largos.</p>
 <a class="back-to-blog" href="../../blog/index.html"><span aria-hidden="true">←</span> Volver al blog</a>
 
 

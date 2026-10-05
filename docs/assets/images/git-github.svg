@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<title id="title">Git y GitHub</title><desc id="desc">Una línea de commits con una rama alternativa que se vuelve a unir al historial.</desc>
+<rect width="960" height="600" fill="#e9f6f1"/><rect x="70" y="80" width="820" height="440" rx="32" fill="white"/>
+<g fill="none" stroke="#006b57" stroke-width="12" stroke-linecap="round"><path d="M145 365h670M300 365c50 0 20-170 120-170h150c100 0 70 170 160 170"/></g>
+<g fill="#e9f6f1" stroke="#006b57" stroke-width="7"><circle cx="165" cy="365" r="27"/><circle cx="300" cy="365" r="27"/><circle cx="485" cy="365" r="27"/><circle cx="730" cy="365" r="27"/><circle cx="815" cy="365" r="27"/></g>
+<g fill="#a2cdb9" stroke="#006b57" stroke-width="7"><circle cx="430" cy="195" r="27"/><circle cx="565" cy="195" r="27"/></g>
+<g fill="#006b57" font-family="system-ui, sans-serif" font-size="26"><text x="390" y="140">rama</text><text x="345" y="445">historial de commits</text></g>
+</svg>

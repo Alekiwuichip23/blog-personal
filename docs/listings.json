@@ -1,21 +1,31 @@
 [
   {
+    "listing": "/blog/index.html",
+    "items": [
+      "/posts/bases-de-datos/index.html",
+      "/posts/diseno-interfaces/index.html",
+      "/posts/estructura-web/index.html",
+      "/posts/git-github/index.html",
+      "/posts/javascript-dom/index.html",
+      "/posts/formularios-accesibles/index.html",
+      "/posts/css-flexbox/index.html",
+      "/posts/consultas-sql/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/bases-de-datos/index.html",
       "/posts/diseno-interfaces/index.html",
       "/posts/estructura-web/index.html",
+      "/posts/git-github/index.html",
+      "/posts/javascript-dom/index.html",
+      "/posts/formularios-accesibles/index.html",
+      "/posts/css-flexbox/index.html",
+      "/posts/consultas-sql/index.html",
       "/proyectos/bases-de-datos.html",
       "/proyectos/pagina-web.html",
       "/proyectos/diseno-interfaces.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/posts/bases-de-datos/index.html",
-      "/posts/diseno-interfaces/index.html",
-      "/posts/estructura-web/index.html"
     ]
   },
   {

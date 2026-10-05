@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alessandra Beltrán">
-<meta name="description" content="Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos">
+<meta name="description" content="Aprende a elegir columnas, filtrar productos y ordenar resultados con consultas SQL sencillas y coherentes.">
 
-<title>¿Qué es una base de datos relacional? – Alessandra</title>
+<title>Consultas SQL básicas: SELECT, WHERE y ORDER BY – Alessandra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">¿Qué es una base de datos relacional?</h1>
+<h1 class="title">Consultas SQL básicas: SELECT, WHERE y ORDER BY</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Bases de datos</div>
   </div>
@@ -180,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos
+    Aprende a elegir columnas, filtrar productos y ordenar resultados con consultas SQL sencillas y coherentes.
   </div>
 </div>
 
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 de octubre de 2026</p>
+      <p class="date">4 de septiembre de 2026</p>
     </div>
   </div>
   
@@ -209,68 +209,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="../../assets/images/basededatos.jpeg" class="article-cover img-fluid" alt="Ilustración de bases de datos conectadas con aplicaciones y gráficos"></p>
-<p>Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente.</p>
-<section id="tablas-filas-y-columnas" class="level2">
-<h2 class="anchored" data-anchor-id="tablas-filas-y-columnas">Tablas, filas y columnas</h2>
-<p>Una base de datos relacional almacena información en <strong>tablas</strong> relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.</p>
-<p>Este esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:</p>
+<p><img src="../../assets/images/sql.jpg" class="article-cover img-fluid" alt="Texto SQL rodeado de figuras geométricas azules"></p>
+<p>Una tienda necesita encontrar productos económicos, consultar una categoría o revisar los precios de mayor a menor. SQL permite expresar esas preguntas sin recorrer cada registro manualmente. Comenzar con consultas pequeñas ayuda a entender cómo cambia el resultado al elegir columnas, añadir condiciones y establecer un orden.</p>
+<section id="qué-es-sql" class="level2">
+<h2 class="anchored" data-anchor-id="qué-es-sql">Qué es SQL</h2>
+<p>SQL es un lenguaje para trabajar con bases de datos relacionales. Permite consultar información y también definir o modificar datos, aunque aquí nos concentraremos en la lectura. Una consulta <code>SELECT</code> devuelve un resultado: no modifica por sí misma los registros almacenados.</p>
+<p>Los ejemplos utilizan sintaxis compatible con MySQL. <strong>La tabla <code>productos</code> debe existir y contener las columnas indicadas antes de ejecutar las consultas.</strong> Puedes utilizar una base de práctica, evitando experimentar sobre información que necesitas conservar.</p>
+</section>
+<section id="una-tabla-para-hacer-preguntas" class="level2">
+<h2 class="anchored" data-anchor-id="una-tabla-para-hacer-preguntas">Una tabla para hacer preguntas</h2>
+<p>La tabla del ejemplo tiene cuatro columnas: <code>id</code>, un identificador entero; <code>nombre</code>, texto; <code>precio</code>, un número decimal; y <code>categoria</code>, texto. Estos son sus datos de muestra:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Tabla</th>
-<th>Campos y tipos sugeridos</th>
-<th>Qué representa una fila</th>
+<th>id</th>
+<th>nombre</th>
+<th>precio</th>
+<th>categoria</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>libros</code></td>
-<td><code>id_libro</code> (entero), <code>titulo</code> (texto), <code>autor</code> (texto)</td>
-<td>Un libro del catálogo</td>
+<td>1</td>
+<td>Cuaderno</td>
+<td>45.00</td>
+<td>Papelería</td>
 </tr>
 <tr class="even">
-<td><code>prestamos</code></td>
-<td><code>id_prestamo</code> (entero), <code>id_libro</code> (entero), <code>fecha_prestamo</code> (fecha), <code>fecha_devolucion</code> (fecha, admite nulos)</td>
-<td>Un préstamo de un libro</td>
+<td>2</td>
+<td>Lápiz</td>
+<td>10.00</td>
+<td>Papelería</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mouse</td>
+<td>180.00</td>
+<td>Tecnología</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Cable USB</td>
+<td>90.00</td>
+<td>Tecnología</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Carpeta</td>
+<td>30.00</td>
+<td>Papelería</td>
 </tr>
 </tbody>
 </table>
-<p>Para esta práctica, cada registro de <code>libros</code> representa un único ejemplar. Un préstamo sin devolución registrada tiene <code>fecha_devolucion</code> en <code>NULL</code>, que expresa la ausencia de un valor.</p>
+<p>Para practicar desde cero, crea esta tabla y sus registros en una base de datos seleccionada en MySQL:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> productos (</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">id</span> <span class="dt">INT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  nombre <span class="dt">VARCHAR</span>(<span class="dv">80</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  precio <span class="dt">DECIMAL</span>(<span class="dv">8</span>, <span class="dv">2</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  categoria <span class="dt">VARCHAR</span>(<span class="dv">40</span>) <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> productos (<span class="kw">id</span>, nombre, precio, categoria) <span class="kw">VALUES</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span>, <span class="st">'Cuaderno'</span>, <span class="fl">45.00</span>, <span class="st">'Papelería'</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">2</span>, <span class="st">'Lápiz'</span>, <span class="fl">10.00</span>, <span class="st">'Papelería'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">3</span>, <span class="st">'Mouse'</span>, <span class="fl">180.00</span>, <span class="st">'Tecnología'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">4</span>, <span class="st">'Cable USB'</span>, <span class="fl">90.00</span>, <span class="st">'Tecnología'</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">5</span>, <span class="st">'Carpeta'</span>, <span class="fl">30.00</span>, <span class="st">'Papelería'</span>);</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La preparación crea una tabla nueva; no la repitas si ya existe. <code>DECIMAL</code> permite representar precios con dos posiciones decimales. Las consultas siguientes presuponen exactamente estos cinco registros.</p>
 </section>
-<section id="claves-y-relaciones" class="level2">
-<h2 class="anchored" data-anchor-id="claves-y-relaciones">Claves y relaciones</h2>
-<p>La <strong>clave primaria</strong> distingue cada fila y no debe repetirse ni ser nula. Aquí será <code>libros.id_libro</code>; para los préstamos será <code>prestamos.id_prestamo</code>. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.</p>
-<p>La <strong>clave foránea</strong> conecta tablas. <code>prestamos.id_libro</code> apunta a <code>libros.id_libro</code>. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación <strong>uno a muchos</strong>. Cada préstamo del ejemplo corresponde a un solo libro.</p>
-<p>También existen relaciones <strong>muchos a muchos</strong>. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear <code>autores</code> y una tabla intermedia <code>libros_autores</code>. Esta última guarda parejas de <code>id_libro</code> e <code>id_autor</code>, evitando una lista de nombres dentro de una celda.</p>
+<section id="select-elegir-lo-que-quieres-ver" class="level2">
+<h2 class="anchored" data-anchor-id="select-elegir-lo-que-quieres-ver">SELECT: elegir lo que quieres ver</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nombre, precio</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> productos</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">ASC</span>;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>SELECT</code> elige las columnas y <code>FROM</code> identifica la tabla. El resultado presenta Cuaderno, Lápiz, Mouse, Cable USB y Carpeta, con sus precios. <code>id</code> sirve para ordenar aunque no aparezca entre las columnas seleccionadas.</p>
+<p><code>SELECT *</code> solicita todas las columnas. Puede ser útil al explorar una tabla, pero elegir campos concretos facilita leer los resultados y deja claro qué información necesita una consulta.</p>
 </section>
-<section id="integridad-y-organización" class="level2">
-<h2 class="anchored" data-anchor-id="integridad-y-organización">Integridad y organización</h2>
-<p>La <strong>integridad referencial</strong>, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.</p>
-<p>Organizar la información por temas reduce repeticiones. El título y el autor permanecen en <code>libros</code>, mientras <code>prestamos</code> guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores.</p>
+<section id="where-decidir-qué-filas-aparecen" class="level2">
+<h2 class="anchored" data-anchor-id="where-decidir-qué-filas-aparecen">WHERE: decidir qué filas aparecen</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nombre, precio</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> productos</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> precio <span class="op">&lt;=</span> <span class="fl">45.00</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> precio <span class="kw">ASC</span>;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El resultado será Lápiz, 10.00; Carpeta, 30.00; y Cuaderno, 45.00. <code>WHERE</code> conserva únicamente las filas que cumplen la condición. Las comparaciones habituales incluyen <code>=</code>, <code>&lt;&gt;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> y <code>&gt;=</code>. Escribe los textos entre comillas simples, por ejemplo <code>categoria = 'Papelería'</code>.</p>
 </section>
-<section id="consultar-con-sql" class="level2">
-<h2 class="anchored" data-anchor-id="consultar-con-sql">Consultar con SQL</h2>
-<p><strong>Las tablas y las columnas indicadas deben existir antes de ejecutar estas consultas.</strong> Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> titulo, autor</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> libros</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> titulo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Esta consulta necesita las columnas <code>titulo</code> y <code>autor</code> de <code>libros</code>. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> libros.titulo, prestamos.fecha_prestamo</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> prestamos</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> libros <span class="kw">ON</span> prestamos.id_libro <span class="op">=</span> libros.id_libro</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> prestamos.fecha_prestamo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La segunda consulta une cada préstamo con su libro utilizando <code>id_libro</code> en ambas tablas. Requiere además <code>libros.titulo</code> y <code>prestamos.fecha_prestamo</code>. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos.</p>
+<section id="combinar-condiciones-con-and-y-or" class="level2">
+<h2 class="anchored" data-anchor-id="combinar-condiciones-con-and-y-or">Combinar condiciones con AND y OR</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nombre, precio</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> productos</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> categoria <span class="op">=</span> <span class="st">'Tecnología'</span> <span class="kw">AND</span> precio <span class="op">&lt;</span> <span class="fl">150.00</span>;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>AND</code> exige que ambas condiciones se cumplan. Solo aparece Cable USB, con precio 90.00: Mouse pertenece a la categoría, pero supera el límite.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nombre</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> productos</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> (categoria <span class="op">=</span> <span class="st">'Tecnología'</span> <span class="kw">OR</span> precio <span class="op">&lt;=</span> <span class="fl">10.00</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span>;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>OR</code> acepta una condición o la otra. Aquí aparecen Lápiz, Mouse y Cable USB. Si mezclas <code>AND</code> y <code>OR</code>, utiliza paréntesis para expresar claramente qué condiciones deben agruparse y evitar resultados inesperados.</p>
 </section>
-<section id="ventajas-errores-frecuentes-y-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-errores-frecuentes-y-práctica">Ventajas, errores frecuentes y práctica</h2>
-<p>Este enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.</p>
-<p><strong>Actividad:</strong> dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.</p>
+<section id="order-by-organizar-el-resultado" class="level2">
+<h2 class="anchored" data-anchor-id="order-by-organizar-el-resultado">ORDER BY: organizar el resultado</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> nombre, precio</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> productos</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> precio <span class="kw">DESC</span>, <span class="kw">id</span> <span class="kw">ASC</span>;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>ASC</code> ordena de menor a mayor y <code>DESC</code> de mayor a menor. Esta consulta devuelve Mouse, Cable USB, Cuaderno, Carpeta y Lápiz. La segunda columna de ordenación resuelve empates de precio mediante el identificador.</p>
+<p><strong>Filtrar y ordenar son operaciones distintas:</strong> <code>WHERE</code> decide qué filas participan; <code>ORDER BY</code> decide cómo se presentan. Ordenar no elimina productos, y filtrar no garantiza un orden. Sin <code>ORDER BY</code>, no debes suponer que las filas siempre aparecerán como fueron insertadas.</p>
+</section>
+<section id="errores-frecuentes-y-recomendaciones" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes-y-recomendaciones">Errores frecuentes y recomendaciones</h2>
+<p>Comprueba los nombres de columnas, las comas entre campos y las comillas de los textos. Mantén el orden <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>ORDER BY</code>. Una condición demasiado restrictiva puede devolver cero filas sin que haya un error de sintaxis.</p>
+<p>Evita comparar precios guardados como texto: su orden puede ser diferente del numérico. También revisa los datos de muestra antes de atribuir un resultado extraño a SQL.</p>
+</section>
+<section id="actividad-y-cierre" class="level2">
+<h2 class="anchored" data-anchor-id="actividad-y-cierre">Actividad y cierre</h2>
+<p>Escribe una consulta que muestre productos de Papelería con precio superior a 10.00, ordenados por precio descendente. Antes de ejecutarla, predice los nombres: deberían ser Cuaderno y Carpeta. Después modifica una sola condición y explica qué cambia.</p>
+<p>Dominar estas tres instrucciones permite convertir una pregunta concreta en un resultado comprensible. La práctica más útil consiste en anticipar qué filas esperas y comprobar por qué cada una cumple la consulta.</p>
 <a class="back-to-blog" href="../../blog/index.html"><span aria-hidden="true">←</span> Volver al blog</a>
 
 

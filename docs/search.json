@@ -84,116 +84,123 @@
     "text": "Aprendizajes y revisión crítica\nEl proyecto permite practicar lectura de gráficas, exploración de datos y formulación de hipótesis. Antes de aplicar una prueba Z hay que revisar sus supuestos, como la independencia de las observaciones y las condiciones relativas a la distribución y a la desviación poblacional, según el tipo de prueba.\nEl valor p no indica la probabilidad de que la hipótesis nula sea verdadera. Por eso conviene relacionarlo con el planteamiento de la prueba y evitar conclusiones que los datos no sostienen.\nLa comparación con el asistente puede servir para detectar explicaciones incompletas o contradicciones. Su respuesta debe evaluarse críticamente y contrastarse con los resultados y supuestos: acompaña el análisis, pero no reemplaza la responsabilidad de comprenderlo."
   },
   {
-    "objectID": "posts/estructura-web/index.html",
-    "href": "posts/estructura-web/index.html",
-    "title": "Estructura básica de una página web",
+    "objectID": "posts/javascript-dom/index.html",
+    "href": "posts/javascript-dom/index.html",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
     "section": "",
-    "text": "Al abrir una página, el navegador interpreta su HTML, construye una representación del documento y aplica los estilos disponibles. También carga imágenes y puede ejecutar JavaScript. Estas piezas cumplen funciones diferentes, pero trabajan juntas para convertir archivos en una página que puedes leer y utilizar."
+    "text": "Una página puede responder a un clic sin cargar otro documento. Para conseguirlo, JavaScript necesita localizar los elementos y definir qué cambia cuando ocurre una acción. Un botón que muestra u oculta un mensaje es un buen primer ejercicio: reúne selección, eventos, texto y clases en una interacción fácil de comprobar."
   },
   {
-    "objectID": "posts/estructura-web/index.html#tres-responsabilidades",
-    "href": "posts/estructura-web/index.html#tres-responsabilidades",
-    "title": "Estructura básica de una página web",
-    "section": "Tres responsabilidades",
-    "text": "Tres responsabilidades\nHTML organiza el contenido y expresa su significado. CSS define su apariencia: colores, espacios y distribución. JavaScript responde a acciones o actualiza contenido. Una página informativa puede funcionar perfectamente con HTML y CSS sin JavaScript; incorpora interactividad cuando aporte una función útil."
+    "objectID": "posts/javascript-dom/index.html#qué-representa-el-dom",
+    "href": "posts/javascript-dom/index.html#qué-representa-el-dom",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Qué representa el DOM",
+    "text": "Qué representa el DOM\nEl DOM, o modelo de objetos del documento, es la representación que el navegador construye a partir del HTML. Sus elementos forman una estructura relacionada: un encabezado pertenece a una sección, un botón contiene texto y un párrafo puede tener atributos.\nJavaScript trabaja con esa representación. Cambiar el DOM actualiza lo que vemos en la página, pero no reescribe automáticamente el archivo HTML guardado en la computadora. Al recargar, el navegador vuelve a interpretar el archivo y ejecutar los scripts que correspondan."
   },
   {
-    "objectID": "posts/estructura-web/index.html#el-documento-y-sus-metadatos",
-    "href": "posts/estructura-web/index.html#el-documento-y-sus-metadatos",
-    "title": "Estructura básica de una página web",
-    "section": "El documento y sus metadatos",
-    "text": "El documento y sus metadatos\n&lt;!doctype html&gt; indica que utilizamos HTML moderno. El elemento html contiene el documento y lang=\"es\" identifica su idioma. head reúne metadatos y enlaces a recursos; body contiene lo que se presenta en la página.\ncharset=\"utf-8\" permite interpretar correctamente caracteres como acentos y eñes. viewport adapta el ancho inicial a la pantalla del dispositivo. title establece el nombre que aparece en la pestaña del navegador y ayuda a identificar la página entre otras abiertas."
+    "objectID": "posts/javascript-dom/index.html#preparar-los-archivos",
+    "href": "posts/javascript-dom/index.html#preparar-los-archivos",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Preparar los archivos",
+    "text": "Preparar los archivos\nCrea index.html, styles.css y script.js dentro de una misma carpeta. Guarda en el primero este documento completo. Los identificadores alternar y mensaje permiten localizar los dos elementos que participan en la interacción.\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;\n  &lt;title&gt;Un mensaje interactivo&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n  &lt;script src=\"script.js\" defer&gt;&lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;main&gt;\n  &lt;h1&gt;Explora una interacción&lt;/h1&gt;\n  &lt;button id=\"alternar\" type=\"button\"\n    aria-controls=\"mensaje\" aria-expanded=\"false\"&gt;Mostrar mensaje&lt;/button&gt;\n  &lt;p id=\"mensaje\" class=\"mensaje oculto\"&gt;Un pequeño cambio puede ayudarte a aprender.&lt;/p&gt;\n&lt;/main&gt;\n&lt;/body&gt;\n&lt;/html&gt;\ndefer permite ejecutar este script externo después de interpretar el HTML. Así, el botón y el párrafo ya existen cuando el código intenta encontrarlos. Si cambias el nombre del archivo, actualiza también el atributo src."
   },
   {
-    "objectID": "posts/estructura-web/index.html#organizar-los-archivos",
-    "href": "posts/estructura-web/index.html#organizar-los-archivos",
-    "title": "Estructura básica de una página web",
-    "section": "Organizar los archivos",
-    "text": "Organizar los archivos\nCrea una carpeta de práctica con index.html, styles.css, script.js y una subcarpeta img/. Guarda una fotografía propia como img/perfil.jpg. Las rutas del ejemplo son relativas a index.html: si cambias el nombre o ubicación de la imagen, actualiza también src.\nEste ejercicio utiliza archivos HTML independientes; sirve para entender las piezas que herramientas como Quarto generan después. Mantener nombres sencillos y archivos separados facilita localizar errores y compartir la carpeta completa sin perder imágenes ni estilos."
+    "objectID": "posts/javascript-dom/index.html#la-presentación-y-el-estado-oculto",
+    "href": "posts/javascript-dom/index.html#la-presentación-y-el-estado-oculto",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "La presentación y el estado oculto",
+    "text": "La presentación y el estado oculto\nGuarda estas reglas en styles.css. La clase oculto representa un estado de la interfaz, no una modificación del contenido del archivo.\nbody {\n  margin: 0;\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  background: #edf8f2;\n  color: #243831;\n}\nmain { max-width: 720px; margin: auto; padding: 24px; }\nbutton {\n  padding: 12px 20px;\n  border: 0;\n  border-radius: 8px;\n  background: #006b57;\n  color: white;\n  font: inherit;\n  cursor: pointer;\n}\nbutton:focus-visible { outline: 3px solid #006b57; outline-offset: 4px; }\n.mensaje { padding: 20px; background: white; border-radius: 12px; }\n.oculto { display: none; }\nEl mensaje comienza oculto y el botón sigue disponible. Al quitar esa clase, el párrafo vuelve a participar en la presentación. Utilizar display: none también retira el mensaje del árbol de accesibilidad mientras permanece oculto."
   },
   {
-    "objectID": "posts/estructura-web/index.html#html-contenido-con-significado",
-    "href": "posts/estructura-web/index.html#html-contenido-con-significado",
-    "title": "Estructura básica de una página web",
-    "section": "HTML: contenido con significado",
-    "text": "HTML: contenido con significado\nGuarda el siguiente fragmento completo en index.html:\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;\n  &lt;title&gt;Mi página personal&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n  &lt;script src=\"script.js\" defer&gt;&lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;header&gt;\n    &lt;h1&gt;Mi espacio de aprendizaje&lt;/h1&gt;\n    &lt;nav aria-label=\"Principal\"&gt;&lt;a href=\"#intereses\"&gt;Mis intereses&lt;/a&gt;&lt;/nav&gt;\n  &lt;/header&gt;\n  &lt;main&gt;\n    &lt;section id=\"intereses\" aria-labelledby=\"titulo-intereses\"&gt;\n      &lt;h2 id=\"titulo-intereses\"&gt;Lo que quiero aprender&lt;/h2&gt;\n      &lt;p&gt;Esta es una página para practicar desarrollo web.&lt;/p&gt;\n      &lt;img src=\"img/perfil.jpg\" alt=\"Mi retrato\" width=\"320\" height=\"320\"&gt;\n      &lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;li&gt;JavaScript&lt;/li&gt;&lt;/ul&gt;\n      &lt;button id=\"saludar\" type=\"button\"&gt;Mostrar saludo&lt;/button&gt;\n      &lt;p id=\"respuesta\" role=\"status\"&gt;&lt;/p&gt;\n    &lt;/section&gt;\n  &lt;/main&gt;\n  &lt;footer&gt;&lt;p&gt;Página personal de práctica&lt;/p&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nheader introduce la página; nav agrupa la navegación; main contiene su contenido principal. section reúne un tema con encabezado y footer cierra el documento. Estos elementos describen funciones, no posiciones obligatorias.\nLos encabezados h1 y h2 establecen niveles de lectura. p contiene párrafos; a crea enlaces; ul y li forman una lista. img muestra la imagen y su alternativa textual. Ajusta “Mi retrato” si utilizas una imagen diferente. El enlace conduce a la sección cuyo identificador es intereses."
+    "objectID": "posts/javascript-dom/index.html#selección-y-eventos",
+    "href": "posts/javascript-dom/index.html#selección-y-eventos",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Selección y eventos",
+    "text": "Selección y eventos\nGuarda el siguiente código en script.js:\nconst boton = document.querySelector(\"#alternar\");\nconst mensaje = document.querySelector(\"#mensaje\");\n\nboton.addEventListener(\"click\", () =&gt; {\n  const estaOculto = mensaje.classList.toggle(\"oculto\");\n  boton.textContent = estaOculto ? \"Mostrar mensaje\" : \"Ocultar mensaje\";\n  boton.setAttribute(\"aria-expanded\", String(!estaOculto));\n});\nquerySelector busca el primer elemento que coincide con un selector CSS. El símbolo # indica un identificador. Si no encuentra coincidencia, devuelve null; por eso los nombres deben corresponder exactamente al HTML y no repetirse entre elementos.\naddEventListener registra una función que se ejecutará cuando ocurra un evento. En este caso escucha click. Un botón nativo también permite activar esa acción con teclado, sin convertir un elemento decorativo en un control improvisado."
   },
   {
-    "objectID": "posts/estructura-web/index.html#css-una-presentación-sencilla",
-    "href": "posts/estructura-web/index.html#css-una-presentación-sencilla",
-    "title": "Estructura básica de una página web",
-    "section": "CSS: una presentación sencilla",
-    "text": "CSS: una presentación sencilla\nGuarda estas reglas en styles.css:\n* { box-sizing: border-box; }\nbody {\n  margin: 0 auto;\n  max-width: 800px;\n  padding: 24px;\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  color: #243831;\n  background: #f3faf6;\n}\nimg { max-width: 100%; height: auto; border-radius: 12px; }\nbutton {\n  background: #006b57;\n  color: white;\n  border: 0;\n  border-radius: 8px;\n  padding: 12px 20px;\n  cursor: pointer;\n}\na:focus-visible, button:focus-visible {\n  outline: 3px solid #006b57;\n  outline-offset: 4px;\n}\nEl contenido queda centrado y mantiene márgenes. La imagen conserva sus proporciones y se reduce cuando no cabe. box-sizing incluye el padding en el cálculo del ancho; el foco visible ayuda a recorrer enlaces y botones con teclado."
+    "objectID": "posts/javascript-dom/index.html#texto-clases-y-estado-accesible",
+    "href": "posts/javascript-dom/index.html#texto-clases-y-estado-accesible",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Texto, clases y estado accesible",
+    "text": "Texto, clases y estado accesible\nclassList.toggle(\"oculto\") añade la clase si falta o la elimina si existe. Su resultado indica si la clase queda presente después del cambio. La variable estaOculto utiliza ese resultado para decidir qué texto mostrar en el botón.\ntextContent modifica el contenido textual. Es apropiado para mensajes que no necesitan etiquetas HTML y evita interpretar el texto como marcado. No insertes datos del usuario mediante innerHTML para resolver esta interacción.\naria-expanded informa si el contenido asociado está desplegado. Su valor se actualiza junto con la clase y el texto: el estado anunciado debe coincidir con el visible. aria-controls identifica el elemento relacionado mediante su id."
   },
   {
-    "objectID": "posts/estructura-web/index.html#javascript-responder-a-un-botón",
-    "href": "posts/estructura-web/index.html#javascript-responder-a-un-botón",
-    "title": "Estructura básica de una página web",
-    "section": "JavaScript: responder a un botón",
-    "text": "JavaScript: responder a un botón\nGuarda este código en script.js:\nconst boton = document.querySelector(\"#saludar\");\nconst respuesta = document.querySelector(\"#respuesta\");\nboton.addEventListener(\"click\", () =&gt; {\n  respuesta.textContent = \"¡Hola! Sigue explorando y aprendiendo.\";\n});\nLos identificadores coinciden con el HTML. defer permite ejecutar el archivo después de interpretar el documento. Al pulsar el botón aparece el saludo; role=\"status\" permite anunciar esa actualización a tecnologías de asistencia sin mover el foco."
+    "objectID": "posts/javascript-dom/index.html#código-fuente-frente-a-cambios-visibles",
+    "href": "posts/javascript-dom/index.html#código-fuente-frente-a-cambios-visibles",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Código fuente frente a cambios visibles",
+    "text": "Código fuente frente a cambios visibles\nAbre las herramientas del navegador y examina el párrafo mientras pulsas el botón. Verás cambiar su clase, pero el archivo index.html seguirá conteniendo oculto. Este contraste ayuda a distinguir el documento original de su estado actual en el DOM.\nEl ejemplo no guarda preferencias ni conserva el estado entre recargas. Al abrir nuevamente la página, el mensaje vuelve a estar oculto. No atribuyas persistencia a una interacción que únicamente modifica elementos en memoria."
   },
   {
-    "objectID": "posts/estructura-web/index.html#buenas-prácticas-y-actividad",
-    "href": "posts/estructura-web/index.html#buenas-prácticas-y-actividad",
-    "title": "Estructura básica de una página web",
-    "section": "Buenas prácticas y actividad",
-    "text": "Buenas prácticas y actividad\nUtiliza alternativas descriptivas, enlaces que expliquen su destino y una jerarquía de encabezados ordenada. Abre la página en una ventana estrecha para revisar su adaptación móvil y recórrela con Tab y Enter.\nActividad: cambia la presentación, agrega otro interés y utiliza tu propia imagen. Abre index.html en el navegador, comprueba el saludo y verifica que las tres rutas de recursos existan. Después desactiva JavaScript y observa qué contenido sigue disponible.\n← Volver al blog"
+    "objectID": "posts/javascript-dom/index.html#errores-frecuentes",
+    "href": "posts/javascript-dom/index.html#errores-frecuentes",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Errores frecuentes",
+    "text": "Errores frecuentes\nUn identificador mal escrito puede provocar un error al intentar usar un elemento inexistente. Revisa también las rutas, el uso de defer y los mensajes de la consola. Otro problema es actualizar la clase y olvidar el texto o el estado accesible del botón.\nMantén el comportamiento en el script y la apariencia en CSS. Así puedes cambiar colores o espacios sin alterar la función que escucha el evento."
   },
   {
-    "objectID": "posts/bases-de-datos/index.html",
-    "href": "posts/bases-de-datos/index.html",
-    "title": "¿Qué es una base de datos relacional?",
+    "objectID": "posts/javascript-dom/index.html#actividad-y-cierre",
+    "href": "posts/javascript-dom/index.html#actividad-y-cierre",
+    "title": "JavaScript y el DOM: cómo hacer una página interactiva",
+    "section": "Actividad y cierre",
+    "text": "Actividad y cierre\nAñade un segundo conjunto de botón y mensaje con identificadores distintos. Comprueba que cada botón controla únicamente su párrafo y que Tab, Enter y Espacio permiten utilizarlos. Después recarga para observar el estado inicial.\nComprender el DOM permite construir interacciones pequeñas y predecibles. El objetivo es mantener coherentes el documento, la acción y la respuesta que recibe la persona.\n← Volver al blog"
+  },
+  {
+    "objectID": "posts/formularios-accesibles/index.html",
+    "href": "posts/formularios-accesibles/index.html",
+    "title": "Formularios accesibles y fáciles de utilizar",
     "section": "",
-    "text": "Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente."
+    "text": "Un formulario es una conversación organizada: pide información para realizar una tarea y debe explicar qué necesita. Si una persona no entiende un campo o pierde lo que escribió después de un error, la interfaz agrega dificultades innecesarias. La accesibilidad comienza con preguntas claras y controles que puedan utilizarse de distintas maneras."
   },
   {
-    "objectID": "posts/bases-de-datos/index.html#tablas-filas-y-columnas",
-    "href": "posts/bases-de-datos/index.html#tablas-filas-y-columnas",
-    "title": "¿Qué es una base de datos relacional?",
-    "section": "Tablas, filas y columnas",
-    "text": "Tablas, filas y columnas\nUna base de datos relacional almacena información en tablas relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.\nEste esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:\n\n\n\n\n\n\n\n\nTabla\nCampos y tipos sugeridos\nQué representa una fila\n\n\n\n\nlibros\nid_libro (entero), titulo (texto), autor (texto)\nUn libro del catálogo\n\n\nprestamos\nid_prestamo (entero), id_libro (entero), fecha_prestamo (fecha), fecha_devolucion (fecha, admite nulos)\nUn préstamo de un libro\n\n\n\nPara esta práctica, cada registro de libros representa un único ejemplar. Un préstamo sin devolución registrada tiene fecha_devolucion en NULL, que expresa la ausencia de un valor."
+    "objectID": "posts/formularios-accesibles/index.html#etiquetas-que-permanecen-visibles",
+    "href": "posts/formularios-accesibles/index.html#etiquetas-que-permanecen-visibles",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Etiquetas que permanecen visibles",
+    "text": "Etiquetas que permanecen visibles\nCada campo necesita una etiqueta comprensible. En HTML, label se asocia al control mediante for, cuyo valor debe coincidir con el id del campo. Esa relación permite reconocer qué dato se solicita y también facilita seleccionar el campo al pulsar su etiqueta.\nUn placeholder muestra un ejemplo dentro del control, pero desaparece al escribir. Por eso no sustituye una etiqueta visible. Tampoco es un lugar adecuado para guardar la única instrucción importante sobre formato o finalidad.\nUtiliza tipos de entrada que correspondan al dato. type=\"email\" ofrece una comprobación básica de formato y puede facilitar el teclado apropiado en teléfono. textarea permite un mensaje de varias líneas. Estas decisiones no garantizan que un correo exista, pero mejoran la interacción."
   },
   {
-    "objectID": "posts/bases-de-datos/index.html#claves-y-relaciones",
-    "href": "posts/bases-de-datos/index.html#claves-y-relaciones",
-    "title": "¿Qué es una base de datos relacional?",
-    "section": "Claves y relaciones",
-    "text": "Claves y relaciones\nLa clave primaria distingue cada fila y no debe repetirse ni ser nula. Aquí será libros.id_libro; para los préstamos será prestamos.id_prestamo. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.\nLa clave foránea conecta tablas. prestamos.id_libro apunta a libros.id_libro. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación uno a muchos. Cada préstamo del ejemplo corresponde a un solo libro.\nTambién existen relaciones muchos a muchos. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear autores y una tabla intermedia libros_autores. Esta última guarda parejas de id_libro e id_autor, evitando una lista de nombres dentro de una celda."
+    "objectID": "posts/formularios-accesibles/index.html#orden-e-instrucciones",
+    "href": "posts/formularios-accesibles/index.html#orden-e-instrucciones",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Orden e instrucciones",
+    "text": "Orden e instrucciones\nPide primero los datos sencillos y agrupa los relacionados. En un formulario de contacto, nombre, correo y mensaje siguen una secuencia fácil de entender. Solicita solo información necesaria para la tarea y explica cuáles campos son obligatorios antes de que aparezca un error.\nLas ayudas breves deben permanecer cerca del campo. aria-describedby permite asociar un texto de ayuda con su control. El atributo required indica una exigencia que el navegador puede comprobar, pero conviene comunicarla también con palabras visibles."
   },
   {
-    "objectID": "posts/bases-de-datos/index.html#integridad-y-organización",
-    "href": "posts/bases-de-datos/index.html#integridad-y-organización",
-    "title": "¿Qué es una base de datos relacional?",
-    "section": "Integridad y organización",
-    "text": "Integridad y organización\nLa integridad referencial, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.\nOrganizar la información por temas reduce repeticiones. El título y el autor permanecen en libros, mientras prestamos guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores."
+    "objectID": "posts/formularios-accesibles/index.html#ejemplo-de-interfaz-de-contacto",
+    "href": "posts/formularios-accesibles/index.html#ejemplo-de-interfaz-de-contacto",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Ejemplo de interfaz de contacto",
+    "text": "Ejemplo de interfaz de contacto\nGuarda este documento en index.html y los estilos siguientes en styles.css. El ejemplo presenta la interfaz: no envía mensajes. El botón es de tipo button y está deshabilitado; para procesar un envío hace falta conectar un servicio y configurar su comportamiento.\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;\n  &lt;title&gt;Formulario de contacto&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;main&gt;\n  &lt;h1&gt;Contacto&lt;/h1&gt;\n  &lt;p&gt;Los campos con “obligatorio” requieren una respuesta.&lt;/p&gt;\n  &lt;form aria-label=\"Formulario de contacto\"&gt;\n    &lt;label for=\"nombre\"&gt;Nombre (obligatorio)&lt;/label&gt;\n    &lt;input id=\"nombre\" name=\"nombre\" autocomplete=\"name\" required&gt;\n\n    &lt;label for=\"correo\"&gt;Correo electrónico (obligatorio)&lt;/label&gt;\n    &lt;input id=\"correo\" name=\"correo\" type=\"email\"\n      autocomplete=\"email\" aria-describedby=\"ayuda-correo\" required&gt;\n    &lt;p id=\"ayuda-correo\" class=\"ayuda\"&gt;Formato: nombre@dominio.com.&lt;/p&gt;\n\n    &lt;label for=\"mensaje\"&gt;Mensaje (obligatorio)&lt;/label&gt;\n    &lt;textarea id=\"mensaje\" name=\"mensaje\" rows=\"5\" required&gt;&lt;/textarea&gt;\n    &lt;p class=\"ayuda\"&gt;Esta interfaz no tiene un servicio de envío conectado.&lt;/p&gt;\n    &lt;button type=\"button\" disabled&gt;Envío no disponible&lt;/button&gt;\n  &lt;/form&gt;\n&lt;/main&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  color: #243831;\n  background: #edf8f2;\n}\nmain { max-width: 640px; margin: auto; padding: 24px; }\nform { display: flex; flex-direction: column; gap: 12px; }\nlabel { font-weight: 650; margin-top: 12px; }\ninput, textarea {\n  width: 100%;\n  min-width: 0;\n  padding: 12px;\n  font: inherit;\n  border: 1px solid #577568;\n  border-radius: 8px;\n}\n.ayuda { margin: 0; font-size: .9rem; }\nbutton {\n  align-self: flex-start;\n  padding: 12px 20px;\n  font: inherit;\n  color: white;\n  background: #006b57;\n  border: 0;\n  border-radius: 8px;\n}\nbutton:disabled { cursor: not-allowed; }\ninput:focus-visible, textarea:focus-visible, button:focus-visible {\n  outline: 3px solid #006b57;\n  outline-offset: 3px;\n}\nAl abrirlo verás los campos apilados, con sus etiquetas encima y espacio suficiente para leer las instrucciones. El ancho se adapta a la pantalla sin imponer un tamaño rígido a cada entrada. El botón explica visualmente que no hay envío disponible."
   },
   {
-    "objectID": "posts/bases-de-datos/index.html#consultar-con-sql",
-    "href": "posts/bases-de-datos/index.html#consultar-con-sql",
-    "title": "¿Qué es una base de datos relacional?",
-    "section": "Consultar con SQL",
-    "text": "Consultar con SQL\nLas tablas y las columnas indicadas deben existir antes de ejecutar estas consultas. Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.\nSELECT titulo, autor\nFROM libros\nORDER BY titulo;\nEsta consulta necesita las columnas titulo y autor de libros. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.\nSELECT libros.titulo, prestamos.fecha_prestamo\nFROM prestamos\nJOIN libros ON prestamos.id_libro = libros.id_libro\nORDER BY prestamos.fecha_prestamo;\nLa segunda consulta une cada préstamo con su libro utilizando id_libro en ambas tablas. Requiere además libros.titulo y prestamos.fecha_prestamo. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos."
+    "objectID": "posts/formularios-accesibles/index.html#mensajes-que-ayudan-a-corregir",
+    "href": "posts/formularios-accesibles/index.html#mensajes-que-ayudan-a-corregir",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Mensajes que ayudan a corregir",
+    "text": "Mensajes que ayudan a corregir\n“Dato inválido” no explica cómo continuar. Un mensaje como “Escribe un correo con formato nombre@dominio.com” identifica la corrección necesaria. Colócalo junto al campo y conserva los valores que la persona ya introdujo.\nCuando una implementación detecte un error, puede asociar su mensaje mediante aria-describedby y marcar el control con aria-invalid=\"true\". Ambos deben actualizarse de acuerdo con el estado real; no declares todos los campos inválidos desde el inicio.\nUn borde rojo por sí solo no comunica suficiente información. Combina el estado visual con texto que nombre el problema. Si se implementa el envío, también deben existir mensajes comprensibles de carga, éxito y fallo, basados en la respuesta del servicio."
   },
   {
-    "objectID": "posts/bases-de-datos/index.html#ventajas-errores-frecuentes-y-práctica",
-    "href": "posts/bases-de-datos/index.html#ventajas-errores-frecuentes-y-práctica",
-    "title": "¿Qué es una base de datos relacional?",
-    "section": "Ventajas, errores frecuentes y práctica",
-    "text": "Ventajas, errores frecuentes y práctica\nEste enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.\nActividad: dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.\n← Volver al blog"
+    "objectID": "posts/formularios-accesibles/index.html#teclado-y-foco",
+    "href": "posts/formularios-accesibles/index.html#teclado-y-foco",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Teclado y foco",
+    "text": "Teclado y foco\nRecorre el ejemplo con Tab. El foco visible indica el campo seleccionado y sigue el orden del HTML. El botón deshabilitado no participa en ese recorrido, porque todavía no ofrece una acción disponible. No elimines los contornos de foco únicamente para simplificar la apariencia.\nEvita valores positivos de tabindex para reorganizar artificialmente el recorrido. Es más fácil mantener una estructura lógica y utilizar controles nativos con etiquetas adecuadas."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Alessandra · Aprendizaje y tecnología",
-    "section": "",
-    "text": "ESTUDIANTE DE IT2iD\n      Hola, soy Alessandra\n      Explorando el mundo de la tecnología\n      Soy estudiante de Ingeniería en Tecnologías de la Información e Innovación Digital. Comparto mis aprendizajes, proyectos académicos e ideas sobre desarrollo web, bases de datos y diseño de interfaces.\n      Explorar artículos →Ver mis proyectos\n    \n    Un espacio para aprender y crear.\n  \n\n\n\n  \n    ÁREAS DE INTERÉSLo que estoy aprendiendoComparto mis aprendizajes sobre bases de datos, diseño de interfaces y desarrollo web durante mi formación universitaria.\n    \nBases de datosDiseño y organización de bases de datos relacionales, consultas SQL y administración de información con MySQL.SQLMySQL\nDiseño de interfacesCreación de interfaces claras y accesibles, elaboración de prototipos y diseño centrado en la experiencia del usuario.FigmaCSS\nProgramación y desarrollo webDesarrollo de páginas y aplicaciones mediante estructura, estilos e interactividad, aplicando los conocimientos de mi formación.JavaScriptPython\n    \n  \n\n\n\n  \n    PORTAFOLIO PRÁCTICOMis proyectosProyectos académicos y prácticos desarrollados durante mi formación universitaria.\n\n\n\n  \n    \n      \n      Gestión de fondas\n    \n    \n      Sistema de Gestión Web de Fonda PuraVida\n      Aplicación web para consultar el menú, realizar pedidos y gestionar la operación de una fonda local. Incluye administración de platillos, registro de ventas, estadísticas y reportes para facilitar el control diario.\n      \n        \n        HTMLCSSJavaScript\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Tutorías estudiantiles\n    \n    \n      Plataforma Web para Tutorías Estudiantiles\n      Aplicación web interactiva que conecta estudiantes y tutores con agenda dinámica, calendario y salas de estudio colaborativas.\n      \n        \n        ReactVite\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Análisis de datos y estadística\n    \n    \n      Laboratorio de Análisis Verde\n      Aplicación interactiva desarrollada en Streamlit para analizar datos, visualizar distribuciones de probabilidad y realizar pruebas de hipótesis Z. Integra un asistente de inteligencia artificial para interpretar resultados y apoyar la toma de decisiones.\n      \n        \n        PythonStreamlitGemini API\n        \n        Ver proyecto ↗\n      \n    \n  \n\n\nNo hay resultados\n\n    Explorar el portafolio →\n  \n\n\n\n  \n    \n    PERFIL PERSONALUn poco sobre míSoy Alessandra Beltrán, estudiante de Ingeniería en Tecnologías de la Información e Innovación Digital en la Universidad Politécnica de Chiapas. Me apasionan el desarrollo web, el diseño de interfaces y la creación de aplicaciones que resuelvan problemas reales. Disfruto aprender nuevas tecnologías, trabajar en equipo y seguir creciendo como desarrolladora Full Stack.\n      CuriosidadAprendizaje diario y exploración de nuevas tecnologías.ColaboraciónTrabajo en equipo, respeto y apoyo mutuo.Código limpioCódigo claro, organizado y fácil de mantener.\n    \n  \n\n\n\nBITÁCORA TÉCNICAArtículos recientesVer todo el blog\n\n\n\n  \n    \n      \n    \n    \n      \n        \n        Bases de datos\n        \n        4 de octubre de 2026\n      \n      ¿Qué es una base de datos relacional?\n      Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos\n      Leer artículo completo →\n    \n  \n\n\nNo hay resultados\n\n\n\n\n  IDEAS QUE NOS CONECTAN¡Conectemos!¿Tienes alguna duda sobre mis proyectos o te gustaría compartir ideas? Me encantará conversar contigo.CorreoGitHubLinkedIn"
+    "objectID": "posts/formularios-accesibles/index.html#lista-de-revisión",
+    "href": "posts/formularios-accesibles/index.html#lista-de-revisión",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Lista de revisión",
+    "text": "Lista de revisión\n\nCada control tiene etiqueta visible y asociación correcta.\nLos identificadores son únicos.\nLos campos obligatorios se anuncian con texto.\nLas ayudas se encuentran junto a los campos.\nLos errores indican cómo corregir, sin depender solo del color.\nEl teclado permite recorrer los controles y ver el foco.\nLa interfaz explica si puede enviar o todavía no está conectada."
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "BITÁCORA TECNOLÓGICA\n  Blog\n  Un espacio donde comparto mis aprendizajes sobre bases de datos, desarrollo web y diseño de interfaces\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n¿Qué es una base de datos relacional?\n\n\n\nBases de datos\n\n\n\nAprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrincipios básicos del diseño de interfaces\n\n\n\nDiseño de interfaces\n\n\n\nConoce cómo la claridad, la jerarquía visual, la consistencia y la accesibilidad ayudan a crear interfaces fáciles de utilizar\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nEstructura básica de una página web\n\n\n\nDesarrollo web\n\n\n\nDescubre cómo HTML, CSS y JavaScript se complementan para organizar el contenido, definir su apariencia y agregar interactividad\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\nNo hay resultados"
+    "objectID": "posts/formularios-accesibles/index.html#actividad-y-cierre",
+    "href": "posts/formularios-accesibles/index.html#actividad-y-cierre",
+    "title": "Formularios accesibles y fáciles de utilizar",
+    "section": "Actividad y cierre",
+    "text": "Actividad y cierre\nAgrega un campo opcional de asunto con su etiqueta. Revisa su ubicación, comprueba que pulsar la etiqueta enfoca el campo y prueba el formulario en teléfono. Redacta además un mensaje para un correo incompleto, sin activar un envío real.\nUn formulario accesible permite comprender, responder y corregir. La claridad de sus preguntas importa tanto como el aspecto de sus controles.\n← Volver al blog"
   },
   {
     "objectID": "posts/diseno-interfaces/index.html",
@@ -250,6 +257,300 @@
     "title": "Principios básicos del diseño de interfaces",
     "section": "Revisión y actividad final",
     "text": "Revisión y actividad final\nAntes de terminar, comprueba:\n\n¿Se entiende el propósito y la acción principal?\n¿Los títulos, etiquetas e instrucciones son claros?\n¿Los botones y palabras mantienen consistencia?\n¿Hay respuesta visible ante éxito, errores y carga?\n¿Se puede recorrer todo con teclado y ver el foco?\n¿El contenido se adapta a una pantalla pequeña?\n\nActividad: dibuja el formulario descrito para computadora y teléfono. Pide a otra persona que explique cómo lo usaría, anota sus dudas y modifica una decisión para facilitar la tarea.\n← Volver al blog"
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html",
+    "href": "posts/consultas-sql/index.html",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "",
+    "text": "Una tienda necesita encontrar productos económicos, consultar una categoría o revisar los precios de mayor a menor. SQL permite expresar esas preguntas sin recorrer cada registro manualmente. Comenzar con consultas pequeñas ayuda a entender cómo cambia el resultado al elegir columnas, añadir condiciones y establecer un orden."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#qué-es-sql",
+    "href": "posts/consultas-sql/index.html#qué-es-sql",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "Qué es SQL",
+    "text": "Qué es SQL\nSQL es un lenguaje para trabajar con bases de datos relacionales. Permite consultar información y también definir o modificar datos, aunque aquí nos concentraremos en la lectura. Una consulta SELECT devuelve un resultado: no modifica por sí misma los registros almacenados.\nLos ejemplos utilizan sintaxis compatible con MySQL. La tabla productos debe existir y contener las columnas indicadas antes de ejecutar las consultas. Puedes utilizar una base de práctica, evitando experimentar sobre información que necesitas conservar."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#una-tabla-para-hacer-preguntas",
+    "href": "posts/consultas-sql/index.html#una-tabla-para-hacer-preguntas",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "Una tabla para hacer preguntas",
+    "text": "Una tabla para hacer preguntas\nLa tabla del ejemplo tiene cuatro columnas: id, un identificador entero; nombre, texto; precio, un número decimal; y categoria, texto. Estos son sus datos de muestra:\n\n\n\nid\nnombre\nprecio\ncategoria\n\n\n\n\n1\nCuaderno\n45.00\nPapelería\n\n\n2\nLápiz\n10.00\nPapelería\n\n\n3\nMouse\n180.00\nTecnología\n\n\n4\nCable USB\n90.00\nTecnología\n\n\n5\nCarpeta\n30.00\nPapelería\n\n\n\nPara practicar desde cero, crea esta tabla y sus registros en una base de datos seleccionada en MySQL:\nCREATE TABLE productos (\n  id INT PRIMARY KEY,\n  nombre VARCHAR(80) NOT NULL,\n  precio DECIMAL(8, 2) NOT NULL,\n  categoria VARCHAR(40) NOT NULL\n);\n\nINSERT INTO productos (id, nombre, precio, categoria) VALUES\n  (1, 'Cuaderno', 45.00, 'Papelería'),\n  (2, 'Lápiz', 10.00, 'Papelería'),\n  (3, 'Mouse', 180.00, 'Tecnología'),\n  (4, 'Cable USB', 90.00, 'Tecnología'),\n  (5, 'Carpeta', 30.00, 'Papelería');\nLa preparación crea una tabla nueva; no la repitas si ya existe. DECIMAL permite representar precios con dos posiciones decimales. Las consultas siguientes presuponen exactamente estos cinco registros."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#select-elegir-lo-que-quieres-ver",
+    "href": "posts/consultas-sql/index.html#select-elegir-lo-que-quieres-ver",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "SELECT: elegir lo que quieres ver",
+    "text": "SELECT: elegir lo que quieres ver\nSELECT nombre, precio\nFROM productos\nORDER BY id ASC;\nSELECT elige las columnas y FROM identifica la tabla. El resultado presenta Cuaderno, Lápiz, Mouse, Cable USB y Carpeta, con sus precios. id sirve para ordenar aunque no aparezca entre las columnas seleccionadas.\nSELECT * solicita todas las columnas. Puede ser útil al explorar una tabla, pero elegir campos concretos facilita leer los resultados y deja claro qué información necesita una consulta."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#where-decidir-qué-filas-aparecen",
+    "href": "posts/consultas-sql/index.html#where-decidir-qué-filas-aparecen",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "WHERE: decidir qué filas aparecen",
+    "text": "WHERE: decidir qué filas aparecen\nSELECT nombre, precio\nFROM productos\nWHERE precio &lt;= 45.00\nORDER BY precio ASC;\nEl resultado será Lápiz, 10.00; Carpeta, 30.00; y Cuaderno, 45.00. WHERE conserva únicamente las filas que cumplen la condición. Las comparaciones habituales incluyen =, &lt;&gt;, &lt;, &gt;, &lt;= y &gt;=. Escribe los textos entre comillas simples, por ejemplo categoria = 'Papelería'."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#combinar-condiciones-con-and-y-or",
+    "href": "posts/consultas-sql/index.html#combinar-condiciones-con-and-y-or",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "Combinar condiciones con AND y OR",
+    "text": "Combinar condiciones con AND y OR\nSELECT nombre, precio\nFROM productos\nWHERE categoria = 'Tecnología' AND precio &lt; 150.00;\nAND exige que ambas condiciones se cumplan. Solo aparece Cable USB, con precio 90.00: Mouse pertenece a la categoría, pero supera el límite.\nSELECT nombre\nFROM productos\nWHERE (categoria = 'Tecnología' OR precio &lt;= 10.00)\nORDER BY id;\nOR acepta una condición o la otra. Aquí aparecen Lápiz, Mouse y Cable USB. Si mezclas AND y OR, utiliza paréntesis para expresar claramente qué condiciones deben agruparse y evitar resultados inesperados."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#order-by-organizar-el-resultado",
+    "href": "posts/consultas-sql/index.html#order-by-organizar-el-resultado",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "ORDER BY: organizar el resultado",
+    "text": "ORDER BY: organizar el resultado\nSELECT nombre, precio\nFROM productos\nORDER BY precio DESC, id ASC;\nASC ordena de menor a mayor y DESC de mayor a menor. Esta consulta devuelve Mouse, Cable USB, Cuaderno, Carpeta y Lápiz. La segunda columna de ordenación resuelve empates de precio mediante el identificador.\nFiltrar y ordenar son operaciones distintas: WHERE decide qué filas participan; ORDER BY decide cómo se presentan. Ordenar no elimina productos, y filtrar no garantiza un orden. Sin ORDER BY, no debes suponer que las filas siempre aparecerán como fueron insertadas."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#errores-frecuentes-y-recomendaciones",
+    "href": "posts/consultas-sql/index.html#errores-frecuentes-y-recomendaciones",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "Errores frecuentes y recomendaciones",
+    "text": "Errores frecuentes y recomendaciones\nComprueba los nombres de columnas, las comas entre campos y las comillas de los textos. Mantén el orden SELECT, FROM, WHERE, ORDER BY. Una condición demasiado restrictiva puede devolver cero filas sin que haya un error de sintaxis.\nEvita comparar precios guardados como texto: su orden puede ser diferente del numérico. También revisa los datos de muestra antes de atribuir un resultado extraño a SQL."
+  },
+  {
+    "objectID": "posts/consultas-sql/index.html#actividad-y-cierre",
+    "href": "posts/consultas-sql/index.html#actividad-y-cierre",
+    "title": "Consultas SQL básicas: SELECT, WHERE y ORDER BY",
+    "section": "Actividad y cierre",
+    "text": "Actividad y cierre\nEscribe una consulta que muestre productos de Papelería con precio superior a 10.00, ordenados por precio descendente. Antes de ejecutarla, predice los nombres: deberían ser Cuaderno y Carpeta. Después modifica una sola condición y explica qué cambia.\nDominar estas tres instrucciones permite convertir una pregunta concreta en un resultado comprensible. La práctica más útil consiste en anticipar qué filas esperas y comprobar por qué cada una cumple la consulta.\n← Volver al blog"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "BITÁCORA TECNOLÓGICA\n  Blog\n  Un espacio donde comparto mis aprendizajes sobre bases de datos, desarrollo web y diseño de interfaces\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n¿Qué es una base de datos relacional?\n\n\n\nBases de datos\n\n\n\nAprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrincipios básicos del diseño de interfaces\n\n\n\nDiseño de interfaces\n\n\n\nConoce cómo la claridad, la jerarquía visual, la consistencia y la accesibilidad ayudan a crear interfaces fáciles de utilizar\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nEstructura básica de una página web\n\n\n\nDesarrollo web\n\n\n\nDescubre cómo HTML, CSS y JavaScript se complementan para organizar el contenido, definir su apariencia y agregar interactividad\n\n\n\n4 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrimeros pasos con Git y GitHub\n\n\n\nHerramientas de desarrollo\n\n\n\nComprende repositorios, commits y remotos para organizar cambios y compartir un proyecto con Git y GitHub.\n\n\n\n2 de octubre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nJavaScript y el DOM: cómo hacer una página interactiva\n\n\n\nDesarrollo web\n\n\n\nConecta un botón con eventos, texto y clases para mostrar u ocultar un mensaje mediante JavaScript.\n\n\n\n24 de septiembre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nFormularios accesibles y fáciles de utilizar\n\n\n\nDiseño de interfaces\n\n\n\nDiseña formularios con etiquetas visibles, instrucciones comprensibles, navegación por teclado y mensajes claros.\n\n\n\n17 de septiembre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCómo organizar una página con CSS Flexbox\n\n\n\nDesarrollo web\n\n\n\nOrganiza tarjetas y controles con Flexbox, comprende sus ejes y adapta el diseño a pantallas pequeñas.\n\n\n\n10 de septiembre de 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nConsultas SQL básicas: SELECT, WHERE y ORDER BY\n\n\n\nBases de datos\n\n\n\nAprende a elegir columnas, filtrar productos y ordenar resultados con consultas SQL sencillas y coherentes.\n\n\n\n4 de septiembre de 2026\n\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Alessandra · Aprendizaje y tecnología",
+    "section": "",
+    "text": "ESTUDIANTE DE IT2iD\n      Hola, soy Alessandra\n      Explorando el mundo de la tecnología\n      Soy estudiante de Ingeniería en Tecnologías de la Información e Innovación Digital. Comparto mis aprendizajes, proyectos académicos e ideas sobre desarrollo web, bases de datos y diseño de interfaces.\n      Explorar artículos →Ver mis proyectos\n    \n    Un espacio para aprender y crear.\n  \n\n\n\n  \n    ÁREAS DE INTERÉSLo que estoy aprendiendoComparto mis aprendizajes sobre bases de datos, diseño de interfaces y desarrollo web durante mi formación universitaria.\n    \nBases de datosDiseño y organización de bases de datos relacionales, consultas SQL y administración de información con MySQL.SQLMySQL\nDiseño de interfacesCreación de interfaces claras y accesibles, elaboración de prototipos y diseño centrado en la experiencia del usuario.FigmaCSS\nProgramación y desarrollo webDesarrollo de páginas y aplicaciones mediante estructura, estilos e interactividad, aplicando los conocimientos de mi formación.JavaScriptPython\n    \n  \n\n\n\n  \n    PORTAFOLIO PRÁCTICOMis proyectosProyectos académicos y prácticos desarrollados durante mi formación universitaria.\n\n\n\n  \n    \n      \n      Gestión de fondas\n    \n    \n      Sistema de Gestión Web de Fonda PuraVida\n      Aplicación web para consultar el menú, realizar pedidos y gestionar la operación de una fonda local. Incluye administración de platillos, registro de ventas, estadísticas y reportes para facilitar el control diario.\n      \n        \n        HTMLCSSJavaScript\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Tutorías estudiantiles\n    \n    \n      Plataforma Web para Tutorías Estudiantiles\n      Aplicación web interactiva que conecta estudiantes y tutores con agenda dinámica, calendario y salas de estudio colaborativas.\n      \n        \n        ReactVite\n        \n        Ver proyecto ↗\n      \n    \n  \n\n  \n    \n      \n      Análisis de datos y estadística\n    \n    \n      Laboratorio de Análisis Verde\n      Aplicación interactiva desarrollada en Streamlit para analizar datos, visualizar distribuciones de probabilidad y realizar pruebas de hipótesis Z. Integra un asistente de inteligencia artificial para interpretar resultados y apoyar la toma de decisiones.\n      \n        \n        PythonStreamlitGemini API\n        \n        Ver proyecto ↗\n      \n    \n  \n\n\nNo hay resultados\n\n    Explorar el portafolio →\n  \n\n\n\n  \n    Estudiante de Ingeniería en IT2iD\n    PERFIL PERSONALUn poco sobre míSoy Alessandra Beltrán, estudiante de Ingeniería en Tecnologías de la Información e Innovación Digital en la Universidad Politécnica de Chiapas. Me apasionan el desarrollo web, el diseño de interfaces y la creación de aplicaciones que resuelvan problemas reales. Disfruto aprender nuevas tecnologías, trabajar en equipo y seguir creciendo como desarrolladora Full Stack.\n      CuriosidadAprendizaje diario y exploración de nuevas tecnologías.ColaboraciónTrabajo en equipo, respeto y apoyo mutuo.Código limpioCódigo claro, organizado y fácil de mantener.\n    \n  \n\n\n\nBITÁCORA TÉCNICAArtículos recientesVer todo el blog\n\n\n\n  \n    \n      \n    \n    \n      \n        \n        Bases de datos\n        \n        4 de octubre de 2026\n      \n      ¿Qué es una base de datos relacional?\n      Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos\n      Leer artículo completo →\n    \n  \n\n\nNo hay resultados\n\n\n\n\n  HABLEMOS DE TECNOLOGÍAContáctame¿Tienes alguna pregunta sobre mis proyectos o te gustaría compartir ideas? Puedes escribirme o encontrarme en mis redesCorreoGitHubLinkedIn"
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html",
+    "href": "posts/bases-de-datos/index.html",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "",
+    "text": "Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#tablas-filas-y-columnas",
+    "href": "posts/bases-de-datos/index.html#tablas-filas-y-columnas",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Tablas, filas y columnas",
+    "text": "Tablas, filas y columnas\nUna base de datos relacional almacena información en tablas relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.\nEste esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:\n\n\n\n\n\n\n\n\nTabla\nCampos y tipos sugeridos\nQué representa una fila\n\n\n\n\nlibros\nid_libro (entero), titulo (texto), autor (texto)\nUn libro del catálogo\n\n\nprestamos\nid_prestamo (entero), id_libro (entero), fecha_prestamo (fecha), fecha_devolucion (fecha, admite nulos)\nUn préstamo de un libro\n\n\n\nPara esta práctica, cada registro de libros representa un único ejemplar. Un préstamo sin devolución registrada tiene fecha_devolucion en NULL, que expresa la ausencia de un valor."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#claves-y-relaciones",
+    "href": "posts/bases-de-datos/index.html#claves-y-relaciones",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Claves y relaciones",
+    "text": "Claves y relaciones\nLa clave primaria distingue cada fila y no debe repetirse ni ser nula. Aquí será libros.id_libro; para los préstamos será prestamos.id_prestamo. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.\nLa clave foránea conecta tablas. prestamos.id_libro apunta a libros.id_libro. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación uno a muchos. Cada préstamo del ejemplo corresponde a un solo libro.\nTambién existen relaciones muchos a muchos. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear autores y una tabla intermedia libros_autores. Esta última guarda parejas de id_libro e id_autor, evitando una lista de nombres dentro de una celda."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#integridad-y-organización",
+    "href": "posts/bases-de-datos/index.html#integridad-y-organización",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Integridad y organización",
+    "text": "Integridad y organización\nLa integridad referencial, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.\nOrganizar la información por temas reduce repeticiones. El título y el autor permanecen en libros, mientras prestamos guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#consultar-con-sql",
+    "href": "posts/bases-de-datos/index.html#consultar-con-sql",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Consultar con SQL",
+    "text": "Consultar con SQL\nLas tablas y las columnas indicadas deben existir antes de ejecutar estas consultas. Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.\nSELECT titulo, autor\nFROM libros\nORDER BY titulo;\nEsta consulta necesita las columnas titulo y autor de libros. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.\nSELECT libros.titulo, prestamos.fecha_prestamo\nFROM prestamos\nJOIN libros ON prestamos.id_libro = libros.id_libro\nORDER BY prestamos.fecha_prestamo;\nLa segunda consulta une cada préstamo con su libro utilizando id_libro en ambas tablas. Requiere además libros.titulo y prestamos.fecha_prestamo. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos."
+  },
+  {
+    "objectID": "posts/bases-de-datos/index.html#ventajas-errores-frecuentes-y-práctica",
+    "href": "posts/bases-de-datos/index.html#ventajas-errores-frecuentes-y-práctica",
+    "title": "¿Qué es una base de datos relacional?",
+    "section": "Ventajas, errores frecuentes y práctica",
+    "text": "Ventajas, errores frecuentes y práctica\nEste enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.\nActividad: dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.\n← Volver al blog"
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html",
+    "href": "posts/css-flexbox/index.html",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "",
+    "text": "Alinear varias tarjetas parece sencillo hasta que sus textos tienen longitudes diferentes o la pantalla se vuelve estrecha. Flexbox ofrece una manera de repartir espacio y alinear elementos sin calcular manualmente cada posición. Resulta especialmente útil para menús, grupos de botones y filas de contenido que deben adaptarse."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#contenedor-y-elementos-flexibles",
+    "href": "posts/css-flexbox/index.html#contenedor-y-elementos-flexibles",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Contenedor y elementos flexibles",
+    "text": "Contenedor y elementos flexibles\nFlexbox organiza los hijos directos de un contenedor. Al aplicar display: flex, ese contenedor controla cómo se distribuyen sus elementos. El texto y los enlaces dentro de una tarjeta no se convierten automáticamente en elementos flexibles de la fila: pertenecen a otro nivel de la estructura.\nPuedes imaginar una caja que organiza varias tarjetas. La caja decide la dirección, los espacios y la alineación; cada tarjeta conserva su contenido. Esta distinción permite elegir dónde colocar una propiedad cuando no produce el efecto esperado."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#dos-ejes-para-entender-la-alineación",
+    "href": "posts/css-flexbox/index.html#dos-ejes-para-entender-la-alineación",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Dos ejes para entender la alineación",
+    "text": "Dos ejes para entender la alineación\nEl eje principal sigue la dirección establecida por flex-direction. Con row, los elementos se colocan en fila; con column, se apilan. El eje transversal es perpendicular al principal.\njustify-content distribuye el espacio disponible sobre el eje principal. center reúne los elementos en el centro; space-between coloca espacio entre ellos. Si los elementos ya ocupan todo el ancho, apenas queda espacio que repartir y el cambio puede no ser visible.\nalign-items controla la alineación transversal. center centra los elementos en ese eje; stretch permite que se estiren, cuando su tamaño transversal es automático. Por eso cambiar de row a column también cambia el significado visual de ambas propiedades."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#un-ejemplo-completo-de-tres-tarjetas",
+    "href": "posts/css-flexbox/index.html#un-ejemplo-completo-de-tres-tarjetas",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Un ejemplo completo de tres tarjetas",
+    "text": "Un ejemplo completo de tres tarjetas\nCrea una carpeta con index.html y styles.css. Guarda este documento en index.html; el enlace del encabezado cargará los estilos del segundo archivo:\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;\n  &lt;title&gt;Tarjetas con Flexbox&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;main&gt;\n    &lt;h1&gt;Áreas para explorar&lt;/h1&gt;\n    &lt;div class=\"tarjetas\"&gt;\n      &lt;article class=\"tarjeta\"&gt;\n        &lt;h2&gt;Bases de datos&lt;/h2&gt;\n        &lt;p&gt;Organizar información en tablas relacionadas.&lt;/p&gt;\n      &lt;/article&gt;\n      &lt;article class=\"tarjeta\"&gt;\n        &lt;h2&gt;Interfaces&lt;/h2&gt;\n        &lt;p&gt;Crear pantallas comprensibles y accesibles.&lt;/p&gt;\n      &lt;/article&gt;\n      &lt;article class=\"tarjeta\"&gt;\n        &lt;h2&gt;Desarrollo web&lt;/h2&gt;\n        &lt;p&gt;Combinar estructura, estilos e interacciones.&lt;/p&gt;\n      &lt;/article&gt;\n    &lt;/div&gt;\n  &lt;/main&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nGuarda estas reglas en styles.css y abre el HTML en el navegador:\n* { box-sizing: border-box; }\nbody {\n  margin: 0;\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  color: #243831;\n  background: #edf8f2;\n}\nmain { max-width: 1100px; margin: auto; padding: 24px; }\n.tarjetas {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: stretch;\n  flex-wrap: wrap;\n  gap: 24px;\n}\n.tarjeta {\n  flex: 1 1 250px;\n  min-width: 0;\n  padding: 24px;\n  background: white;\n  border-radius: 14px;\n  overflow-wrap: anywhere;\n}\n.tarjeta h2 { color: #006b57; }\n@media (max-width: 600px) {\n  .tarjetas { flex-direction: column; }\n  .tarjeta { flex-basis: auto; }\n}\nEn una pantalla amplia verás tres tarjetas en fila, con espacios iguales. Al reducir el ancho, podrán pasar a nuevas líneas. En teléfono, la regla de medios las apila sin obligarlas a conservar un ancho rígido."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#espacios-y-adaptación",
+    "href": "posts/css-flexbox/index.html#espacios-y-adaptación",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Espacios y adaptación",
+    "text": "Espacios y adaptación\ngap: 24px establece separación entre elementos y líneas. Es más fácil de mantener que añadir márgenes a cada tarjeta y corregir después el primero o el último.\nflex-wrap: wrap permite nuevas líneas cuando los elementos ya no caben. Sin esta propiedad, Flexbox intenta mantenerlos en una sola línea, reduciéndolos según sus reglas. Los contenidos muy largos pueden dificultar esa reducción.\nEn flex: 1 1 250px, el primer valor permite crecer, el segundo permite reducirse y el tercero indica una base inicial. No equivale a imponer siempre 250 píxeles de ancho. min-width: 0 ayuda a que el contenido pueda ajustarse; box-sizing incluye el padding en el cálculo del tamaño.\nAl pasar a columna, flex-basis actúa sobre el eje vertical. Restablecerlo a auto evita que cada tarjeta reserve una altura inicial de 250 píxeles. Así conserva la altura que requiere su contenido."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#flexbox-y-grid",
+    "href": "posts/css-flexbox/index.html#flexbox-y-grid",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Flexbox y Grid",
+    "text": "Flexbox y Grid\nFlexbox trabaja principalmente en una dimensión: una fila o una columna. Aunque permita envolver elementos, cada línea distribuye su espacio de manera independiente. Grid resulta más adecuado cuando necesitas coordinar filas y columnas de una cuadrícula completa.\nUna barra de navegación puede resolverse con Flexbox; un listado que exige columnas alineadas en varias filas puede beneficiarse de Grid. Elegir depende de cómo deben relacionarse los elementos, no de utilizar siempre la misma herramienta."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#errores-frecuentes",
+    "href": "posts/css-flexbox/index.html#errores-frecuentes",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Errores frecuentes",
+    "text": "Errores frecuentes\nAplicar justify-content a una tarjeta en lugar de al contenedor no organiza sus tarjetas hermanas. Otro error es fijar anchos grandes y olvidar el espacio de gap, el padding o el contenido. Prueba también títulos largos, no solo textos cortos que caben fácilmente.\nEvita usar order únicamente para cambiar la lectura visual: el orden del documento sigue siendo importante para teclado y tecnologías de asistencia. Mantén una estructura comprensible desde el HTML."
+  },
+  {
+    "objectID": "posts/css-flexbox/index.html#actividad-y-cierre",
+    "href": "posts/css-flexbox/index.html#actividad-y-cierre",
+    "title": "Cómo organizar una página con CSS Flexbox",
+    "section": "Actividad y cierre",
+    "text": "Actividad y cierre\nAgrega una cuarta tarjeta y observa cómo se reparte cada línea. Después prueba align-items: center y explica por qué las alturas dejan de estirarse igual. Revisa el diseño a 375 píxeles sin desplazamiento horizontal.\nEntender los ejes y el papel del contenedor facilita predecir el resultado. Cambia una propiedad cada vez y relaciona el efecto visual con la regla que lo produjo.\n← Volver al blog"
+  },
+  {
+    "objectID": "posts/estructura-web/index.html",
+    "href": "posts/estructura-web/index.html",
+    "title": "Estructura básica de una página web",
+    "section": "",
+    "text": "Al abrir una página, el navegador interpreta su HTML, construye una representación del documento y aplica los estilos disponibles. También carga imágenes y puede ejecutar JavaScript. Estas piezas cumplen funciones diferentes, pero trabajan juntas para convertir archivos en una página que puedes leer y utilizar."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#tres-responsabilidades",
+    "href": "posts/estructura-web/index.html#tres-responsabilidades",
+    "title": "Estructura básica de una página web",
+    "section": "Tres responsabilidades",
+    "text": "Tres responsabilidades\nHTML organiza el contenido y expresa su significado. CSS define su apariencia: colores, espacios y distribución. JavaScript responde a acciones o actualiza contenido. Una página informativa puede funcionar perfectamente con HTML y CSS sin JavaScript; incorpora interactividad cuando aporte una función útil."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#el-documento-y-sus-metadatos",
+    "href": "posts/estructura-web/index.html#el-documento-y-sus-metadatos",
+    "title": "Estructura básica de una página web",
+    "section": "El documento y sus metadatos",
+    "text": "El documento y sus metadatos\n&lt;!doctype html&gt; indica que utilizamos HTML moderno. El elemento html contiene el documento y lang=\"es\" identifica su idioma. head reúne metadatos y enlaces a recursos; body contiene lo que se presenta en la página.\ncharset=\"utf-8\" permite interpretar correctamente caracteres como acentos y eñes. viewport adapta el ancho inicial a la pantalla del dispositivo. title establece el nombre que aparece en la pestaña del navegador y ayuda a identificar la página entre otras abiertas."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#organizar-los-archivos",
+    "href": "posts/estructura-web/index.html#organizar-los-archivos",
+    "title": "Estructura básica de una página web",
+    "section": "Organizar los archivos",
+    "text": "Organizar los archivos\nCrea una carpeta de práctica con index.html, styles.css, script.js y una subcarpeta img/. Guarda una fotografía propia como img/perfil.jpg. Las rutas del ejemplo son relativas a index.html: si cambias el nombre o ubicación de la imagen, actualiza también src.\nEste ejercicio utiliza archivos HTML independientes; sirve para entender las piezas que herramientas como Quarto generan después. Mantener nombres sencillos y archivos separados facilita localizar errores y compartir la carpeta completa sin perder imágenes ni estilos."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#html-contenido-con-significado",
+    "href": "posts/estructura-web/index.html#html-contenido-con-significado",
+    "title": "Estructura básica de una página web",
+    "section": "HTML: contenido con significado",
+    "text": "HTML: contenido con significado\nGuarda el siguiente fragmento completo en index.html:\n&lt;!doctype html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;\n  &lt;title&gt;Mi página personal&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n  &lt;script src=\"script.js\" defer&gt;&lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;header&gt;\n    &lt;h1&gt;Mi espacio de aprendizaje&lt;/h1&gt;\n    &lt;nav aria-label=\"Principal\"&gt;&lt;a href=\"#intereses\"&gt;Mis intereses&lt;/a&gt;&lt;/nav&gt;\n  &lt;/header&gt;\n  &lt;main&gt;\n    &lt;section id=\"intereses\" aria-labelledby=\"titulo-intereses\"&gt;\n      &lt;h2 id=\"titulo-intereses\"&gt;Lo que quiero aprender&lt;/h2&gt;\n      &lt;p&gt;Esta es una página para practicar desarrollo web.&lt;/p&gt;\n      &lt;img src=\"img/perfil.jpg\" alt=\"Mi retrato\" width=\"320\" height=\"320\"&gt;\n      &lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;li&gt;JavaScript&lt;/li&gt;&lt;/ul&gt;\n      &lt;button id=\"saludar\" type=\"button\"&gt;Mostrar saludo&lt;/button&gt;\n      &lt;p id=\"respuesta\" role=\"status\"&gt;&lt;/p&gt;\n    &lt;/section&gt;\n  &lt;/main&gt;\n  &lt;footer&gt;&lt;p&gt;Página personal de práctica&lt;/p&gt;&lt;/footer&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nheader introduce la página; nav agrupa la navegación; main contiene su contenido principal. section reúne un tema con encabezado y footer cierra el documento. Estos elementos describen funciones, no posiciones obligatorias.\nLos encabezados h1 y h2 establecen niveles de lectura. p contiene párrafos; a crea enlaces; ul y li forman una lista. img muestra la imagen y su alternativa textual. Ajusta “Mi retrato” si utilizas una imagen diferente. El enlace conduce a la sección cuyo identificador es intereses."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#css-una-presentación-sencilla",
+    "href": "posts/estructura-web/index.html#css-una-presentación-sencilla",
+    "title": "Estructura básica de una página web",
+    "section": "CSS: una presentación sencilla",
+    "text": "CSS: una presentación sencilla\nGuarda estas reglas en styles.css:\n* { box-sizing: border-box; }\nbody {\n  margin: 0 auto;\n  max-width: 800px;\n  padding: 24px;\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  color: #243831;\n  background: #f3faf6;\n}\nimg { max-width: 100%; height: auto; border-radius: 12px; }\nbutton {\n  background: #006b57;\n  color: white;\n  border: 0;\n  border-radius: 8px;\n  padding: 12px 20px;\n  cursor: pointer;\n}\na:focus-visible, button:focus-visible {\n  outline: 3px solid #006b57;\n  outline-offset: 4px;\n}\nEl contenido queda centrado y mantiene márgenes. La imagen conserva sus proporciones y se reduce cuando no cabe. box-sizing incluye el padding en el cálculo del ancho; el foco visible ayuda a recorrer enlaces y botones con teclado."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#javascript-responder-a-un-botón",
+    "href": "posts/estructura-web/index.html#javascript-responder-a-un-botón",
+    "title": "Estructura básica de una página web",
+    "section": "JavaScript: responder a un botón",
+    "text": "JavaScript: responder a un botón\nGuarda este código en script.js:\nconst boton = document.querySelector(\"#saludar\");\nconst respuesta = document.querySelector(\"#respuesta\");\nboton.addEventListener(\"click\", () =&gt; {\n  respuesta.textContent = \"¡Hola! Sigue explorando y aprendiendo.\";\n});\nLos identificadores coinciden con el HTML. defer permite ejecutar el archivo después de interpretar el documento. Al pulsar el botón aparece el saludo; role=\"status\" permite anunciar esa actualización a tecnologías de asistencia sin mover el foco."
+  },
+  {
+    "objectID": "posts/estructura-web/index.html#buenas-prácticas-y-actividad",
+    "href": "posts/estructura-web/index.html#buenas-prácticas-y-actividad",
+    "title": "Estructura básica de una página web",
+    "section": "Buenas prácticas y actividad",
+    "text": "Buenas prácticas y actividad\nUtiliza alternativas descriptivas, enlaces que expliquen su destino y una jerarquía de encabezados ordenada. Abre la página en una ventana estrecha para revisar su adaptación móvil y recórrela con Tab y Enter.\nActividad: cambia la presentación, agrega otro interés y utiliza tu propia imagen. Abre index.html en el navegador, comprueba el saludo y verifica que las tres rutas de recursos existan. Después desactiva JavaScript y observa qué contenido sigue disponible.\n← Volver al blog"
+  },
+  {
+    "objectID": "posts/git-github/index.html",
+    "href": "posts/git-github/index.html",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "",
+    "text": "Guardar versiones como pagina-final, pagina-final2 y pagina-final-ahora-si complica reconocer qué cambió. Un sistema de control de versiones registra el historial de un proyecto y permite consultar sus etapas. Git ofrece esa organización; GitHub permite alojar repositorios y compartirlos, pero son herramientas diferentes."
+  },
+  {
+    "objectID": "posts/git-github/index.html#git-y-github-no-son-lo-mismo",
+    "href": "posts/git-github/index.html#git-y-github-no-son-lo-mismo",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Git y GitHub no son lo mismo",
+    "text": "Git y GitHub no son lo mismo\nGit funciona en tu computadora y administra versiones dentro de un repositorio. Puedes registrar cambios sin conexión a internet. GitHub es una plataforma que aloja repositorios remotos y facilita compartir su historial con otras personas.\nUn proyecto puede utilizar Git sin publicarse en GitHub. También puedes tener archivos en GitHub sin que los cambios nuevos de tu computadora se hayan enviado todavía. Distinguir ambos espacios evita pensar que guardar un archivo actualiza automáticamente el repositorio remoto."
+  },
+  {
+    "objectID": "posts/git-github/index.html#repositorio-preparación-y-commit",
+    "href": "posts/git-github/index.html#repositorio-preparación-y-commit",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Repositorio, preparación y commit",
+    "text": "Repositorio, preparación y commit\nUn repositorio reúne los archivos y el historial que Git administra. El directorio de trabajo contiene lo que estás editando. El área de preparación selecciona los cambios que quieres incluir en el siguiente registro.\nUn commit registra una versión preparada, acompañada de un mensaje que explica el cambio. No representa necesariamente todo lo que modificaste: incluye lo que seleccionaste para ese commit. Un remoto es una referencia a otro repositorio, normalmente accesible mediante una dirección."
+  },
+  {
+    "objectID": "posts/git-github/index.html#una-carpeta-de-práctica-independiente",
+    "href": "posts/git-github/index.html#una-carpeta-de-práctica-independiente",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Una carpeta de práctica independiente",
+    "text": "Una carpeta de práctica independiente\nLos comandos siguientes son un ejercicio para una carpeta nueva; no los ejecutes sin revisar la ubicación actual. Utiliza una terminal dentro de practica-git, separada de tus proyectos existentes. Antes de comenzar, Git debe estar instalado y tu nombre y correo de autor configurados según las indicaciones de su instalación.\ngit init\ngit status\ngit init crea el repositorio de esa carpeta. git status informa qué archivos cambiaron, cuáles están preparados y cuáles todavía no se siguen. Consultar el estado antes y después de cada paso ayuda a comprender lo que estás registrando."
+  },
+  {
+    "objectID": "posts/git-github/index.html#elegir-archivos-y-registrar-una-versión",
+    "href": "posts/git-github/index.html#elegir-archivos-y-registrar-una-versión",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Elegir archivos y registrar una versión",
+    "text": "Elegir archivos y registrar una versión\nCrea index.html con una presentación sencilla y styles.css con algunos estilos. Prepara esos archivos de forma explícita:\ngit add index.html styles.css\ngit status\ngit commit -m \"Agregar presentación y estilos iniciales\"\ngit add lleva sus cambios al área de preparación. git commit registra esa selección en el historial local. Si editas un archivo después de prepararlo, su nueva modificación no se incorpora automáticamente al commit: debes revisar el estado y prepararla cuando corresponda.\nUn mensaje claro describe una acción concreta. “Ajustar espacios del formulario” explica más que “Cambios”. Procura agrupar modificaciones relacionadas para que cada registro tenga un propósito fácil de comprender."
+  },
+  {
+    "objectID": "posts/git-github/index.html#la-función-de-.gitignore",
+    "href": "posts/git-github/index.html#la-función-de-.gitignore",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "La función de .gitignore",
+    "text": "La función de .gitignore\nEl archivo .gitignore indica patrones de archivos que Git no debe incorporar como nuevos archivos seguidos. Puede excluir cachés, archivos temporales y configuraciones locales. Un ejemplo para la carpeta de práctica es:\n.env\n*.log\nGuarda esas líneas en .gitignore y registra también ese archivo con git add .gitignore y un commit descriptivo. Ignorar .env ayuda a evitar incorporarlo accidentalmente, pero no sustituye revisar qué estás preparando.\nNo subas contraseñas, tokens ni claves. .gitignore no elimina del historial información que ya fue registrada. Si una credencial se expone, debes revocarla o reemplazarla y revisar el incidente; añadir su nombre a la lista de exclusión no corrige la exposición anterior."
+  },
+  {
+    "objectID": "posts/git-github/index.html#conectar-un-remoto-y-enviar-cambios",
+    "href": "posts/git-github/index.html#conectar-un-remoto-y-enviar-cambios",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Conectar un remoto y enviar cambios",
+    "text": "Conectar un remoto y enviar cambios\nCrea en GitHub un repositorio vacío para el ejercicio y utiliza su dirección real. La URL siguiente es un valor de ejemplo que debes reemplazar, no un repositorio existente recomendado para enviar archivos:\ngit remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git\ngit remote -v\ngit branch --show-current\norigin es un nombre convencional para el remoto. git remote -v permite comprobar su dirección; el último comando muestra tu rama actual. Para enviar los commits utiliza el nombre que realmente tenga esa rama:\ngit push -u origin NOMBRE_DE_TU_RAMA\nReemplaza también NOMBRE_DE_TU_RAMA. push envía commits al remoto y puede solicitar autenticación. Si el envío falla, lee el mensaje y comprueba permisos, conexión y estado del remoto; no fuerces el envío para saltarte el problema."
+  },
+  {
+    "objectID": "posts/git-github/index.html#tres-acciones-diferentes",
+    "href": "posts/git-github/index.html#tres-acciones-diferentes",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Tres acciones diferentes",
+    "text": "Tres acciones diferentes\nGuardar actualiza un archivo en la computadora. Hacer commit registra una selección en el historial local. Subir con push comparte los commits con el remoto. Un archivo guardado pero no registrado no viaja como parte de un commit por ejecutar push."
+  },
+  {
+    "objectID": "posts/git-github/index.html#actividad-y-cierre",
+    "href": "posts/git-github/index.html#actividad-y-cierre",
+    "title": "Primeros pasos con Git y GitHub",
+    "section": "Actividad y cierre",
+    "text": "Actividad y cierre\nEn una carpeta independiente, crea una página, consulta su estado y registra una primera versión. Cambia solamente el título, revisa qué detecta Git y registra otro commit con un mensaje concreto. Identifica qué pasos fueron locales y cuál necesitaría conexión.\nEl hábito más útil es revisar antes de registrar y antes de compartir. Un historial comprensible facilita continuar el trabajo sin depender de nombres de archivos cada vez más largos.\n← Volver al blog"
   },
   {
     "objectID": "proyectos/bases-de-datos.html",

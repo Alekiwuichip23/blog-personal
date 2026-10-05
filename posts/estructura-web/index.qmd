@@ -1,7 +1,7 @@
 ---
 title: "Estructura básica de una página web"
 description: "Descubre cómo HTML, CSS y JavaScript se complementan para organizar el contenido, definir su apariencia y agregar interactividad"
-author: Alessandra
+author: Alessandra Beltrán
 date: 2026-10-04
 date-format: "D [de] MMMM [de] YYYY"
 categories: ["Desarrollo web"]

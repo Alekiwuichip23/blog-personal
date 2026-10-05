@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alessandra Beltrán">
-<meta name="description" content="Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos">
+<meta name="description" content="Conecta un botón con eventos, texto y clases para mostrar u ocultar un mensaje mediante JavaScript.">
 
-<title>¿Qué es una base de datos relacional? – Alessandra</title>
+<title>JavaScript y el DOM: cómo hacer una página interactiva – Alessandra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,15 +172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">¿Qué es una base de datos relacional?</h1>
+<h1 class="title">JavaScript y el DOM: cómo hacer una página interactiva</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Bases de datos</div>
+    <div class="quarto-category">Desarrollo web</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos
+    Conecta un botón con eventos, texto y clases para mostrar u ocultar un mensaje mediante JavaScript.
   </div>
 </div>
 
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 de octubre de 2026</p>
+      <p class="date">24 de septiembre de 2026</p>
     </div>
   </div>
   
@@ -209,68 +209,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="../../assets/images/basededatos.jpeg" class="article-cover img-fluid" alt="Ilustración de bases de datos conectadas con aplicaciones y gráficos"></p>
-<p>Una biblioteca necesita saber qué libros tiene y cuándo deben devolverse los préstamos. Guardar todo en una lista puede funcionar al principio, pero dificulta actualizar información sin cometer errores. Una base de datos relacional permite organizar esos datos, conectarlos y consultarlos de manera consistente.</p>
-<section id="tablas-filas-y-columnas" class="level2">
-<h2 class="anchored" data-anchor-id="tablas-filas-y-columnas">Tablas, filas y columnas</h2>
-<p>Una base de datos relacional almacena información en <strong>tablas</strong> relacionadas. Una fila representa un registro: por ejemplo, un libro. Cada columna describe una propiedad, como su título. El tipo de dato indica qué valores admite: un entero para un identificador, texto para un título y una fecha para el día de préstamo.</p>
-<p>Este esquema sencillo utiliza dos tablas. Los nombres no llevan acentos para facilitar los ejemplos de SQL:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tabla</th>
-<th>Campos y tipos sugeridos</th>
-<th>Qué representa una fila</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>libros</code></td>
-<td><code>id_libro</code> (entero), <code>titulo</code> (texto), <code>autor</code> (texto)</td>
-<td>Un libro del catálogo</td>
-</tr>
-<tr class="even">
-<td><code>prestamos</code></td>
-<td><code>id_prestamo</code> (entero), <code>id_libro</code> (entero), <code>fecha_prestamo</code> (fecha), <code>fecha_devolucion</code> (fecha, admite nulos)</td>
-<td>Un préstamo de un libro</td>
-</tr>
-</tbody>
-</table>
-<p>Para esta práctica, cada registro de <code>libros</code> representa un único ejemplar. Un préstamo sin devolución registrada tiene <code>fecha_devolucion</code> en <code>NULL</code>, que expresa la ausencia de un valor.</p>
+<p><img src="../../assets/images/java.png" class="article-cover img-fluid" alt="Símbolo de JavaScript junto a una interfaz web y un árbol de elementos"></p>
+<p>Una página puede responder a un clic sin cargar otro documento. Para conseguirlo, JavaScript necesita localizar los elementos y definir qué cambia cuando ocurre una acción. Un botón que muestra u oculta un mensaje es un buen primer ejercicio: reúne selección, eventos, texto y clases en una interacción fácil de comprobar.</p>
+<section id="qué-representa-el-dom" class="level2">
+<h2 class="anchored" data-anchor-id="qué-representa-el-dom">Qué representa el DOM</h2>
+<p>El <strong>DOM</strong>, o modelo de objetos del documento, es la representación que el navegador construye a partir del HTML. Sus elementos forman una estructura relacionada: un encabezado pertenece a una sección, un botón contiene texto y un párrafo puede tener atributos.</p>
+<p>JavaScript trabaja con esa representación. Cambiar el DOM actualiza lo que vemos en la página, pero no reescribe automáticamente el archivo HTML guardado en la computadora. Al recargar, el navegador vuelve a interpretar el archivo y ejecutar los scripts que correspondan.</p>
 </section>
-<section id="claves-y-relaciones" class="level2">
-<h2 class="anchored" data-anchor-id="claves-y-relaciones">Claves y relaciones</h2>
-<p>La <strong>clave primaria</strong> distingue cada fila y no debe repetirse ni ser nula. Aquí será <code>libros.id_libro</code>; para los préstamos será <code>prestamos.id_prestamo</code>. Dos libros pueden tener el mismo título y seguir siendo registros distintos gracias a su identificador.</p>
-<p>La <strong>clave foránea</strong> conecta tablas. <code>prestamos.id_libro</code> apunta a <code>libros.id_libro</code>. Un libro puede aparecer en varios préstamos a lo largo del tiempo: es una relación <strong>uno a muchos</strong>. Cada préstamo del ejemplo corresponde a un solo libro.</p>
-<p>También existen relaciones <strong>muchos a muchos</strong>. Si un libro tiene varios autores y un autor escribe varios libros, podemos crear <code>autores</code> y una tabla intermedia <code>libros_autores</code>. Esta última guarda parejas de <code>id_libro</code> e <code>id_autor</code>, evitando una lista de nombres dentro de una celda.</p>
+<section id="preparar-los-archivos" class="level2">
+<h2 class="anchored" data-anchor-id="preparar-los-archivos">Preparar los archivos</h2>
+<p>Crea <code>index.html</code>, <code>styles.css</code> y <code>script.js</code> dentro de una misma carpeta. Guarda en el primero este documento completo. Los identificadores <code>alternar</code> y <code>mensaje</code> permiten localizar los dos elementos que participan en la interacción.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">"viewport"</span><span class="ot"> content</span><span class="op">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Un mensaje interactivo<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"styles.css"</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"script.js"</span><span class="ot"> defer</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Explora una interacción<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">"alternar"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ot">    aria-controls</span><span class="op">=</span><span class="st">"mensaje"</span><span class="ot"> aria-expanded</span><span class="op">=</span><span class="st">"false"</span><span class="dt">&gt;</span>Mostrar mensaje<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">"mensaje"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"mensaje oculto"</span><span class="dt">&gt;</span>Un pequeño cambio puede ayudarte a aprender.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>defer</code> permite ejecutar este script externo después de interpretar el HTML. Así, el botón y el párrafo ya existen cuando el código intenta encontrarlos. Si cambias el nombre del archivo, actualiza también el atributo <code>src</code>.</p>
 </section>
-<section id="integridad-y-organización" class="level2">
-<h2 class="anchored" data-anchor-id="integridad-y-organización">Integridad y organización</h2>
-<p>La <strong>integridad referencial</strong>, aplicada mediante restricciones de clave foránea, impide registrar un préstamo para un libro inexistente. También permite definir qué sucede al eliminar un libro relacionado: por ejemplo, rechazar la eliminación mientras conserve préstamos.</p>
-<p>Organizar la información por temas reduce repeticiones. El título y el autor permanecen en <code>libros</code>, mientras <code>prestamos</code> guarda solamente el identificador del libro y sus fechas. Así, corregir un título no exige modificar cada préstamo. En un modelo más amplio convendría separar también lectores y autores.</p>
+<section id="la-presentación-y-el-estado-oculto" class="level2">
+<h2 class="anchored" data-anchor-id="la-presentación-y-el-estado-oculto">La presentación y el estado oculto</h2>
+<p>Guarda estas reglas en <code>styles.css</code>. La clase <code>oculto</code> representa un estado de la interfaz, no una modificación del contenido del archivo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="dv">system-ui</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.6</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#edf8f2</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#243831</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>main { <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">720</span><span class="dt">px</span><span class="op">;</span> <span class="kw">margin</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span> <span class="kw">padding</span><span class="ch">:</span> <span class="dv">24</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>button {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">12</span><span class="dt">px</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#006b57</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font</span><span class="ch">:</span> <span class="bu">inherit</span><span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">pointer</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>button<span class="in">:focus-visible</span> { <span class="kw">outline</span><span class="ch">:</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#006b57</span><span class="op">;</span> <span class="kw">outline-offset</span><span class="ch">:</span> <span class="dv">4</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">.mensaje</span> { <span class="kw">padding</span><span class="ch">:</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span> <span class="kw">background</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span> <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">12</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">.oculto</span> { <span class="kw">display</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span> }</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El mensaje comienza oculto y el botón sigue disponible. Al quitar esa clase, el párrafo vuelve a participar en la presentación. Utilizar <code>display: none</code> también retira el mensaje del árbol de accesibilidad mientras permanece oculto.</p>
 </section>
-<section id="consultar-con-sql" class="level2">
-<h2 class="anchored" data-anchor-id="consultar-con-sql">Consultar con SQL</h2>
-<p><strong>Las tablas y las columnas indicadas deben existir antes de ejecutar estas consultas.</strong> Las restricciones también deben configurarse al crear o modificar las tablas; SQL no las deduce automáticamente.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> titulo, autor</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> libros</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> titulo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Esta consulta necesita las columnas <code>titulo</code> y <code>autor</code> de <code>libros</code>. Selecciona ambas y ordena los resultados alfabéticamente por título, sin cambiar los registros almacenados.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> libros.titulo, prestamos.fecha_prestamo</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> prestamos</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> libros <span class="kw">ON</span> prestamos.id_libro <span class="op">=</span> libros.id_libro</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> prestamos.fecha_prestamo;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La segunda consulta une cada préstamo con su libro utilizando <code>id_libro</code> en ambas tablas. Requiere además <code>libros.titulo</code> y <code>prestamos.fecha_prestamo</code>. Muestra el título junto a la fecha de préstamo; un libro puede aparecer varias veces si tiene varios préstamos.</p>
+<section id="selección-y-eventos" class="level2">
+<h2 class="anchored" data-anchor-id="selección-y-eventos">Selección y eventos</h2>
+<p>Guarda el siguiente código en <code>script.js</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> boton <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#alternar"</span>)<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> mensaje <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#mensaje"</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>boton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"click"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> estaOculto <span class="op">=</span> mensaje<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">toggle</span>(<span class="st">"oculto"</span>)<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  boton<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> estaOculto <span class="op">?</span> <span class="st">"Mostrar mensaje"</span> <span class="op">:</span> <span class="st">"Ocultar mensaje"</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  boton<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">"aria-expanded"</span><span class="op">,</span> <span class="bu">String</span>(<span class="op">!</span>estaOculto))<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>querySelector</code> busca el primer elemento que coincide con un selector CSS. El símbolo <code>#</code> indica un identificador. Si no encuentra coincidencia, devuelve <code>null</code>; por eso los nombres deben corresponder exactamente al HTML y no repetirse entre elementos.</p>
+<p><code>addEventListener</code> registra una función que se ejecutará cuando ocurra un evento. En este caso escucha <code>click</code>. Un botón nativo también permite activar esa acción con teclado, sin convertir un elemento decorativo en un control improvisado.</p>
 </section>
-<section id="ventajas-errores-frecuentes-y-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-errores-frecuentes-y-práctica">Ventajas, errores frecuentes y práctica</h2>
-<p>Este enfoque facilita buscar información, mantener relaciones y actualizar datos. Errores habituales son repetir identificadores, mezclar fechas con texto libre o copiar el título en cada préstamo. Otra confusión es esperar que una clave foránea impida préstamos simultáneos: esa regla requiere controles adicionales.</p>
-<p><strong>Actividad:</strong> dibuja las dos tablas, registra tres libros y cuatro préstamos con identificadores coherentes. Predice el resultado de cada consulta. Después intenta relacionar un préstamo con un libro inexistente y explica qué restricción debería rechazarlo.</p>
+<section id="texto-clases-y-estado-accesible" class="level2">
+<h2 class="anchored" data-anchor-id="texto-clases-y-estado-accesible">Texto, clases y estado accesible</h2>
+<p><code>classList.toggle("oculto")</code> añade la clase si falta o la elimina si existe. Su resultado indica si la clase queda presente después del cambio. La variable <code>estaOculto</code> utiliza ese resultado para decidir qué texto mostrar en el botón.</p>
+<p><code>textContent</code> modifica el contenido textual. Es apropiado para mensajes que no necesitan etiquetas HTML y evita interpretar el texto como marcado. No insertes datos del usuario mediante <code>innerHTML</code> para resolver esta interacción.</p>
+<p><code>aria-expanded</code> informa si el contenido asociado está desplegado. Su valor se actualiza junto con la clase y el texto: el estado anunciado debe coincidir con el visible. <code>aria-controls</code> identifica el elemento relacionado mediante su <code>id</code>.</p>
+</section>
+<section id="código-fuente-frente-a-cambios-visibles" class="level2">
+<h2 class="anchored" data-anchor-id="código-fuente-frente-a-cambios-visibles">Código fuente frente a cambios visibles</h2>
+<p>Abre las herramientas del navegador y examina el párrafo mientras pulsas el botón. Verás cambiar su clase, pero el archivo <code>index.html</code> seguirá conteniendo <code>oculto</code>. Este contraste ayuda a distinguir el documento original de su estado actual en el DOM.</p>
+<p>El ejemplo no guarda preferencias ni conserva el estado entre recargas. Al abrir nuevamente la página, el mensaje vuelve a estar oculto. No atribuyas persistencia a una interacción que únicamente modifica elementos en memoria.</p>
+</section>
+<section id="errores-frecuentes" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes">Errores frecuentes</h2>
+<p>Un identificador mal escrito puede provocar un error al intentar usar un elemento inexistente. Revisa también las rutas, el uso de <code>defer</code> y los mensajes de la consola. Otro problema es actualizar la clase y olvidar el texto o el estado accesible del botón.</p>
+<p>Mantén el comportamiento en el script y la apariencia en CSS. Así puedes cambiar colores o espacios sin alterar la función que escucha el evento.</p>
+</section>
+<section id="actividad-y-cierre" class="level2">
+<h2 class="anchored" data-anchor-id="actividad-y-cierre">Actividad y cierre</h2>
+<p>Añade un segundo conjunto de botón y mensaje con identificadores distintos. Comprueba que cada botón controla únicamente su párrafo y que Tab, Enter y Espacio permiten utilizarlos. Después recarga para observar el estado inicial.</p>
+<p>Comprender el DOM permite construir interacciones pequeñas y predecibles. El objetivo es mantener coherentes el documento, la acción y la respuesta que recibe la persona.</p>
 <a class="back-to-blog" href="../../blog/index.html"><span aria-hidden="true">←</span> Volver al blog</a>
 
 

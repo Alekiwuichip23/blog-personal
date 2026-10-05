@@ -1,7 +1,7 @@
 ---
 title: "¿Qué es una base de datos relacional?"
 description: "Aprende cómo se organiza la información en tablas y cómo las claves y las consultas SQL permiten relacionar y consultar los datos"
-author: Alessandra
+author: Alessandra Beltrán
 date: 2026-10-04
 date-format: "D [de] MMMM [de] YYYY"
 categories: ["Bases de datos"]
